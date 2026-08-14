@@ -495,3 +495,238 @@ button {
     padding: 18px;
   }
 }
+
+.scenario-grid {
+  display: grid;
+  gap: 14px;
+  margin: 18px 0;
+}
+
+.scenario-select {
+  width: 100%;
+  margin-top: 8px;
+  padding: 10px 12px;
+  border-radius: 6px;
+  border: 1px solid var(--line);
+  background: var(--panel-soft);
+  color: var(--text);
+  font-size: 15px;
+}
+
+.scenario-select:focus {
+  outline: none;
+  border-color: var(--brand);
+  box-shadow: 0 0 0 3px rgba(17, 100, 102, 0.14);
+}
+
+.choice-card.correct {
+  border-color: #7dcea0;
+  background: var(--success-soft);
+}
+
+.choice-card.incorrect {
+  border-color: #f4a49d;
+  background: var(--danger-soft);
+}
+
+.correct-value-note {
+  margin: 8px 0 0;
+  font-size: 13px;
+  color: var(--success);
+}
+
+/* YES / NO MATRIX FORMAT UI (Image 2) */
+.matrix-container {
+  margin: 18px 0;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  overflow: hidden;
+  background: #fff;
+}
+
+.matrix-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 14px;
+}
+
+.matrix-table th,
+.matrix-table td {
+  padding: 12px 14px;
+  border-bottom: 1px solid var(--line);
+  text-align: left;
+}
+
+.matrix-table th {
+  background: var(--panel-soft);
+  font-weight: 600;
+  color: var(--text);
+}
+
+.matrix-table th.center,
+.matrix-table td.center {
+  text-align: center;
+  width: 80px;
+}
+
+.matrix-radio-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 26px;
+  height: 26px;
+  border-radius: 50%;
+  border: 2px solid var(--line);
+  background: #fff;
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+
+.matrix-radio-btn.selected {
+  border-color: var(--brand);
+  background: var(--brand);
+  box-shadow: inset 0 0 0 4px #fff;
+}
+
+.matrix-radio-btn.correct-target {
+  border: 3px solid #e74c3c !important;
+  box-shadow: 0 0 0 2px rgba(231, 76, 60, 0.2);
+}
+
+/* DRAG & DROP SPLIT UI (Image 3) */
+.drag-split-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+  margin: 18px 0;
+}
+
+@media (max-width: 768px) {
+  .drag-split-container {
+    grid-template-columns: 1fr;
+  }
+}
+
+.drag-pool-panel,
+.drag-target-panel {
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  padding: 14px;
+  background: var(--panel-soft);
+}
+
+.drag-panel-title {
+  font-size: 14px;
+  font-weight: 600;
+  margin-bottom: 12px;
+  color: var(--muted);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.drag-chip {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 12px;
+  margin-bottom: 8px;
+  background: #fff;
+  border: 1px solid var(--line);
+  border-radius: 6px;
+  font-size: 14px;
+  cursor: grab;
+  user-select: none;
+  transition: all 0.15s ease;
+}
+
+.drag-chip:hover {
+  border-color: var(--brand);
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.06);
+}
+
+.drag-chip-handle {
+  color: var(--muted);
+  font-weight: bold;
+}
+
+.drop-slot-row {
+  margin-bottom: 12px;
+}
+
+.drop-slot-label {
+  font-size: 14px;
+  font-weight: 600;
+  margin-bottom: 6px;
+  display: block;
+}
+
+.drop-slot-box {
+  min-height: 44px;
+  border: 2px dashed var(--line);
+  border-radius: 6px;
+  background: #fff;
+  display: flex;
+  align-items: center;
+  padding: 4px 10px;
+}
+
+.drop-slot-box.filled {
+  border-style: solid;
+  border-color: var(--brand);
+}
+
+.drop-slot-box.correct-target {
+  border: 2.5px solid #e74c3c !important;
+  box-shadow: 0 0 0 2px rgba(231, 76, 60, 0.15);
+}
+
+.drag-instruction {
+  font-size: 12px;
+  color: var(--muted);
+  margin-bottom: 10px;
+}
+
+.drag-chip.selected {
+  border-color: var(--brand);
+  background: var(--panel-soft);
+  box-shadow: 0 0 0 3px rgba(17, 100, 102, 0.2);
+}
+
+.drop-slot-box.drag-over {
+  border-color: var(--brand);
+  background: var(--panel-soft);
+  box-shadow: 0 0 0 3px rgba(17, 100, 102, 0.15);
+}
+
+.placed-chip {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  width: 100%;
+  padding: 6px 10px;
+  background: var(--panel-soft);
+  border-radius: 4px;
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.clear-chip-btn {
+  margin-left: auto;
+  background: transparent;
+  border: none;
+  color: var(--muted);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  padding: 2px;
+  border-radius: 4px;
+  transition: color 0.15s ease;
+}
+
+.clear-chip-btn:hover {
+  color: var(--danger);
+  background: rgba(231, 76, 60, 0.1);
+}
+
+
+

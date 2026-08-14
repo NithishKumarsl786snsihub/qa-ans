@@ -28,7 +28,6 @@ type TestState = {
   completedAt?: number;
 };
 
-const optionLabels = "ABCDEFGHIJKLMNOPQRSTUVWXYZ".split("");
 const selfCorrect = "__SELF_CORRECT";
 const selfIncorrect = "__SELF_INCORRECT";
 
@@ -82,6 +81,9 @@ function correctAnswerText(question: Question) {
 }
 
 function isQuestionCorrect(question: Question, selectedIds: string[] = []) {
+  if (question.answerItems?.some((item) => item.options?.length)) {
+    return question.answerItems.every((item, index) => selectedIds[index] === item.value);
+  }
   if (!question.options.length) return selectedIds.includes(selfCorrect);
   return sameSet(selectedIds, question.correctOptionIds);
 }
@@ -229,7 +231,11 @@ function StudyMode({
       <div className="question-layout">
         <QuestionPanel
           question={question}
-          selectedIds={question.correctOptionIds}
+          selectedIds={
+            question.answerItems?.some((item) => item.options?.length)
+              ? question.answerItems.map((item) => item.value)
+              : question.correctOptionIds
+          }
           submitted
           showCorrect
           studyMode
@@ -324,6 +330,16 @@ function TestModeView({
     });
   };
 
+  const selectScenarioOption = (val: string, itemIndex: number) => {
+    if (submitted && immediate) return;
+    const current = [...(testState.answers[question.id] || [])];
+    current[itemIndex] = val;
+    onUpdate({
+      ...testState,
+      answers: { ...testState.answers, [question.id]: current }
+    });
+  };
+
   const submitCurrent = () => {
     onUpdate({
       ...testState,
@@ -345,6 +361,10 @@ function TestModeView({
     onUpdate({ ...testState, completedAt: Date.now() });
   };
 
+  const hasInteractiveOptions = Boolean(
+    question.options.length || question.answerItems?.some((item) => item.options?.length)
+  );
+
   return (
     <>
       <ProgressHeader
@@ -359,6 +379,7 @@ function TestModeView({
           submitted={submitted}
           showCorrect={immediate && submitted}
           onSelect={selectOption}
+          onSelectScenario={selectScenarioOption}
         />
         <aside className="side-panel">
           <h2 className="section-title">Test Progress</h2>
@@ -396,7 +417,7 @@ function TestModeView({
               Next <ArrowRight size={17} />
             </button>
             {(!submitted || testState.answerDisplay === "end") && (
-              question.options.length ? (
+              hasInteractiveOptions ? (
                 <button className="primary-button" onClick={submitCurrent} disabled={!selectedIds.length}>
                   Submit Answer
                 </button>
@@ -427,7 +448,8 @@ function QuestionPanel({
   submitted,
   showCorrect,
   studyMode = false,
-  onSelect
+  onSelect,
+  onSelectScenario
 }: {
   question: TestQuestion;
   selectedIds: string[];
@@ -435,8 +457,10 @@ function QuestionPanel({
   showCorrect: boolean;
   studyMode?: boolean;
   onSelect?: (optionId: string) => void;
+  onSelectScenario?: (value: string, index: number) => void;
 }) {
   const isCorrect = submitted && isQuestionCorrect(question, selectedIds);
+  const hasScenarioOptions = Boolean(question.answerItems?.some((item) => item.options?.length));
 
   return (
     <section className="panel">
@@ -462,9 +486,105 @@ function QuestionPanel({
           </ul>
         </div>
       ) : null}
-      {question.options.length ? (
+      {question.uiFormat === "yes-no-matrix" && question.answerItems?.length ? (
+        <div className="matrix-container">
+          <table className="matrix-table">
+            <thead>
+              <tr>
+                <th>Statements</th>
+                <th className="center">Yes</th>
+                <th className="center">No</th>
+              </tr>
+            </thead>
+            <tbody>
+              {question.answerItems.map((item, index) => {
+                const selectedVal = selectedIds[index] || "";
+                const isYesCorrect = showCorrect && item.value.toLowerCase() === "yes";
+                const isNoCorrect = showCorrect && item.value.toLowerCase() === "no";
+
+                return (
+                  <tr key={item.label}>
+                    <td>{item.label}</td>
+                    <td className="center">
+                      <button
+                        type="button"
+                        className={`matrix-radio-btn ${selectedVal === "Yes" ? "selected" : ""} ${
+                          isYesCorrect ? "correct-target" : ""
+                        }`}
+                        onClick={() => onSelectScenario?.("Yes", index)}
+                        disabled={submitted && showCorrect && !studyMode}
+                      />
+                    </td>
+                    <td className="center">
+                      <button
+                        type="button"
+                        className={`matrix-radio-btn ${selectedVal === "No" ? "selected" : ""} ${
+                          isNoCorrect ? "correct-target" : ""
+                        }`}
+                        onClick={() => onSelectScenario?.("No", index)}
+                        disabled={submitted && showCorrect && !studyMode}
+                      />
+                    </td>
+                  </tr>
+                );
+              })}
+            </tbody>
+          </table>
+        </div>
+      ) : question.uiFormat === "drag-drop" && question.answerItems?.length ? (
+        <DragDropQuestionView
+          question={question}
+          selectedIds={selectedIds}
+          submitted={submitted}
+          showCorrect={showCorrect}
+          studyMode={studyMode}
+          onSelectScenario={onSelectScenario}
+        />
+      ) : hasScenarioOptions ? (
+        <div className="scenario-grid">
+          <h3 className="section-title" style={{ gridColumn: "1 / -1", margin: "10px 0 0" }}>
+            Answer Area (Select Dropdown Options)
+          </h3>
+          {question.answerItems?.map((item, index) => {
+            const selectedValue = selectedIds[index] || "";
+            const isItemCorrect = (submitted || studyMode) && selectedValue === item.value;
+
+            return (
+              <div
+                key={item.label}
+                className={`choice-card ${showCorrect && isItemCorrect ? "correct" : ""}`}
+              >
+                <label style={{ display: "block", width: "100%" }}>
+                  <strong>{item.label}:</strong>
+                  <select
+                    className="scenario-select"
+                    value={selectedValue}
+                    onChange={(e) => onSelectScenario?.(e.target.value, index)}
+                    disabled={submitted && showCorrect && !studyMode}
+                  >
+                    <option value="">-- Select Choice --</option>
+                    {item.options?.map((opt) => (
+                      <option key={opt} value={opt}>
+                        {opt}
+                      </option>
+                    ))}
+                  </select>
+                </label>
+                {showCorrect && (
+                  <p className="correct-value-note">
+                    Correct: <strong>{item.value}</strong>
+                  </p>
+                )}
+              </div>
+            );
+          })}
+        </div>
+      ) : question.options.length ? (
         <div className="options">
-          {question.options.map((option, index) => {
+          {question.options.map((option) => {
+            if (!option.id) {
+              throw new Error(`Question ${question.id} contains an option without a valid option.id.`);
+            }
             const correct = question.correctOptionIds.includes(option.id);
             const selected = selectedIds.includes(option.id);
             const incorrectSelection = submitted && selected && !correct;
@@ -477,7 +597,7 @@ function QuestionPanel({
                 onClick={() => onSelect?.(option.id)}
                 disabled={!onSelect}
               >
-                <span className="option-key">{optionLabels[index]}</span>
+                <span className="option-key">{option.id}</span>
                 <span>{highlightKeywords(option.text, question.keywords)}</span>
               </button>
             );
@@ -539,6 +659,150 @@ function QuestionPanel({
         </div>
       )}
     </section>
+  );
+}
+
+function DragDropQuestionView({
+  question,
+  selectedIds,
+  submitted,
+  showCorrect,
+  studyMode,
+  onSelectScenario
+}: {
+  question: TestQuestion;
+  selectedIds: string[];
+  submitted: boolean;
+  showCorrect: boolean;
+  studyMode?: boolean;
+  onSelectScenario?: (value: string, index: number) => void;
+}) {
+  const [activeChip, setActiveChip] = useState<string | null>(null);
+  const [draggedOverIndex, setDraggedOverIndex] = useState<number | null>(null);
+
+  const availableOptions = Array.from(
+    new Set(question.answerItems?.flatMap((item) => item.options || [item.value]) || [])
+  );
+
+  const handleDragStart = (e: React.DragEvent, opt: string) => {
+    e.dataTransfer.setData("text/plain", opt);
+    e.dataTransfer.effectAllowed = "copy";
+  };
+
+  const handleDrop = (e: React.DragEvent, slotIndex: number) => {
+    e.preventDefault();
+    setDraggedOverIndex(null);
+    const val = e.dataTransfer.getData("text/plain") || activeChip;
+    if (val) {
+      onSelectScenario?.(val, slotIndex);
+      setActiveChip(null);
+    }
+  };
+
+  const handleChipClick = (opt: string) => {
+    if (submitted && showCorrect && !studyMode) return;
+    if (activeChip === opt) {
+      setActiveChip(null);
+    } else {
+      setActiveChip(opt);
+      const emptyIndex = question.answerItems?.findIndex((_, idx) => !selectedIds[idx]);
+      if (emptyIndex !== undefined && emptyIndex !== -1) {
+        onSelectScenario?.(opt, emptyIndex);
+        setActiveChip(null);
+      }
+    }
+  };
+
+  return (
+    <div className="drag-split-container">
+      <div className="drag-pool-panel">
+        <div className="drag-panel-title">Configurations (Available Options)</div>
+        <p className="drag-instruction">Drag an option card or click to select & place into target slot.</p>
+        {availableOptions.map((opt) => (
+          <div
+            key={opt}
+            className={`drag-chip ${activeChip === opt ? "selected" : ""}`}
+            draggable={!submitted || studyMode}
+            onDragStart={(e) => handleDragStart(e, opt)}
+            onClick={() => handleChipClick(opt)}
+          >
+            <span className="drag-chip-handle">::</span>
+            <span>{opt}</span>
+          </div>
+        ))}
+      </div>
+      <div className="drag-target-panel">
+        <div className="drag-panel-title">Answer Area</div>
+        {question.answerItems?.map((item, index) => {
+          const selectedVal = selectedIds[index] || "";
+          const isCorrectTarget = showCorrect && selectedVal === item.value;
+          const isDragOver = draggedOverIndex === index;
+
+          return (
+            <div key={item.label} className="drop-slot-row">
+              <span className="drop-slot-label">{item.label}:</span>
+              <div
+                className={`drop-slot-box ${selectedVal ? "filled" : ""} ${
+                  isDragOver ? "drag-over" : ""
+                } ${isCorrectTarget ? "correct-target" : ""}`}
+                onDragOver={(e) => {
+                  e.preventDefault();
+                  e.dataTransfer.dropEffect = "copy";
+                  setDraggedOverIndex(index);
+                }}
+                onDragLeave={() => setDraggedOverIndex(null)}
+                onDrop={(e) => handleDrop(e, index)}
+                onClick={() => {
+                  if (activeChip) {
+                    onSelectScenario?.(activeChip, index);
+                    setActiveChip(null);
+                  }
+                }}
+              >
+                {selectedVal ? (
+                  <div className="placed-chip">
+                    <span className="drag-chip-handle">::</span>
+                    <span>{selectedVal}</span>
+                    {(!submitted || studyMode) && (
+                      <button
+                        type="button"
+                        className="clear-chip-btn"
+                        onClick={(e) => {
+                          e.stopPropagation();
+                          onSelectScenario?.("", index);
+                        }}
+                      >
+                        <X size={14} />
+                      </button>
+                    )}
+                  </div>
+                ) : (
+                  <select
+                    className="scenario-select"
+                    style={{ margin: 0 }}
+                    value={selectedVal}
+                    onChange={(e) => onSelectScenario?.(e.target.value, index)}
+                    disabled={submitted && showCorrect && !studyMode}
+                  >
+                    <option value="">-- Drag option here or Select --</option>
+                    {item.options?.map((opt) => (
+                      <option key={opt} value={opt}>
+                        {opt}
+                      </option>
+                    ))}
+                  </select>
+                )}
+              </div>
+              {showCorrect && (
+                <p className="correct-value-note">
+                  Correct Answer: <strong>{item.value}</strong>
+                </p>
+              )}
+            </div>
+          );
+        })}
+      </div>
+    </div>
   );
 }
 
