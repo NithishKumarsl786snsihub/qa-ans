@@ -40,12 +40,16 @@ button {
 }
 
 .app-shell {
-  min-height: 100vh;
+  height: 100vh;
+  height: 100dvh;
+  min-height: 0;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
 }
 
 .topbar {
-  position: sticky;
-  top: 0;
+  flex: 0 0 auto;
   z-index: 10;
   border-bottom: 1px solid var(--line);
   background: rgba(255, 255, 255, 0.94);
@@ -113,10 +117,16 @@ button {
 .page {
   width: min(1180px, calc(100% - 32px));
   margin: 0 auto;
-  padding: 24px 0 44px;
+  padding: 18px 0 24px;
+  flex: 1 1 auto;
+  min-height: 0;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
 }
 
 .toolbar {
+  flex: 0 0 auto;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -149,10 +159,12 @@ button {
 }
 
 .question-layout {
+  flex: 1 1 auto;
+  min-height: 0;
   display: grid;
   grid-template-columns: minmax(0, 1fr) 300px;
   gap: 18px;
-  align-items: start;
+  align-items: stretch;
 }
 
 .panel,
@@ -170,6 +182,17 @@ button {
 
 .side-panel {
   padding: 18px;
+  min-height: 0;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+.question-layout > .panel {
+  min-width: 0;
+  min-height: 0;
+  overflow: auto;
+  scrollbar-gutter: stable;
 }
 
 .question-kicker {
@@ -303,10 +326,16 @@ button {
 }
 
 .button-row {
+  flex: 0 0 auto;
   display: flex;
   flex-wrap: wrap;
   gap: 10px;
   margin-top: 18px;
+}
+
+button:disabled {
+  cursor: not-allowed;
+  opacity: 0.55;
 }
 
 .primary-button {
@@ -334,10 +363,16 @@ button {
 }
 
 .question-map {
+  flex: 1 1 auto;
+  min-height: 120px;
+  overflow: auto;
+  align-content: start;
   display: grid;
   grid-template-columns: repeat(5, 1fr);
   gap: 8px;
-  margin-top: 14px;
+  margin-top: 18px;
+  padding-right: 4px;
+  scrollbar-gutter: stable;
 }
 
 .map-button {
@@ -394,6 +429,58 @@ button {
   padding: 22px;
 }
 
+.confirm-modal {
+  width: min(440px, 100%);
+  padding: 22px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: var(--panel);
+  box-shadow: var(--shadow);
+}
+
+.confirm-modal-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 12px;
+}
+
+.confirm-modal-icon {
+  width: 40px;
+  height: 40px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  color: var(--warning);
+  background: #fff8dd;
+}
+
+.confirm-modal.danger .confirm-modal-icon {
+  color: var(--danger);
+  background: var(--danger-soft);
+}
+
+.confirm-modal h2 {
+  margin: 0;
+  font-size: 22px;
+  letter-spacing: 0;
+}
+
+.confirm-modal p {
+  margin: 10px 0 0;
+  color: var(--muted);
+  line-height: 1.55;
+}
+
+.confirm-modal-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+  margin-top: 22px;
+}
+
 .modal-header {
   display: flex;
   align-items: start;
@@ -441,6 +528,7 @@ button {
 }
 
 .stats-grid {
+  flex: 0 0 auto;
   display: grid;
   grid-template-columns: repeat(5, 1fr);
   gap: 12px;
@@ -466,11 +554,52 @@ button {
 }
 
 .review-list {
+  flex: 1 1 auto;
+  min-height: 0;
+  overflow: auto;
   display: grid;
   gap: 12px;
 }
 
+.question-layout > .panel::-webkit-scrollbar,
+.question-map::-webkit-scrollbar,
+.review-list::-webkit-scrollbar,
+.modal-panel::-webkit-scrollbar {
+  width: 10px;
+}
+
+.question-layout > .panel::-webkit-scrollbar-track,
+.question-map::-webkit-scrollbar-track,
+.review-list::-webkit-scrollbar-track,
+.modal-panel::-webkit-scrollbar-track {
+  background: #edf3f7;
+  border-radius: 999px;
+}
+
+.question-layout > .panel::-webkit-scrollbar-thumb,
+.question-map::-webkit-scrollbar-thumb,
+.review-list::-webkit-scrollbar-thumb,
+.modal-panel::-webkit-scrollbar-thumb {
+  border: 2px solid #edf3f7;
+  border-radius: 999px;
+  background: #9aacba;
+}
+
+.question-layout > .panel::-webkit-scrollbar-thumb:hover,
+.question-map::-webkit-scrollbar-thumb:hover,
+.review-list::-webkit-scrollbar-thumb:hover,
+.modal-panel::-webkit-scrollbar-thumb:hover {
+  background: #71869a;
+}
+
 @media (max-width: 880px) {
+  .app-shell {
+    height: auto;
+    min-height: 100vh;
+    min-height: 100dvh;
+    overflow: auto;
+  }
+
   .topbar-inner,
   .toolbar {
     align-items: stretch;
@@ -489,6 +618,20 @@ button {
   .explanation-grid,
   .stats-grid {
     grid-template-columns: 1fr;
+  }
+
+  .page {
+    min-height: 0;
+    overflow: visible;
+  }
+
+  .question-layout {
+    overflow: visible;
+  }
+
+  .question-layout > .panel,
+  .side-panel {
+    max-height: 72vh;
   }
 
   .panel {
