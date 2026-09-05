@@ -237,9 +237,160 @@ button {
 
 .keyword {
   border-radius: 4px;
-  padding: 1px 4px;
-  background: #fff1a8;
-  color: #3f3100;
+  padding: 1px 5px;
+  background: rgba(217, 180, 74, 0.25);
+  color: #714e00;
+  border-bottom: 2px solid #d9b44a;
+  font-weight: 600;
+  box-decoration-break: clone;
+  -webkit-box-decoration-break: clone;
+  display: inline;
+  transition: background 0.15s ease, border-color 0.15s ease;
+}
+
+.keyword:hover {
+  background: rgba(217, 180, 74, 0.45);
+  border-bottom-color: #b38b1b;
+}
+
+.keyword-strip {
+  margin: 18px 0;
+  padding: 12px 14px;
+  background: #fdfaf2;
+  border: 1px solid #f2e3b6;
+  border-left: 4px solid #d9b44a;
+  border-radius: 6px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.keyword-strip-header {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.keyword-strip-badge {
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 0.06em;
+  color: #8c6300;
+  background: #faecc3;
+  padding: 2px 8px;
+  border-radius: 4px;
+}
+
+.keyword-strip-hint {
+  font-size: 12px;
+  color: #8a7750;
+}
+
+.keyword-chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.keyword-chip {
+  font-size: 12.5px;
+  font-weight: 600;
+  color: #5c4100;
+  background: #fff8e1;
+  border: 1px solid #ebd494;
+  padding: 3px 9px;
+  border-radius: 20px;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.04);
+}
+
+.exam-hack-card {
+  margin: 20px 0;
+  padding: 16px;
+  background: linear-gradient(135deg, #fffdf8 0%, #fef8eb 100%);
+  border: 1px solid #fae19c;
+  border-left: 5px solid #d99b11;
+  border-radius: 8px;
+  box-shadow: 0 4px 14px rgba(217, 155, 17, 0.08);
+}
+
+.exam-hack-header {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 12px;
+  flex-wrap: wrap;
+}
+
+.exam-hack-badge {
+  font-size: 11.5px;
+  font-weight: 800;
+  letter-spacing: 0.06em;
+  color: #fff;
+  background: #b57a07;
+  padding: 3px 9px;
+  border-radius: 4px;
+}
+
+.exam-hack-hint {
+  font-size: 12px;
+  font-weight: 500;
+  color: #7d6537;
+}
+
+.exam-hack-grid {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.exam-hack-col {
+  flex: 1 1 240px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.exam-hack-col-title {
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 0.05em;
+  color: #8c6000;
+}
+
+.exam-hack-arrow {
+  font-size: 22px;
+  font-weight: 800;
+  color: #d99b11;
+  display: grid;
+  place-items: center;
+  user-select: none;
+}
+
+.exam-hack-answer-box {
+  background: #ffffff;
+  border: 1px solid #edd59a;
+  border-radius: 6px;
+  padding: 10px 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.exam-hack-ans-row {
+  font-size: 13.5px;
+  line-height: 1.4;
+}
+
+.exam-hack-ans-row .ans-label {
+  font-weight: 600;
+  color: #555;
+}
+
+.exam-hack-ans-row .ans-val {
+  font-weight: 700;
+  color: #0b6949;
 }
 
 .options {

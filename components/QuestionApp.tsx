@@ -649,6 +649,47 @@ function QuestionPanel({
           </p>
         </div>
       )}
+      {question.keywords?.length > 0 && (studyMode || showCorrect) && (
+        <div className="exam-hack-card">
+          <div className="exam-hack-header">
+            <span className="exam-hack-badge">⚡ 5-SECOND EXAM HACK</span>
+            <span className="exam-hack-hint">Pattern Recognition: See Trigger Words ➔ Mark Answer</span>
+          </div>
+
+          <div className="exam-hack-grid">
+            <div className="exam-hack-col">
+              <span className="exam-hack-col-title">🔥 IF THE CASE SAYS...</span>
+              <div className="keyword-chips">
+                {question.keywords.map((kw) => (
+                  <span key={kw} className="keyword-chip">
+                    {kw}
+                  </span>
+                ))}
+              </div>
+            </div>
+
+            <div className="exam-hack-arrow">➔</div>
+
+            <div className="exam-hack-col answer-col">
+              <span className="exam-hack-col-title">✅ IMMEDIATELY SELECT...</span>
+              <div className="exam-hack-answer-box">
+                {question.answerItems?.length ? (
+                  question.answerItems.map((item) => (
+                    <div key={item.label} className="exam-hack-ans-row">
+                      <span className="ans-label">{item.label}:</span>{" "}
+                      <span className="ans-val">{item.value}</span>
+                    </div>
+                  ))
+                ) : (
+                  <div className="exam-hack-ans-row">
+                    <span className="ans-val">{correctAnswerText(question)}</span>
+                  </div>
+                )}
+              </div>
+            </div>
+          </div>
+        </div>
+      )}
       {showCorrect && (
         <div className="explanation-grid">
           <div className="reason-box">
@@ -657,7 +698,7 @@ function QuestionPanel({
               <ul className="reason-list">
                 {question.answerItems.map((item) => (
                   <li key={`${item.label}-${item.value}`}>
-                    <strong>{item.label}:</strong> {item.value}
+                    <strong>{item.label}:</strong> {highlightKeywords(item.value, question.keywords)}
                   </li>
                 ))}
               </ul>
@@ -667,7 +708,7 @@ function QuestionPanel({
           </div>
           <div className="reason-box">
             <h3 className="section-title">Explanation</h3>
-            <p>{question.explanation || "No separate explanation text was extractable from the PDF."}</p>
+            <p>{highlightKeywords(question.explanation || "No separate explanation text was extractable from the PDF.", question.keywords)}</p>
           </div>
         </div>
       )}
@@ -676,7 +717,7 @@ function QuestionPanel({
           <h3 className="section-title">Reasoning Points</h3>
           <ul className="reason-list">
             {question.reasoning.map((point) => (
-              <li key={point}>{point}</li>
+              <li key={point}>{highlightKeywords(point, question.keywords)}</li>
             ))}
           </ul>
         </div>
