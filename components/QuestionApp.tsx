@@ -13,6 +13,7 @@ import {
 import { useMemo, useState } from "react";
 import { ConfirmModal, type ConfirmModalProps } from "./ConfirmModal";
 import { Option, Question, questions } from "../lib/questions";
+import { FormattedPrompt } from "./FormattedPrompt";
 
 type AppTab = "study" | "test";
 type TestMode = "same-same" | "random-same" | "random-random";
@@ -499,6 +500,13 @@ function QuestionPanel({
   const isCorrect = submitted && isQuestionCorrect(question, selectedIds);
   const hasScenarioOptions = Boolean(question.answerItems?.some((item) => item.options?.length));
 
+  const isSingleChoiceYesNo =
+    question.type === "Single Choice" &&
+    (question.prompt.includes("Does this meet the goal?") ||
+      (question.options.length === 2 &&
+        question.options.some((o) => o.text === "Yes") &&
+        question.options.some((o) => o.text === "No")));
+
   return (
     <section className="panel">
       <div className="question-kicker">
@@ -512,7 +520,12 @@ function QuestionPanel({
           </span>
         )}
       </div>
-      <h2 className="question-title">{highlightKeywords(question.prompt, question.keywords)}</h2>
+      <FormattedPrompt
+        prompt={question.prompt}
+        keywords={question.keywords}
+        studyMode={studyMode}
+        isSingleChoiceYesNo={isSingleChoiceYesNo}
+      />
       {question.warnings?.length ? (
         <div className="reason-box" style={{ marginTop: 14 }}>
           <h3 className="section-title">Extraction Notes</h3>

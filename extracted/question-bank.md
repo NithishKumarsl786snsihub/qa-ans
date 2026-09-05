@@ -13,7 +13,7 @@ time as you would like to complete each case study. However, there might be addi
 exam sections. Manage your time to ensure that you can complete all the exam sections in the time provided. Pay 
 attention to the Exam Progress at the top of the screen so you have sufficient time to complete any exam sections 
 that follow this case study. 
-To answer the case study questions, you will bed to reference information that is provided in the case. Case studies 
+To answer the case study questions, you will need to reference information that is provided in the case. Case studies 
 and associated questions might contain exhibits or other resources that provide more information about the 
 scenario described in the case. Information provided in an individual question does not apply to the other questions 
 in the case study. 
@@ -115,6 +115,10 @@ You need to configure the model deployment for Agent1 to meet the technical requ
 What should you configure? To answer, select the appropriate options in the answer area. 
 NOTE: Each correct selection is worth one point.
 
+Answer Area / Items:
+- Deployment type: **Standard**
+- Version update policy: **Once the current version expires**
+
 Answer: Deployment Type: Selected as Standard because the workload requires dynamic scaling for variable traffic without reserved throughput capacity (eliminating Provisioned options), while adhering to strict regional data
 
 Explanation:
@@ -135,7 +139,7 @@ Source pages: 4, 5, 6, 7
 Case Study - This is a case study. Case studies are not timed separately from other exam sections. You can use as much exam 
 time as you would like to complete each case study. However, there might be additional case studies or other 
 exam sections. Manage your time to ensure that you can complete all the exam sections in the time provided. Pay 
-attention to the Exam Progress at the top of the screen so you have sufficient time to complete any exam sections To answer the case study questions, you will bed to reference information that is provided in the case. Case studies 
+attention to the Exam Progress at the top of the screen so you have sufficient time to complete any exam sections To answer the case study questions, you will need to reference information that is provided in the case. Case studies 
 and associated questions might contain exhibits or other resources that provide more information about the 
 scenario described in the case. Information provided in an individual question does not apply to the other questions A Review Screen will appear at the end of this case study. From the Review Screen, you can review and change 
 your answers before you move to the next exam section. After you leave this case study, you will NOT be able to return to it. 
@@ -239,6 +243,9 @@ Options:
 - C. Personally identifiable information (PII) Detection
 - D. violence content filtering
 
+Answer Area / Items:
+- Correct option: **B**
+
 Answer: B
 
 Explanation:
@@ -277,6 +284,9 @@ Options:
 - B. Disable key-based access control on the Azure AI Search resource.
 - C. Add a connection to the Azure AI Search resource.
 - D. Create a managed private endpoint that connects to the Azure AI Search resource.
+
+Answer Area / Items:
+- Correct option: **C**
 
 Answer: C
 
@@ -320,7 +330,10 @@ Secrets and credentials must NOT be stored in prompts, tool arguments, or span a
 For each of the following statements, select Yes if the statement is true. Otherwise, select No. 
 NOTE: Each correct selection is worth one point.
 
-Answer: _No answer text extracted._
+Answer Area / Items:
+- The LangChain service will appear in Traces without configuring a tracer.: **No**
+- Setting different OTEL_SERVICE_NAME values separates the services in Application Insights.: **Yes**
+- When using enable_content_recording=False, prompts and tool data will be captured in the telemetry.: **No**
 
 Explanation:
 Statement 1: No OpenTelemetry tracing requires explicit configuration to start capturing data. Without setting up an active OpenTelemetry exporter or attaching a dedicated tracer (such as AzureAIOpenTelemetryTracer or calling configure_azure_monitor), no trace spans or events will be captured or forwarded to Azure Monitor. Statement 2: Yes The OTEL_SERVICE_NAME environment variable determines the logical name of your application service in OpenTelemetry telemetry data. Configuring distinct values for different services allows Azure Application 
@@ -337,6 +350,10 @@ How should you configure each pipeline? To answer, drag the appropriate configur
 Each configuration may be used once, more than once, of not at all. You may need to drag the split bar between 
 panes or scroll to view content. 
 NOTE: Each correct selection is worth one point.
+
+Answer Area / Items:
+- Pipeline1: **Single-file task in standard mode**
+- Pipeline2: **Multi-file task in pro mode**
 
 Answer: Pipeline1 (Single-file task in standard mode): This is correct for workflows processing independent, standalone documents one by one. Standard mode
 
@@ -355,6 +372,10 @@ Sends prompts to a deployed model by using the Azure OpenAI Responses API
 How should you complete the Python code? To answer, select the appropriate options in the answer area. 
 NOTE: Each correct selection is worth one point.
 
+Answer Area / Items:
+- First Dropdown (credential =): **DefaultAzureCredential**
+- Second Dropdown (response = openai_client.responses.): **create**
+
 Answer: First Dropdown: DefaultAzureCredential Second Dropdown: create Credential Initialization: The scenario specifies authentication using a Microsoft Entra managed identity. In Azure Python SDKs, DefaultAzureCredential automatically orchestrates managed identities across both local development and Azure-hosted environments. It is explicitly imported at the top of the snippet (from azure.identity import DefaultAzureCredential). Responses API Call: When interacting with the Azure OpenAI-compatible project client endpoint via openai_client.responses, the standard method to generate chat text completions or send user prompts to the deployed generative model is create.
 
 Explanation:
@@ -369,7 +390,9 @@ You have a Microsoft Foundry project that contains a workflow for a customer sup
 You have an Ask a question node that stores user responses in a local variable named Var01. An if/else condition expression that ensures that Var01 contains a value 
 A Send message expression that returns the stored user response in uppercase
 
-Answer: _No answer text extracted._
+Answer Area / Items:
+- If/else condition expression: **Not(IsBlank(Local.Var01))**
+- Send message expression: **Upper(Local.Var01)**
 
 Explanation:
 If/else condition expression: Not(IsBlank(Local.Var01)) Send message expression: Upper(Local.Var01) If/else condition expression: The requirement is to ensure that the variable contains a value (i.e., it is not empty or blank). IsBlank(Local.Var01) evaluates to True if it has no value. Wrapping it in the Not() function inverts this logic, making the expression evaluate to True only when a valid value exists. Send message expression: To display or send a variable dynamically inside a message node, the variable/formula must be enclosed 
@@ -389,6 +412,10 @@ runs. Azure AI Content Safety must access the images by using the blob URL. The 
 principle of least privilege. 
 What should you configure for Content Safety? To answer, select the appropriate options in the answer area. 
 NOTE: Each correct selection is worth one point.
+
+Answer Area / Items:
+- Guardrails configuration: **Select User input, Output, Tool response, and Tool call; set Action to Block**
+- Storage access configuration: **System-assigned managed identity assigned Storage Blob Data Reader**
 
 Answer: Guardrails Select User input, Output, Tool response, and Tool call and set Action to Block. Storage access A system-assigned managed identity that is assigned the Storage Blob Data Reader role To securely evaluate and prevent harmful or unsafe content from being returned or processed at any point
 
@@ -416,6 +443,9 @@ Options:
 - C. a multi-agent group chat session
 - D. separate agent runs coordinated in the application code
 
+Answer Area / Items:
+- Correct option: **A**
+
 Answer: A
 
 Explanation:
@@ -442,6 +472,9 @@ Options:
 - B. the custom speech project ID
 - C. the project ID
 - D. the custom speech endpoint URL
+
+Answer Area / Items:
+- Correct option: **B**
 
 Answer: B
 
@@ -471,7 +504,9 @@ approval is granted.
 How should you complete the workflow definition? To answer, select the appropriate options in the answer area. 
 NOTE: Each correct selection is worth one point.
 
-Answer: _No answer text extracted._
+Answer Area / Items:
+- Approval step type: **ask_question**
+- Refund condition: **approval == "approved"**
 
 Explanation:
 ask_question: In declarative agent workflows, ask_question is used to explicitly pause execution and collect external feedback or manual intervention (such as human authorization/approval) before proceeding, unlike basic_chat or data_transformation which run automatically. approval == "approved" To ensure that the execute_refund step runs conditionally only if approval has been explicitly granted, the expression evaluates the string output from the preceding id: approval step against the expected value "approved".
@@ -483,10 +518,11 @@ Source pages: 18, 19
 You have an Azure Speech in Foundry Tools resource that hosts a custom speech to text model deployed to a You are approaching the expiration date of the custom speech to text model. Speech recognition requests will return a 4xx error until a new custom model is deployed. Speech recognition requests will continue to use the expired custom model until the model is removed Speech recognition requests will fall back to the most recent base model for the same locale.
 
 Options:
-- A. Option A (Visual Block)
-- B. Option B (Visual Block)
 - C. Speech recognition requests will fall back to the most recent base model for the
 - D. The custom model will be deleted automatically when the model expires.
+
+Answer Area / Items:
+- Correct option: **C**
 
 Answer: C
 
@@ -525,6 +561,9 @@ Options:
 - C. Contributor
 - D. Cognitive Services Data Reader
 
+Answer Area / Items:
+- Correct option: **B**
+
 Answer: B
 
 Explanation:
@@ -559,6 +598,9 @@ Options:
 - C. tool_choice= “type”:“knowledge_base”
 - D. tool_choice = “type”:“mcp”
 
+Answer Area / Items:
+- Correct option: **A**
+
 Answer: A
 
 Explanation:
@@ -573,7 +615,9 @@ the correct issues. Each observability signal may be used once, more than once, 
 the spit bar between panes or scroll to view content. 
 NOTE: Each correct selection is worth one point.
 
-Answer: _No answer text extracted._
+Answer Area / Items:
+- Unsupported responses: **Groundedness evaluation metrics**
+- Policy violations: **Risk and safety metrics**
 
 Explanation:
 Unsupported responses Groundedness evaluation metrics Policy violations: Risk and safety metrics Unsupported responses: When an AI model generates responses containing facts or assertions not present in 
@@ -588,9 +632,9 @@ You need to ensure that the key value from the connection is included automatica
 
 Options:
 - A. a header parameter defined for each operation
-- B. Option B (Visual Block)
-- C. Option C (Visual Block)
-- D. Option D (Visual Block)
+
+Answer Area / Items:
+- Correct option: **C**
 
 Answer: C
 
@@ -624,6 +668,9 @@ Options:
 - C. Increase the value of the max_tokens parameter for all the requests.
 - D. Route all the requests to the most capable model.
 
+Answer Area / Items:
+- Correct option: **B**
+
 Answer: B
 
 Explanation:
@@ -652,7 +699,9 @@ You need to identify whether each issue is caused by model unavailability, resou
 What should you do? To answer, select the appropriate options in the answer area. 
 NOTE: Each correct selection is worth one point.
 
-Answer: _No answer text extracted._
+Answer Area / Items:
+- Metrics to enable: **Model Availability Rate and Provisioned Utilization**
+- Diagnostic log to collect: **Request Response**
 
 Explanation:
 Metrics to enable : Model Availability Rate and Provisioned Utilization Model Availability Rate isolates whether service errors or operation drop-offs are caused by downstream, 
@@ -674,6 +723,9 @@ Options:
 - B. evaluation metrics
 - C. run success rate
 - D. token usage
+
+Answer Area / Items:
+- Correct option: **D**
 
 Answer: D
 
@@ -710,6 +762,10 @@ Tool access must use support audit tracing.
 What should you do? To answer, select the appropriate options in the answer area. 
 NOTE: Each correct selection is worth one point.
 
+Answer Area / Items:
+- Parameter: **tool_choice**
+- Value: **required**
+
 Answer: Set tool_choice to required Configure the tool to authenticate by: Using a distinct agent identity bound to the client application Set tool_choice to (required): Setting this to required ensures that the AI model is deterministically forced to call one or more tools before returning a final answer, rather than autonomously deciding whether to skip the
 
 Explanation:
@@ -734,6 +790,9 @@ Options:
 - C. Configure the tool to use the default connection of Project1.
 - D. Connect the tool to Connection1.
 
+Answer Area / Items:
+- Correct option: **D**
+
 Answer: D
 
 Explanation:
@@ -755,10 +814,10 @@ Source pages: 29, 30
 You have a Microsoft Foundry project that contains a customer support agent. The agent calls an internal Users report the following issues: You need to inspect individual agent runs to view the ordered sequence of large language model (LLM) calls, tool Which observability capability should you use?
 
 Options:
-- A. Option A (Visual Block)
-- B. Option B (Visual Block)
-- C. Option C (Visual Block)
 - D. Tracing To address the reported issues with the Microsoft Foundry project's customer support agent, the chosen
+
+Answer Area / Items:
+- Correct option: **D**
 
 Answer: D
 
@@ -802,8 +861,9 @@ Does this meet the goal?
 Options:
 - A. Yes
 - B. No
-- C. Option C (Visual Block)
-- D. Option D (Visual Block)
+
+Answer Area / Items:
+- Correct option: **B**
 
 Answer: B
 
@@ -838,8 +898,9 @@ Does this meet the goal?
 Options:
 - A. Yes
 - B. No
-- C. Option C (Visual Block)
-- D. Option D (Visual Block)
+
+Answer Area / Items:
+- Correct option: **B**
 
 Answer: B
 
@@ -880,8 +941,9 @@ Does this meet the goal?
 Options:
 - A. Yes
 - B. No
-- C. Option C (Visual Block)
-- D. Option D (Visual Block)
+
+Answer Area / Items:
+- Correct option: **B**
 
 Answer: B
 
@@ -922,8 +984,9 @@ Does this meet the goal?
 Options:
 - A. Yes
 - B. No
-- C. Option C (Visual Block)
-- D. Option D (Visual Block)
+
+Answer Area / Items:
+- Correct option: **B**
 
 Answer: B
 
@@ -948,7 +1011,7 @@ time as you would like to complete each case study. However, there might be addi
 exam sections. Manage your time to ensure that you can complete all the exam sections in the time provided. Pay 
 attention to the Exam Progress at the top of the screen so you have sufficient time to complete any exam sections 
 that follow this case study. 
-To answer the case study questions, you will bed to reference information that is provided in the case. Case studies 
+To answer the case study questions, you will need to reference information that is provided in the case. Case studies 
 and associated questions might contain exhibits or other resources that provide more information about the 
 scenario described in the case. Information provided in an individual question does not apply to the other questions 
 in the case study. 
@@ -1055,6 +1118,9 @@ Options:
 - C. model fine-tuning
 - D. a groundedness evaluator
 
+Answer Area / Items:
+- Correct option: **D**
+
 Answer: D
 
 Explanation:
@@ -1072,7 +1138,7 @@ time as you would like to complete each case study. However, there might be addi
 exam sections. Manage your time to ensure that you can complete all the exam sections in the time provided. Pay 
 attention to the Exam Progress at the top of the screen so you have sufficient time to complete any exam sections 
 that follow this case study. 
-To answer the case study questions, you will bed to reference information that is provided in the case. Case studies 
+To answer the case study questions, you will need to reference information that is provided in the case. Case studies 
 and associated questions might contain exhibits or other resources that provide more information about the 
 scenario described in the case. Information provided in an individual question does not apply to the other questions 
 in the case study. 
@@ -1179,6 +1245,9 @@ Options:
 - C. Apply top-p sampling.
 - D. Increase the value of the temperature parameter.
 
+Answer Area / Items:
+- Correct option: **A**
+
 Answer: A
 
 Explanation:
@@ -1213,6 +1282,9 @@ Options:
 - C. a key phrase extraction model
 - D. a large language model (LLM)
 
+Answer Area / Items:
+- Correct option: **D**
+
 Answer: D
 
 Explanation:
@@ -1234,7 +1306,9 @@ You have a Microsoft Foundry project that contains a deployed ticket-triage agen
 You discover that sometimes the agent responds without calling any tools, even when a tool is required. How should you complete the Python code? To answer, drag the appropriate values to the correct targets. Each 
 value may be used once, more than once, or not at all. You may need to drag the split bar between panes or scroll
 
-Answer: _No answer text extracted._
+Answer Area / Items:
+- Parameter: **tool_choice**
+- Value: **required**
 
 Explanation:
 "tool_choice": This parameter key overrides the default tool execution behavior for a specific thread run. required": Setting this value forces the agent to deterministically invoke at least one configured tool (such as the MCP tool mentioned in prior scenario requirements) before providing a final response, preventing the 
@@ -1244,14 +1318,23 @@ agent from bypassing tool execution.
 
 Source pages: 42, 43
 
-You are building a web app named App1 that generates responses by using a model deployed to a Microsoft Before sending the prompts to the model, App1 must retrieve documents by using Azure AI Search. 
-You need to integrate Project1 and App1. The solution must meet the following requirements: A security policy must prevent key-based authentication.
+You are building a web app named App1 that generates responses by using a model deployed to a Microsoft
+Foundry project named Project1.
+Before sending the prompts to the model, App1 must retrieve documents by using Azure AI Search.
+You need to integrate Project1 and App1. The solution must meet the following requirements:
+Multiple client applications must use the same search configuration.
+A security policy must prevent key-based authentication.
+Administrative effort must be minimized.
+What should you do?
 
 Options:
-- A. Call Azure AI Search directly from each application by using Microsoft Entra authentication.
-- B. Configure an Azure AI Search connection in Project1 and reference the connection in each application
-- C. Option C (Visual Block)
-- D. Option D (Visual Block)
+- A. Create a custom HTTP connection in Foundry and manually configure Azure AI Search endpoints per application.
+- B. Configure an Azure AI Search connection in Project1 and reference the connection in each application.
+- C. Call Azure AI Search directly from each application by using Microsoft Entra authentication.
+- D. Enable a managed identity for each application and call Azure AI Search directly.
+
+Answer Area / Items:
+- Correct option: **B**
 
 Answer: B
 
@@ -1269,14 +1352,49 @@ D. Enable Managed Identity for Each Application and Call Azure AI Search Directl
 
 Source pages: 43, 44
 
-DRAG DROP - Ensure that the agent can perform calculations during conversations. 
-Ensure that the agent can access up-to-date information from public websites. 
-Ensure that the agent can retrieve information from documents uploaded directly to the agent. 
-What should you use for each requirement? To answer, drag the appropriate tools to the correct requirements. 
-Each tool may be used once, more than once, or not at all. You may need to drag the split bar between panes or scroll to view content. 
-NOTE: Each correct selection is worth one point.
+DRAG DROP-
+You have a Microsoft Foundry project that contains an agent used by the financial analysts at your company.
+You need to optimize the agent workflow by providing additional data access and processing capabilities. The
+solution must meet the following requirements:
+Ensure that the agent can perform calculations during conversations.
+Ensure that the agent can access up-to-date information from public websites.
+Ensure that the agent can retrieve information from documents uploaded directly to the agent.
+What should you use for each requirement? To answer, drag the appropriate tools to the correct requirements.
+Each tool may be used once, more than once, or not at all. You may need to drag the split bar between panes or
 
-Answer: _No answer text extracted._
+scroll to view content.
+NOTE: Each correct selection is worth one point.
+Answer Area
+
+Access up-to-date information from public websites:
+
+Perform calculations during conversations:
+
+Retrieve information from documents uploaded
+directly to the agent:
+
+Tools
+
+I Code interpreter
+
+II Computer use
+
+III File search
+
+IIII Grounding with Bing Search
+
+IIIII Microsoft Fabric
+
+Tool
+
+Tool
+
+Tool
+
+Answer Area / Items:
+- Access up-to-date public information: **Grounding with Bing Search**
+- Perform calculations: **Code interpreter**
+- Retrieve uploaded documents: **File search**
 
 Explanation:
 Access up-to-date information (Grounding with Bing Search): This native tool allows the agent to execute real-time web queries to retrieve current information and facts from public websites, mitigating static 
@@ -1287,14 +1405,21 @@ calculations, and data processing accurately. Retrieve information from document
 
 Source pages: 44, 45
 
-You have a Microsoft Foundry project that contains a prompt agent used by a customer support web app. 
+You have a Microsoft Foundry project that contains a prompt agent used by a customer support web app.
 The agent is invoked from a Python service that does NOT run in the Foundry portal.
+You need to implement end-to-end tracing to capture latency breakdowns and exceptions across agent runs.
+Which two components can you use? Each correct answer presents a complete solution.
+NOTE: Each correct selection is worth one point.
 
 Options:
-- A. the Azure Monitor Agent
-- B. Option B (Visual Block)
-- C. Option C (Visual Block)
-- D. Option D (Visual Block)
+- A. a Log Analytics workspace
+- B. Application Insights
+- C. OpenTelemetry
+- D. the Azure Monitor Agent
+- E. Microsoft Sentinel
+
+Answer Area / Items:
+- Correct options: **B, C**
 
 Answer: BC
 
@@ -1315,14 +1440,23 @@ security analytics rather than application performance tracing and latency analy
 
 Source pages: 45, 46
 
-You have a customer support agent that uses the Microsoft Foundry Agent Service. Sometimes, customers return to a session days later to continue the same support case, and the agent must Cross-session continuity for the same case 
-Access to the full interaction history, including user messages, agent messages, tool calls, and tool outputs What should you do?
+You have a customer support agent that uses the Microsoft Foundry Agent Service.
+Sometimes, customers return to a session days later to continue the same support case, and the agent must
+resume with the full historical context. The agent must provide the following:
+Multi-turn continuity within the session
+Cross-session continuity for the same case
+Access to the full interaction history, including user messages, agent messages, tool calls, and tool outputs
+You need to ensure that the agent automatically reloads the complete history on each new turn.
+
+What should you do?
 
 Options:
-- A. Create and reuse a conversation by storing the conversation’s ID and supplying the ID on subsequent
-- B. Persist only the final model response stored in the client application and prepend the response to future
+- A. Create and reuse a conversation by storing the conversation's ID and supplying the ID on subsequent requests.
+- B. Persist only the final model response stored in the client application and prepend the response to future prompts.
 - C. Enable memory summarization on the agent definition to persist the context automatically.
-- D. Option D (Visual Block)
+
+Answer Area / Items:
+- Correct option: **A**
 
 Answer: A
 
@@ -1347,17 +1481,56 @@ your service.
 
 Source pages: 47, 48
 
-HOTSPOT - 
-You have a Microsoft Foundry project that contains a deployed chat model. 
-You have a Python service that sends API requests to the model. The service is integrated with an automated 
-validation system that compares generated outputs against approved response patterns. 
-Stakeholders report that small wording differences are causing validation mismatches. 
-You need to update the request parameters to improve output stability. The solution must maximize reasoning 
-quality. 
-How should you complete the Python code? To answer, select the appropriate options in the answer area. 
+HOTSPOT -
+You have a Microsoft Foundry project that contains a deployed chat model.
+You have a Python service that sends API requests to the model. The service is integrated with an automated
+validation system that compares generated outputs against approved response patterns.
+Stakeholders report that small wording differences are causing validation mismatches.
+You need to update the request parameters to improve output stability. The solution must maximize reasoning
+quality.
+How should you complete the Python code? To answer, select the appropriate options in the answer area.
 NOTE: Each correct selection is worth one point.
+Answer Area
 
-Answer: _No answer text extracted._
+message - client.messages.create(
+model="deployment-name",
+
+messages-[
+{"role": "user", "content": "Summarize the release notes in 3 bullet points.")
+
+max_tokens-800,
+
+temperature=
+
+0
+
+1
+
+2
+
+thinking("type": "enabled"},
+output_config-("effort":
+
+"high"
+"low"
+"medium"
+
+```python
+message = client.messages.create(
+    model="deployment-name",
+    messages=[
+        {"role": "user", "content": "Summarize the release notes in 3 bullet points."}
+    ],
+    max_tokens=800,
+    temperature=[ 0 | 1 | 2 ],
+    thinking={"type": "enabled"},
+    output_config={"effort": [ "high" | "low" | "medium" ]}
+)
+```
+
+Answer Area / Items:
+- temperature: **1**
+- output_config effort: **low**
 
 Explanation:
 temperature :1 When enabling extended or adaptive reasoning via the thinking parameter ( "type": "enabled" ), API rules mandate that the temperature must be set to exactly 1 (or omitted completely). Attempting to use a deterministic value like 0 or high variance like 2 will result in a standard HTTP 400 Bad Request validation error from the API gateway. output_config= "effort": ... ("low"):
@@ -1366,11 +1539,11 @@ temperature :1 When enabling extended or adaptive reasoning via the thinking par
 
 Source pages: 48, 49
 
-You have a chat app in a Microsoft Foundry project and an Azure AI Search vectorized index. 
-You need to connect to the index to meet the following requirements: 
-Complex questions must retrieve information from multiple chunks. 
-Multi-turn conversations must influence retrieval planning. 
-Retrievals must run in parallel to reduce latency. 
+You have a chat app in a Microsoft Foundry project and an Azure AI Search vectorized index.
+You need to connect to the index to meet the following requirements:
+Complex questions must retrieve information from multiple chunks.
+Multi-turn conversations must influence retrieval planning.
+Retrievals must run in parallel to reduce latency.
 Which retrieval approach should you use?
 
 Options:
@@ -1378,6 +1551,9 @@ Options:
 - B. agentic Retrieval Augmented Generation (RAG)
 - C. chain of thought
 - D. classic Retrieval Augmented Generation (RAG)
+
+Answer Area / Items:
+- Correct option: **B**
 
 Answer: B
 
@@ -1400,16 +1576,31 @@ Research on Agentic Retrieval Augmented Generation for Conversational AI
 
 Source pages: 49, 50
 
-HOTSPOT - 
-You need to recommend a plan to create a customer support agent by using the Microsoft Foundry Agent Service. 
-The agent must meet the following requirements: 
-Retain user preferences across multiple conversations. 
-Enable users to provide contextual grounding by directly uploading documents during a chat. 
-Which Foundry capability should you recommend for each requirement? To answer, select the appropriate options 
-in the answer area. 
+HOTSPOT -
+You need to recommend a plan to create a customer support agent by using the Microsoft Foundry Agent Service.
+The agent must meet the following requirements:
+Retain user preferences across multiple conversations.
+Enable users to provide contextual grounding by directly uploading documents during a chat.
+Which Foundry capability should you recommend for each requirement? To answer, select the appropriate options
+in the answer area.
 NOTE: Each correct selection is worth one point.
+Answer Area
 
-Answer: _No answer text extracted._
+To retain user preferences across conversations, use:
+
+Agent memory that uses persistent storage
+Conversation history
+Orchestration-managed session context
+
+To enable users to provide contextual grounding during chats, use the:
+
+Azure AI Search tool
+Code interpreter tool
+File search tool
+
+Answer Area / Items:
+- Retain user preferences across chat sessions: **Agent memory that uses persistent storage**
+- Contextual grounding during chats: **File search tool**
 
 Explanation:
 To retain user preferences across conversations, use: Agent memory that uses persistent storage. To enable users to provide contextual grounding during chats, use the: File search tool Contextual Grounding During Chats: The File search tool allows end users to upload documentation, images,
@@ -1418,10 +1609,10 @@ To retain user preferences across conversations, use: Agent memory that uses per
 
 Source pages: 50, 51
 
-You have a Microsoft Foundry project that contains an agent. The agent generates summaries from retrieved 
-policy documents. 
-You need to improve response completeness. The solution must be implemented in the logic of the application 
-code before responses are returned. 
+You have a Microsoft Foundry project that contains an agent. The agent generates summaries from retrieved
+policy documents.
+You need to improve response completeness. The solution must be implemented in the logic of the application
+code before responses are returned.
 What should you do?
 
 Options:
@@ -1429,6 +1620,9 @@ Options:
 - B. Decrease the value of the max_tokens parameter.
 - C. Switch to Retrieval Augmented Generation (RAG).
 - D. Replace the model with a smaller deployment.
+
+Answer Area / Items:
+- Correct option: **A**
 
 Answer: A
 
@@ -1446,11 +1640,11 @@ model#model-parameters
 
 Source pages: 51, 52
 
-You have a customer support agent built by using the Microsoft Foundry Agent Service. The agent calls an Azure 
-OpenAI model deployment. 
-During load testing, calls intermittently fail and return an HTTP 429 rate limit exceeded error. 
-You need to handle throttling to reduce call failures and improve reliability under load. The solution must remain 
-within the service and model limits. 
+You have a customer support agent built by using the Microsoft Foundry Agent Service. The agent calls an Azure
+OpenAI model deployment.
+During load testing, calls intermittently fail and return an HTTP 429 rate limit exceeded error.
+You need to handle throttling to reduce call failures and improve reliability under load. The solution must remain
+within the service and model limits.
 What should you do?
 
 Options:
@@ -1458,6 +1652,9 @@ Options:
 - B. Reduce the number of registered tools.
 - C. Implement a retry policy that uses exponential backoff and jitter.
 - D. Spit uploaded content into smaller files.
+
+Answer Area / Items:
+- Correct option: **C**
 
 Answer: C
 
@@ -1479,7 +1676,30 @@ remains within service and model limits. References 1. Azure Documentation - Ret
 
 Source pages: 52, 53
 
-HOTSPOT - You need to configure the workflow to automatically evaluate the agent when a pull request (PR) is created and How should you configure the workflow? To answer, select the appropriate options in the answer area.
+HOTSPOT -
+You have a Microsoft Foundry project that contains an agent.
+You use a GitHub Actions workflow for CI/CD.
+You need to configure the workflow to automatically evaluate the agent when a pull request (PR) is created and
+prevent branches from merging if the evaluation results do NOT meet the defined thresholds.
+How should you configure the workflow? To answer, select the appropriate options in the answer area.
+NOTE: Each correct selection is worth one point.
+Answer Area
+
+Authentication method:
+
+A personal access token (PAT)
+A user-assigned managed identity
+An Azure Login action that uses OpenID Connect (OIDC)
+
+If the evaluation results are NOT met, configure the workflow to:
+
+Lock the target branch
+Send an alert
+Fail
+
+Answer Area / Items:
+- Authentication method: **Azure Login action that uses OpenID Connect (OIDC)**
+- Workflow action on failure: **Fail**
 
 Answer: Authentication method An Azure Login action that uses OpenID Connect (OIDC)) When connecting an automated external runner or automation pipeline to Azure resources, storing long-lived
 
@@ -1493,25 +1713,26 @@ stages or merging into the primary deployment branch.
 
 Source pages: 53, 54
 
-Note: This section contains one or more sets of questions with the same scenario and problem. Each question 
-presents a unique solution to the problem. You must determine whether the solution meets the stated goals. More 
-than one solution in the set might solve the problem. It is also possible that none of the solutions in the set solve 
-the problem. 
-After you answer a question in this section, you will NOT be able to return. As a result, these questions do not 
-appear on the Review Screen. 
-You have a Microsoft Foundry project that contains an agent. The agent generates summaries from retrieved 
-policy documents. 
-Users report that some responses omit required regulatory clauses, even when the clauses are present in the 
-retrieved content. 
-You need to improve response completeness. 
-Solution: You increase the value of the max_tokens parameter. 
+Note: This section contains one or more sets of questions with the same scenario and problem. Each question
+presents a unique solution to the problem. You must determine whether the solution meets the stated goals. More
+than one solution in the set might solve the problem. It is also possible that none of the solutions in the set solve
+the problem.
+After you answer a question in this section, you will NOT be able to return. As a result, these questions do not
+appear on the Review Screen.
+You have a Microsoft Foundry project that contains an agent. The agent generates summaries from retrieved
+policy documents.
+Users report that some responses omit required regulatory clauses, even when the clauses are present in the
+retrieved content.
+You need to improve response completeness.
+Solution: You increase the value of the max_tokens parameter.
 Does this meet the goal?
 
 Options:
 - A. Yes
 - B. No
-- C. Option C (Visual Block)
-- D. Option D (Visual Block)
+
+Answer Area / Items:
+- Correct option: **A**
 
 Answer: A
 
@@ -1529,21 +1750,27 @@ provides insight into tokenization and max_tokens implications in AI model conte
 
 Source pages: 54, 55, 56
 
-Note: This section contains one or more sets of questions with the same scenario and problem. Each question 
-presents a unique solution to the problem. You must determine whether the solution meets the stated goals. More After you answer a question in this section, you will NOT be able to return. As a result, these questions do not appear on the Review Screen. 
-You have a Microsoft Foundry project that contains an agent. The agent generates summaries from retrieved 
-policy documents. 
-Users report that some responses omit required regulatory clauses, even when the clauses are present in the 
-retrieved content. 
-You need to improve response completeness. 
-Solution: You add a reflection pass that regenerates the response if the required clauses are missing. 
+Note: This section contains one or more sets of questions with the same scenario and problem. Each question
+presents a unique solution to the problem. You must determine whether the solution meets the stated goals. More
+than one solution in the set might solve the problem. It is also possible that none of the solutions in the set solve
+the problem.
+After you answer a question in this section, you will NOT be able to return. As a result, these questions do not
+
+appear on the Review Screen.
+You have a Microsoft Foundry project that contains an agent. The agent generates summaries from retrieved
+policy documents.
+Users report that some responses omit required regulatory clauses, even when the clauses are present in the
+retrieved content.
+You need to improve response completeness.
+Solution: You add a reflection pass that regenerates the response if the required clauses are missing.
 Does this meet the goal?
 
 Options:
 - A. Yes
 - B. No
-- C. Option C (Visual Block)
-- D. Option D (Visual Block)
+
+Answer Area / Items:
+- Correct option: **A**
 
 Answer: A
 
@@ -1570,25 +1797,26 @@ resources is advised. Actual Working Link Replacement for Educational Purposes (
 
 Source pages: 56, 57
 
-Note: This section contains one or more sets of questions with the same scenario and problem. Each question 
-presents a unique solution to the problem. You must determine whether the solution meets the stated goals. More 
-than one solution in the set might solve the problem. It is also possible that none of the solutions in the set solve 
-the problem. 
-After you answer a question in this section, you will NOT be able to return. As a result, these questions do not 
-appear on the Review Screen. 
-You have a Microsoft Foundry project that contains an agent. The agent generates summaries from retrieved 
-policy documents. 
-Users report that some responses omit required regulatory clauses, even when the clauses are present in the 
-retrieved content. 
-You need to improve response completeness. 
-Solution: You increase the value of the temperature parameter. 
+Note: This section contains one or more sets of questions with the same scenario and problem. Each question
+presents a unique solution to the problem. You must determine whether the solution meets the stated goals. More
+than one solution in the set might solve the problem. It is also possible that none of the solutions in the set solve
+the problem.
+After you answer a question in this section, you will NOT be able to return. As a result, these questions do not
+appear on the Review Screen.
+You have a Microsoft Foundry project that contains an agent. The agent generates summaries from retrieved
+policy documents.
+Users report that some responses omit required regulatory clauses, even when the clauses are present in the
+retrieved content.
+You need to improve response completeness.
+Solution: You increase the value of the temperature parameter.
 Does this meet the goal?
 
 Options:
 - A. Yes
 - B. No
-- C. Option C (Visual Block)
-- D. Option D (Visual Block)
+
+Answer Area / Items:
+- Correct option: **B**
 
 Answer: B
 
@@ -1610,26 +1838,27 @@ enhance, and could potentially detract from, the completeness of the responses i
 
 Source pages: 57, 58
 
-Note: This section contains one or more sets of questions with the same scenario and problem. Each question 
-presents a unique solution to the problem. You must determine whether the solution meets the stated goals. More 
-than one solution in the set might solve the problem. It is also possible that none of the solutions in the set solve 
-the problem. 
-After you answer a question in this section, you will NOT be able to return. As a result, these questions do not 
-appear on the Review Screen. 
-You have a Microsoft Foundry project that contains an agent. The agent generates summaries from retrieved 
-policy documents. 
-Users report that some responses omit required regulatory clauses, even when the clauses are present in the 
-retrieved content. 
-You need to improve response completeness. 
-Solution: You run an evaluation flow that scores responses for completeness and blocks responses that fall below 
-a defined threshold. 
+Note: This section contains one or more sets of questions with the same scenario and problem. Each question
+presents a unique solution to the problem. You must determine whether the solution meets the stated goals. More
+than one solution in the set might solve the problem. It is also possible that none of the solutions in the set solve
+the problem.
+After you answer a question in this section, you will NOT be able to return. As a result, these questions do not
+appear on the Review Screen.
+You have a Microsoft Foundry project that contains an agent. The agent generates summaries from retrieved
+policy documents.
+Users report that some responses omit required regulatory clauses, even when the clauses are present in the
+retrieved content.
+You need to improve response completeness.
+Solution: You run an evaluation flow that scores responses for completeness and blocks responses that fall below
+a defined threshold.
 Does this meet the goal?
 
 Options:
 - A. Yes
 - B. No
-- C. Option C (Visual Block)
-- D. Option D (Visual Block)
+
+Answer Area / Items:
+- Correct option: **B**
 
 Answer: B
 
@@ -1648,19 +1877,22 @@ solutions/#:~:text=Provide%20a%20feedback%20mechanism%20to,improve%20the%20conve
 
 Source pages: 58, 59
 
-You are creating an image-editing workflow in a Microsoft Foundry project. 
-The workflow must meet the following requirements: 
-Ensure that background objects can be removed by applying a mask-based inpainting edit. 
-Preserve the original lighting and style of the edited images. 
-Use the built-in image editing controls, NOT a custom model. 
-You need to ensure that image edits apply exclusively inside the masked area. 
+You are creating an image-editing workflow in a Microsoft Foundry project.
+The workflow must meet the following requirements:
+Ensure that background objects can be removed by applying a mask-based inpainting edit.
+Preserve the original lighting and style of the edited images.
+Use the built-in image editing controls, NOT a custom model.
+You need to ensure that image edits apply exclusively inside the masked area.
 How should you configure the workflow?
 
 Options:
 - A. Set generation mode to image_variation and provide the original image as a reference.
 - B. Enable text_to_image mode and a prompt describing the desired background removal.
 - C. Enable image_to_image mode and a high-strength value to regenerate the full image based on the prompt.
-- D. Enable mask_inpainting and supply both the input image and a mask indicating which part of the image to
+- D. Enable mask_inpainting and supply both the input image and a mask indicating which part of the image to modify.
+
+Answer Area / Items:
+- Correct option: **D**
 
 Answer: D
 
@@ -1684,10 +1916,10 @@ Less precise than mask-based approach: Does not ensure edits are confined to the
 
 Source pages: 59, 60
 
-You have a Microsoft Foundry project that generates product marketing images from text prompts. 
-After publishing several images, the legal team at your company identifies a competitor’s logo on a sign in the 
-background of an image. 
-You need to remove only the logo, while preserving the rest of the image. 
+You have a Microsoft Foundry project that generates product marketing images from text prompts.
+After publishing several images, the legal team at your company identifies a competitor’s logo on a sign in the
+background of an image.
+You need to remove only the logo, while preserving the rest of the image.
 What should you do?
 
 Options:
@@ -1695,6 +1927,9 @@ Options:
 - B. Increase the prompt guidance strength.
 - C. Modify the original prompt to exclude brand names.
 - D. Rerun the prompt by using a different random seed.
+
+Answer Area / Items:
+- Correct option: **A**
 
 Answer: A
 
@@ -1716,13 +1951,24 @@ insights) 2. Inpainting in Computer Vision (General Concept): https://en.wikiped
 
 Source pages: 60, 61
 
-You have a Microsoft Foundry project that contains an agent. The agent must preserve the PDF layout in the extracted output to ensure that downstream processing can
+You have a Microsoft Foundry project that contains an agent.
+The agent ingests scanned PDF vendor invoices that contain tables and embedded QR codes.
+The agent must preserve the PDF layout in the extracted output to ensure that downstream processing can
+reference sections and tables.
+You plan to call Azure Content Understanding in Foundry Tools.
+You need to extract content and layout elements and detect QR codes without requiring a language model
+deployment.
+Which built-in analyzer should you use?
+
+A prebuilt-documentFieldSchema
 
 Options:
-- A. Option A (Visual Block)
-- B. Option B (Visual Block)
-- C. Option C (Visual Block)
-- D. prebuilt-layout The correct option for the given requirement is D
+- B. prebuilt-read
+- C. prebuilt-documentSearch
+- D. prebuilt-layout
+
+Answer Area / Items:
+- Correct option: **D**
 
 Answer: D
 
@@ -1745,10 +1991,10 @@ Docs website)
 
 Source pages: 62
 
-You have a Microsoft Foundry project that contains an agent and an image generation model deployment. 
-The agent generates original images from user-supplied product photos. 
-You need to ensure that the generated images maintain the product identity and visual characteristics of the 
-provided photo. 
+You have a Microsoft Foundry project that contains an agent and an image generation model deployment.
+The agent generates original images from user-supplied product photos.
+You need to ensure that the generated images maintain the product identity and visual characteristics of the
+provided photo.
 What should you do?
 
 Options:
@@ -1756,6 +2002,9 @@ Options:
 - B. Apply a groundedness detection filter.
 - C. Include a prompt and input image in the request.
 - D. Decrease the value of the temperature parameter.
+
+Answer Area / Items:
+- Correct option: **A**
 
 Answer: A
 
@@ -1779,14 +2028,31 @@ similarity to inputs)
 
 Source pages: 63
 
-HOTSPOT - 
-You have a Microsoft Foundry project that contains an agent. 
-The agent accepts user-uploaded screenshots and uses a multimodal chat model. 
-Some screenshots contain potentially malicious embedded text. 
-You need to prevent a prompt injection attack and ensure that third-party content is treated as lower trust. 
-How should you configure prompt shields for document attacks? To answer, select the appropriate options in the 
-answer area. 
+HOTSPOT -
+You have a Microsoft Foundry project that contains an agent.
+The agent accepts user-uploaded screenshots and uses a multimodal chat model.
+Some screenshots contain potentially malicious embedded text.
+You need to prevent a prompt injection attack and ensure that third-party content is treated as lower trust.
+How should you configure prompt shields for document attacks? To answer, select the appropriate options in the
+answer area.
 NOTE: Each correct selection is worth one point.
+Answer Area
+
+Prompt shields action:
+
+Disable the shield.
+Set action to block.
+Set action to annotate.
+
+Additional mitigation:
+
+Enable Spotlighting.
+Create a custom blocklist.
+Use optical character recognition (OCR) to extract the text from the images first.
+
+Answer Area / Items:
+- Prompt Shields action: **Set action to block**
+- Additional mitigation: **Enable Spotlighting**
 
 Answer: Prompt shields action: Set action to block. Additional mitigation: Enable Spotlighting. Prompt shields action (Set action to block.): When dealing with direct user prompt injections or indirect document-based attacks, setting the action to Block is necessary to prevent unsafe, modified instructions from hijacking the large language model (LLM)
 
@@ -1802,16 +2068,19 @@ This prevents indirect cross-prompt injections without relying on rigid blocklis
 
 Source pages: 63, 64
 
-You are deploying a support agent that enables users to upload photos. 
-You need to automatically classify uploaded images for harmful content. The solution must block content based on 
-severity levels. 
+You are deploying a support agent that enables users to upload photos.
+You need to automatically classify uploaded images for harmful content. The solution must block content based on
+severity levels.
 What should you do?
 
 Options:
-- A. Apply keyword scanning to optical character recognition (OCR) output by using Azure Vision in Foundry
+- A. Apply keyword scanning to optical character recognition (OCR) output by using Azure Vision in Foundry Tools.
 - B. Enable prompt shields.
 - C. Use blocklists.
 - D. Implement image moderation.
+
+Answer Area / Items:
+- Correct option: **D**
 
 Answer: D
 
@@ -1834,11 +2103,11 @@ with custom logic for moderation purposes.
 
 Source pages: 64, 65
 
-You have an app named App1 that uses a Microsoft Foundry multimodal model deployment. 
-App1 runs optical character recognition (OCR) on uploaded images and appends the OCR output to the prompt as 
-additional context. 
-Some uploaded images contain embedded text. 
-You need to prevent potentially malicious instructions from being processed by the model. 
+You have an app named App1 that uses a Microsoft Foundry multimodal model deployment.
+App1 runs optical character recognition (OCR) on uploaded images and appends the OCR output to the prompt as
+additional context.
+Some uploaded images contain embedded text.
+You need to prevent potentially malicious instructions from being processed by the model.
 What should you use?
 
 Options:
@@ -1846,6 +2115,9 @@ Options:
 - B. prompt shields for documents
 - C. protected material text
 - D. prompt shields for user prompts
+
+Answer Area / Items:
+- Correct option: **B**
 
 Answer: B
 
@@ -1873,10 +2145,10 @@ sanitization principles that underpin the rationale for using Prompt Shields.)
 
 Source pages: 66, 67
 
-You have a Microsoft Foundry project that contains an agent. 
-You need to process mixed-format documents that contain scanned text, tables, and multicolumn layouts. The 
-extracted content must preserve the document structure and be converted into the Markdown format for 
-downstream reasoning. 
+You have a Microsoft Foundry project that contains an agent.
+You need to process mixed-format documents that contain scanned text, tables, and multicolumn layouts. The
+extracted content must preserve the document structure and be converted into the Markdown format for
+downstream reasoning.
 What should you configure first?
 
 Options:
@@ -1884,6 +2156,9 @@ Options:
 - B. a generative chat completion request
 - C. an Azure OpenAI Responses API call that uses a multimodal model
 - D. an Azure Content Understanding in Foundry Tools analyzer
+
+Answer Area / Items:
+- Correct option: **D**
 
 Answer: D
 
@@ -1903,19 +2178,21 @@ multimodal helps), but accurately extracting and preserving document structure. 
 
 Source pages: 67, 68
 
-You have an application that processes scanned PDF invoices. The invoices have varied layouts and include 
-multipage tables. 
-You have a pipeline that uses optical character recognition (OCR) and extracts totals and invoice numbers. The 
-results are often incorrect because the document structure is ignored. 
-You need to implement a solution that provides OCR, layout analysis, and template-generalizing field extraction. 
-The solution must NOT require training a custom model. The solution must minimize administrative effort. 
+You have an application that processes scanned PDF invoices. The invoices have varied layouts and include
+multipage tables.
+You have a pipeline that uses optical character recognition (OCR) and extracts totals and invoice numbers. The
+results are often incorrect because the document structure is ignored.
+You need to implement a solution that provides OCR, layout analysis, and template-generalizing field extraction.
+The solution must NOT require training a custom model. The solution must minimize administrative effort.
 What should you include in the solution?
 
 Options:
 - A. Azure Language in Foundry Tools
 - B. Azure Content Understanding in Foundry Tools
 - C. an Azure Machine Learning model
-- D. Option D (Visual Block)
+
+Answer Area / Items:
+- Correct option: **B**
 
 Answer: B
 
@@ -1942,15 +2219,15 @@ compare the functionalities of different Azure services for document processing 
 
 Source pages: 68, 69
 
-You have a Microsoft Foundry project that contains an agent. 
-The agent uses a knowledge source built from documents stored in Azure Blob Storage. The documents include 
-digitally scanned PDFs that contain multipage tables. 
-You have an ingestion job that extracts only plain text, causing loss of table structure, headings, and page-number 
-metadata. 
-Users frequently ask questions that require the retrieval of specific table rows across the pages. 
-You need to configure an ingestion job for a Retrieval Augmented Generation (RAG) pipeline that performs optical 
-character recognition (OCR) on scanned PDFs, preserves tables and headings as structure-aware chunks, and 
-stores page-number metadata with each chunk. 
+You have a Microsoft Foundry project that contains an agent.
+The agent uses a knowledge source built from documents stored in Azure Blob Storage. The documents include
+digitally scanned PDFs that contain multipage tables.
+You have an ingestion job that extracts only plain text, causing loss of table structure, headings, and page-number
+metadata.
+Users frequently ask questions that require the retrieval of specific table rows across the pages.
+You need to configure an ingestion job for a Retrieval Augmented Generation (RAG) pipeline that performs optical
+character recognition (OCR) on scanned PDFs, preserves tables and headings as structure-aware chunks, and
+stores page-number metadata with each chunk.
 How should you configure the ingestion job?
 
 Options:
@@ -1958,6 +2235,9 @@ Options:
 - B. Use OCR and page-level chunking.
 - C. Use page-level OCR extraction and store each page as a single chunk.
 - D. Use basic parsing and fixed-size chunking.
+
+Answer Area / Items:
+- Correct option: **A**
 
 Answer: A
 
@@ -1982,13 +2262,13 @@ metadata. References Microsoft Azure - Cognitive Search: Document AI Azure Cogni
 
 Source pages: 69, 70
 
-You have a Microsoft Foundry project that contains an agent. 
-The agent uses Azure AI Search as the retriever. 
-You plan to ingest PDF into an Azure AI Search index to ensure that the agent can ground responses in texts in 
-both documents and embedded images. 
-Users require citations that link to the source files. 
-You need to ensure that during indexing, the images are extracted into a structure that can be used as input for 
-the built-in optical character recognition (OCR) skill. 
+You have a Microsoft Foundry project that contains an agent.
+The agent uses Azure AI Search as the retriever.
+You plan to ingest PDF into an Azure AI Search index to ensure that the agent can ground responses in texts in
+both documents and embedded images.
+Users require citations that link to the source files.
+You need to ensure that during indexing, the images are extracted into a structure that can be used as input for
+the built-in optical character recognition (OCR) skill.
 Which indexing approach should you use?
 
 Options:
@@ -1996,6 +2276,9 @@ Options:
 - B. a Shaper skill to restructure the OCR input
 - C. a skillset to run the OCR skill directly against the content field of the index
 - D. the outputFieldMappings parameter to write image data to a searchable field
+
+Answer Area / Items:
+- Correct option: **A**
 
 Answer: A
 
@@ -2018,116 +2301,33 @@ Microsoft Azure Documentation: Skillsets in Azure Cognitive Search
 
 Source pages: 70, 71, 72, 73
 
-Case Study - This is a case study. Case studies are not timed separately from other exam sections. You can use as much exam 
-time as you would like to complete each case study. However, there might be additional case studies or other 
-exam sections. Manage your time to ensure that you can complete all the exam sections in the time provided. Pay 
-attention to the Exam Progress at the top of the screen so you have sufficient time to complete any exam sections To answer the case study questions, you will bed to reference information that is provided in the case. Case studies 
-and associated questions might contain exhibits or other resources that provide more information about the 
-scenario described in the case. Information provided in an individual question does not apply to the other questions in the case study. 
-A Review Screen will appear at the end of this case study. From the Review Screen, you can review and change 
-your answers before you move to the next exam section. After you leave this case study, you will NOT be able to 
-return to it. 
-To start the case study - 
-To display the first question in this case study, select the “Next” button. To the left of the question, a menu 
-provides links to information such as business requirements, the existing environment, and problem statements. 
-Please read through all this information before answering any questions. When you are ready to answer a question, 
-select the “Question” button to return to the question. 
-Overview - 
-Company Information - 
-Contoso, Ltd is a multinational retail company that builds, deploys, and manages generative AI and agent-based 
-solutions by using Microsoft Foundry. 
-Existing Environment - 
-Identity Environment - 
-Contoso uses Microsoft Entra ID for identity management, authentication, and authorization capabilities that 
-enable agents to access organizational resources and services. 
-Contoso recently formed a new AI engineering team named Agent1Dev Team to optimize and maintain existing AI 
-solutions. 
-The team collaborates with solution architects, DevOps engineers, and security engineers to design, implement. 
-monitor, and secure AI applications. 
-Contoso also has a team named Agent1Test Team that is responsible for validating AI solutions before the solution 
-deployments. 
-Generative Environment - 
-Contoso has a Microsoft Foundry deployment that contains two projects named Project1 and Project2. 
-Project1 - 
-Project1 contains a customer support agent named Agent1 that assists customers with product inquiries and 
-troubleshooting requests. 
-Agent1 has the following configurations: 
-Agent1 uses a base model deployment. 
-A safety evaluation pipeline is NOT enabled. 
-Tool invocation approval workflows are NOT enabled. 
-Conversation memory constraints are NOT configured. 
-Agent1 interacts with customers by using digital support channels and answers general questions about Contoso 
-products. 
-Project1 is deployed to an Azure region located in the European Union (EU). 
-Agent1Dev Team will use Project1 to optimize and maintain Agent1. 
-Project2 - 
-Project2 contains a deployed video generation model. The marketing department at Contoso has access to 
-Project2 and plans to use the model to develop a video creation solution. 
-Development of the solution is incomplete. 
-Data Environment - 
-Contoso stores product-related information in Azure resources that support AI applications. 
-The Azure environment contains an Azure Blob Storage account named storage1 that stores product detail sheets 
-for all the Contoso products. 
-The product sheets include specifications, feature descriptions, and product support information that Agent1 can 
-use to answer customer questions. The product sheets are stored in the PDF format. 
-Problem Statements - 
-Contoso identifies the following issues: 
-Agent1 has only general knowledge of the Contoso products. 
-A recent chat interaction with Agent1 was analyzed for sentiment. The results of the analysis have NOT been 
-processed yet. 
-Agent1 does NOT use the detailed product information in the product sheets stored in storage1 when responding 
-to customer questions. 
-The finance department at Contoso reports that vendor invoices must be reviewed manually to ensure that the 
-invoices match the terms defined in the vendor contracts. The invoices contain tables, logos, and varied layouts 
-that make the documents difficult to process consistently. 
-Requirements - 
-Planned Changes - 
-Contoso plans to implement the following changes: 
-Implement a solution for Project1 that analyzes the vendor invoices by evaluating both the visual layout and the 
-textual content of the invoices, so that the invoice details can be verified against the vendor contract terms. 
-Update the base model deployment used by Agent1 and standardize the model version to ensure continuity and 
-consistent responses. 
-Enable Agent1 to retrieve and use the detailed product information from the product sheets stored in storage1. 
-Implement an indexing solution for the product sheets that Agent1 can use to answer customer questions. Complete the development of the video creation solution. 
-Technical Requirements - 
-Contoso identifies the following technical requirements: 
-The model deployment used by Agent1 must support scalable, high-throughput generative AI workloads and 
-dynamically scale to handle variable customer support traffic, without requiring reserved throughput capacity. 
-The product sheets must be processed by using an indexing pipeline that enables semantic and vector search, so 
-that Agent1 can retrieve the relevant product information. 
-Responses generated by using the product sheet information must be relevant, complete, and accurate. 
-Agent1 must be able to use the product sheets to answer natural language questions about product details. 
-The model version used by Agent1 must remain consistent to ensure stable responses. 
-The data processed by the model must remain within the EU. 
-Security and Compliance Requirements 
-Contoso identifies the following security and compliance requirements: 
-API keys must NOT be used to access Foundry-deployed models. 
-Access to the Azure resources must follow the principle of least privilege. 
-The developers at Contoso must authenticate to Microsoft Foundry resources by using Microsoft Entra 
-authentication. 
-Access to Project1 must be assigned to the members of Agent1Dev Team by using a security group named 
-SC_Agent1_Dev. 
-Access to Project1 must be assigned to the members of Agent1Test Team by using a security group named 
-SC_Agent1_Test. 
-Agent1 must never reveal customer information, even if a document that contains customer data is added 
-erroneously to the product sheet repository in storage1. 
-The product sheets might contain images that include embedded text. Agent1 must be protected from malicious 
-instructions potentially hidden within the images. 
-Business Requirements - 
-Contoso identifies the following business requirements: 
-Users that interact with Agent1 must have a personalized experience in future interactions, including the ability for 
-Agent1 to retain conversation context and recall relevant information from previous interactions. 
-Agent1 must answer questions only about the products sold by Contoso. 
-You need to recommend an invoice review solution that resolves the issue reported by the finance department. 
-What should you include in the recommendation?
+Case Study -
+This is a case study. Case studies are not timed separately from other exam sections. You can use as much exam
+time as you would like to complete each case study. However, there might be additional case studies or other
+exam sections. Manage your time to ensure that you can complete all the exam sections in the time provided. Pay
+attention to the Exam Progress at the top of the screen so you have sufficient time to complete any exam sections that following this case study. 
+To answer the case study questions, you will need to reference information that is provided in the case. Case studies
+and associated questions might contain exhibits or other resources that provide more information about the
+scenario described in the case. Information provided in an individual question does not apply to the other questions
+Technical Justification for Correct
+The correct indexing approach to ensure images are extracted into a structure suitable for the built-in Optical
+Character Recognition (OCR) skill, while also supporting user requirements for citations linking to source files,
+is:
 
 Options:
+- A. an indexer to extract image data into a normalized_images collection Why A is the Best Choice: Direct Extraction and Structuring: Using an indexer to extract image data into a normalized_images collection directly structures the image data in a way that is readily consumable by the OCR skill, streamlining the process. Support for Citations: By keeping the image data linked to its source (through the structured collection), it facilitates the creation of citations that can point back to the original PDF files, meeting the user's requirement. Efficiency and Scalability: Indexers are designed for such data ingestion and transformation tasks, making this approach efficient and scalable for handling multiple PDFs and their embedded images. Why Other Options are Less Suitable:
+- B. a Shaper skill to restructure the OCR input: Inappropriate Timing: Shaper skills are used for reshaping data after processing (e.g., post-OCR), not for preprocessing image extraction. Inefficient for Image Extraction: Not designed for the initial extraction of images from documents.
+- C. a skillset to run the OCR skill directly against the content field of the index: Lack of Image Extraction: Running OCR directly against the content field does not address the extraction of images from PDFs into a usable structure. Missed Structuring Opportunity: Fails to preprocess images into an optimal structure for OCR, potentially leading to less accurate results.
+- D. the outputFieldMappings parameter to write image data to a searchable field: Insufficient Structuring for OCR: While useful for making data searchable, it does not ensure the image data is structured appropriately for effective OCR processing. Citations and Source Linking: Less directly supports the maintenance of clear links to source files for citations compared to a dedicated collection approach. References Microsoft Azure Documentation: Azure Cognitive Search Indexers Microsoft Azure Documentation: Skillsets in Azure Cognitive Search in the case study. A Review Screen will appear at the end of this case study. From the Review Screen, you can review and change your answers before you move to the next exam section. After you leave this case study, you will NOT be able to return to it. To start the case study - To display the first question in this case study, select the “Next” button. To the left of the question, a menu provides links to information such as business requirements, the existing environment, and problem statements. Please read through all this information before answering any questions. When you are ready to answer a question, select the “Question” button to return to the question. Overview - Company Information - Contoso, Ltd is a multinational retail company that builds, deploys, and manages generative AI and agent-based solutions by using Microsoft Foundry. Existing Environment - Identity Environment - Contoso uses Microsoft Entra ID for identity management, authentication, and authorization capabilities that enable agents to access organizational resources and services. Contoso recently formed a new AI engineering team named Agent1Dev Team to optimize and maintain existing AI solutions. The team collaborates with solution architects, DevOps engineers, and security engineers to design, implement. monitor, and secure AI applications. Contoso also has a team named Agent1Test Team that is responsible for validating AI solutions before the solution deployments. Generative Environment - Contoso has a Microsoft Foundry deployment that contains two projects named Project1 and Project2. Project1 - Project1 contains a customer support agent named Agent1 that assists customers with product inquiries and troubleshooting requests. Agent1 has the following configurations: Agent1 uses a base model deployment. A safety evaluation pipeline is NOT enabled. Tool invocation approval workflows are NOT enabled. Conversation memory constraints are NOT configured. Agent1 interacts with customers by using digital support channels and answers general questions about Contoso products. Project1 is deployed to an Azure region located in the European Union (EU). Agent1Dev Team will use Project1 to optimize and maintain Agent1. Project2 - Project2 contains a deployed video generation model. The marketing department at Contoso has access to Project2 and plans to use the model to develop a video creation solution. Development of the solution is incomplete. Data Environment - Contoso stores product-related information in Azure resources that support AI applications. The Azure environment contains an Azure Blob Storage account named storage1 that stores product detail sheets for all the Contoso products. The product sheets include specifications, feature descriptions, and product support information that Agent1 can use to answer customer questions. The product sheets are stored in the PDF format. Problem Statements - Contoso identifies the following issues: Agent1 has only general knowledge of the Contoso products. A recent chat interaction with Agent1 was analyzed for sentiment. The results of the analysis have NOT been processed yet. Agent1 does NOT use the detailed product information in the product sheets stored in storage1 when responding to customer questions. The finance department at Contoso reports that vendor invoices must be reviewed manually to ensure that the invoices match the terms defined in the vendor contracts. The invoices contain tables, logos, and varied layouts that make the documents difficult to process consistently. Requirements - Planned Changes - Contoso plans to implement the following changes: Implement a solution for Project1 that analyzes the vendor invoices by evaluating both the visual layout and the textual content of the invoices, so that the invoice details can be verified against the vendor contract terms. Update the base model deployment used by Agent1 and standardize the model version to ensure continuity and consistent responses. Enable Agent1 to retrieve and use the detailed product information from the product sheets stored in storage1. Implement an indexing solution for the product sheets that Agent1 can use to answer customer questions. Complete the development of the video creation solution. Technical Requirements - Contoso identifies the following technical requirements: The model deployment used by Agent1 must support scalable, high-throughput generative AI workloads and dynamically scale to handle variable customer support traffic, without requiring reserved throughput capacity. The product sheets must be processed by using an indexing pipeline that enables semantic and vector search, so that Agent1 can retrieve the relevant product information. Responses generated by using the product sheet information must be relevant, complete, and accurate. Agent1 must be able to use the product sheets to answer natural language questions about product details. The model version used by Agent1 must remain consistent to ensure stable responses. The data processed by the model must remain within the EU. Security and Compliance Requirements Contoso identifies the following security and compliance requirements: API keys must NOT be used to access Foundry-deployed models. Access to the Azure resources must follow the principle of least privilege. The developers at Contoso must authenticate to Microsoft Foundry resources by using Microsoft Entra authentication. Access to Project1 must be assigned to the members of Agent1Dev Team by using a security group named SC_Agent1_Dev. Access to Project1 must be assigned to the members of Agent1Test Team by using a security group named SC_Agent1_Test. Agent1 must never reveal customer information, even if a document that contains customer data is added erroneously to the product sheet repository in storage1. The product sheets might contain images that include embedded text. Agent1 must be protected from malicious instructions potentially hidden within the images. Business Requirements - Contoso identifies the following business requirements: Users that interact with Agent1 must have a personalized experience in future interactions, including the ability for Agent1 to retain conversation context and recall relevant information from previous interactions. Agent1 must answer questions only about the products sold by Contoso. You need to recommend an invoice review solution that resolves the issue reported by the finance department. What should you include in the recommendation?
 - A. chat completions
 - B. Azure Document Intelligence in Foundry Tools
 - C. Azure Content Understanding in Foundry Tools
 - D. Image Analysis
 
-Answer: C
+Answer Area / Items:
+- Correct option: **C**
+
+Answer: A
 
 Explanation:
 Technical Justification for Invoice Review Solution Recommendation Correct Option: C. Azure Content Understanding in Foundry Tools Azure Content Understanding in Foundry Tools is the most suitable choice for the invoice review solution due 
@@ -2147,23 +2347,25 @@ terms without additional, unnecessary integration complexity. References: For fu
 
 Source pages: 73, 74
 
-You have a Microsoft Foundry project that contains an agent. 
-The knowledge source for the agent is a set of scanned PDF troubleshooting guides stored in Azure Blob Storage. 
-The guide pages contain two-column layouts and tables. 
-You use Azure Content Understanding in Foundry Tools to process the PDFs. 
-You plan to ingest the processed content into an index for Retrieval Augmented Generation (RAG) and store 
-extracted fields for downstream automation. 
-Stakeholders must be able to verify where each extracted field value came from in the original PDF and route low-
-reliability extractions for manual review. 
-You need to ensure that the Content Understanding document analyzer output includes a per-field confidence 
-score and source grounding to locations within the source document. 
+You have a Microsoft Foundry project that contains an agent.
+The knowledge source for the agent is a set of scanned PDF troubleshooting guides stored in Azure Blob Storage.
+The guide pages contain two-column layouts and tables.
+You use Azure Content Understanding in Foundry Tools to process the PDFs.
+You plan to ingest the processed content into an index for Retrieval Augmented Generation (RAG) and store
+extracted fields for downstream automation.
+Stakeholders must be able to verify where each extracted field value came from in the original PDF and route lowreliability extractions for manual review.
+You need to ensure that the Content Understanding document analyzer output includes a per-field confidence
+score and source grounding to locations within the source document.
 What should you do?
 
 Options:
 - A. Set enableSegment to true.
 - B. Provide labeled samples.
 - C. Enable estimateFieldSourceAndConfidence.
-- D. Configure the analyzer to use generative extraction for all fields.
+- D. Configure the analyzer to use generative extraction for all fields
+
+Answer Area / Items:
+- Correct option: **C**
 
 Answer: C
 
@@ -2193,8 +2395,12 @@ related to field extraction and confidence scores for more detailed insights)
 
 Source pages: 74, 75
 
-detect issues while the calls are in progress. The call audio will arrive as a continuous stream from the telephony system. 
-You need to ensure that the call transcripts appear within only a few seconds of the audio stream. 
+You are building a speech processing solution in Microsoft Foundry for a customer support platform.
+The platform will transcribe live phone calls, so that supervisors at your company can view call transcripts and
+detect issues while the calls are in progress. The call audio will arrive as a continuous stream from the telephony
+
+system.
+You need to ensure that the call transcripts appear within only a few seconds of the audio stream.
 What should you do?
 
 Options:
@@ -2202,6 +2408,9 @@ Options:
 - B. Use speech translation to generate the transcripts into multiple languages.
 - C. Run a batch transcription job on recorded audio files.
 - D. Use real-time speech to text to process streaming audio input.
+
+Answer Area / Items:
+- Correct option: **D**
 
 Answer: D
 
@@ -2228,13 +2437,13 @@ the call has ended, violating the low latency requirement.
 
 Source pages: 75, 76, 77
 
-You are creating an agent workflow in a Microsoft Foundry project to support natural voice interactions. 
-The agent must receive continuous audio input, convert the input into text for reasoning, and then return spoken 
-responses to a user. The workflow must meet the following requirements: 
-Support turn-taking dynamics, where the agent begins to generate the speech output before the user finishes 
-speaking. 
-Operate with low latency to maintain conversational experience. 
-You need to enable both speech to text and text to speech in a real-time agent interaction. 
+You are creating an agent workflow in a Microsoft Foundry project to support natural voice interactions.
+The agent must receive continuous audio input, convert the input into text for reasoning, and then return spoken
+responses to a user. The workflow must meet the following requirements:
+Support turn-taking dynamics, where the agent begins to generate the speech output before the user finishes
+speaking.
+Operate with low latency to maintain conversational experience.
+You need to enable both speech to text and text to speech in a real-time agent interaction.
 What should you do?
 
 Options:
@@ -2242,6 +2451,9 @@ Options:
 - B. Use real-time speech to text for incoming audio and text to speech for agent responses.
 - C. Use an embeddings model to encode the audio, and then decode the audio into text and speech.
 - D. Use speech translation to convert the audio into another language and return the translated text.
+
+Answer Area / Items:
+- Correct option: **B**
 
 Answer: B
 
@@ -2270,12 +2482,12 @@ choice for enabling both functionalities in a real-time agent interaction. Refer
 
 Source pages: 77, 78
 
-You have an application named App1 that uses Azure Speech in Foundry Tools to transcribe live calls. 
-Transcript segments often contain both English and Spanish. App1 sends each segment to Azure Translator in 
-Foundry Tools to translate to another language. 
-Sometimes, mixed-language segments result in incomplete or incorrect translations. 
-You need to reduce translation errors. The solution must ensure that the entire transcript is translated 
-successfully. 
+You have an application named App1 that uses Azure Speech in Foundry Tools to transcribe live calls.
+Transcript segments often contain both English and Spanish. App1 sends each segment to Azure Translator in
+Foundry Tools to translate to another language.
+Sometimes, mixed-language segments result in incomplete or incorrect translations.
+You need to reduce translation errors. The solution must ensure that the entire transcript is translated
+successfully.
 What should you do before sending the segments to Translator?
 
 Options:
@@ -2283,6 +2495,9 @@ Options:
 - B. Split the mixed-language segments into single-language segments and translate each segment separately.
 - C. Enable automatic language detection for the translation request.
 - D. Specify English as the source language in the translation request for all the segments.
+
+Answer Area / Items:
+- Correct option: **B**
 
 Answer: B
 
@@ -2309,112 +2524,113 @@ inputs can be inferred for text translation scenarios.)
 
 Source pages: 78, 79, 80, 81
 
-Case Study - 
-This is a case study. Case studies are not timed separately from other exam sections. You can use as much exam 
-time as you would like to complete each case study. However, there might be additional case studies or other 
-exam sections. Manage your time to ensure that you can complete all the exam sections in the time provided. Pay 
-attention to the Exam Progress at the top of the screen so you have sufficient time to complete any exam sections 
-that follow this case study. 
-To answer the case study questions, you will bed to reference information that is provided in the case. Case studies 
-and associated questions might contain exhibits or other resources that provide more information about the 
-scenario described in the case. Information provided in an individual question does not apply to the other questions 
-in the case study. 
-A Review Screen will appear at the end of this case study. From the Review Screen, you can review and change 
-your answers before you move to the next exam section. After you leave this case study, you will NOT be able to 
-return to it. 
-To start the case study - 
-To display the first question in this case study, select the “Next” button. To the left of the question, a menu 
-provides links to information such as business requirements, the existing environment, and problem statements. 
-Please read through all this information before answering any questions. When you are ready to answer a question, 
-select the “Question” button to return to the question. 
-Overview - 
-Company Information - 
-Contoso, Ltd is a multinational retail company that builds, deploys, and manages generative AI and agent-based 
-solutions by using Microsoft Foundry. 
-Existing Environment - 
-Identity Environment - 
-Contoso uses Microsoft Entra ID for identity management, authentication, and authorization capabilities that 
-enable agents to access organizational resources and services. 
-Contoso recently formed a new AI engineering team named Agent1Dev Team to optimize and maintain existing AI 
-solutions. The team collaborates with solution architects, DevOps engineers, and security engineers to design, implement. 
-monitor, and secure AI applications. 
-Contoso also has a team named Agent1Test Team that is responsible for validating AI solutions before the solution 
-deployments. 
-Generative Environment - 
-Contoso has a Microsoft Foundry deployment that contains two projects named Project1 and Project2. 
-Project1 - 
-Project1 contains a customer support agent named Agent1 that assists customers with product inquiries and 
-troubleshooting requests. 
-Agent1 has the following configurations: 
-Agent1 uses a base model deployment. 
-A safety evaluation pipeline is NOT enabled. 
-Tool invocation approval workflows are NOT enabled. 
-Conversation memory constraints are NOT configured. 
-Agent1 interacts with customers by using digital support channels and answers general questions about Contoso 
-products. 
-Project1 is deployed to an Azure region located in the European Union (EU). 
-Agent1Dev Team will use Project1 to optimize and maintain Agent1. 
-Project2 - 
-Project2 contains a deployed video generation model. The marketing department at Contoso has access to 
-Project2 and plans to use the model to develop a video creation solution. 
-Development of the solution is incomplete. 
-Data Environment - 
-Contoso stores product-related information in Azure resources that support AI applications. 
-The Azure environment contains an Azure Blob Storage account named storage1 that stores product detail sheets 
-for all the Contoso products. 
-The product sheets include specifications, feature descriptions, and product support information that Agent1 can 
-use to answer customer questions. The product sheets are stored in the PDF format. 
-Problem Statements - 
-Contoso identifies the following issues: 
-Agent1 has only general knowledge of the Contoso products. 
-A recent chat interaction with Agent1 was analyzed for sentiment. The results of the analysis have NOT been 
-processed yet. 
-Agent1 does NOT use the detailed product information in the product sheets stored in storage1 when responding 
-to customer questions. 
-The finance department at Contoso reports that vendor invoices must be reviewed manually to ensure that the 
-invoices match the terms defined in the vendor contracts. The invoices contain tables, logos, and varied layouts 
-that make the documents difficult to process consistently. 
-Requirements - 
-Planned Changes - 
-Contoso plans to implement the following changes: 
-Implement a solution for Project1 that analyzes the vendor invoices by evaluating both the visual layout and the 
-textual content of the invoices, so that the invoice details can be verified against the vendor contract terms. 
-Update the base model deployment used by Agent1 and standardize the model version to ensure continuity and 
-consistent responses. 
-Enable Agent1 to retrieve and use the detailed product information from the product sheets stored in storage1. 
-Implement an indexing solution for the product sheets that Agent1 can use to answer customer questions. 
-Complete the development of the video creation solution. 
-Technical Requirements - 
-Contoso identifies the following technical requirements: 
-The model deployment used by Agent1 must support scalable, high-throughput generative AI workloads and 
-dynamically scale to handle variable customer support traffic, without requiring reserved throughput capacity. 
-The product sheets must be processed by using an indexing pipeline that enables semantic and vector search, so 
-that Agent1 can retrieve the relevant product information. 
-Responses generated by using the product sheet information must be relevant, complete, and accurate. 
-Agent1 must be able to use the product sheets to answer natural language questions about product details. 
-The model version used by Agent1 must remain consistent to ensure stable responses. 
-The data processed by the model must remain within the EU. 
-Security and Compliance Requirements 
-Contoso identifies the following security and compliance requirements: 
-API keys must NOT be used to access Foundry-deployed models. 
-Access to the Azure resources must follow the principle of least privilege. 
-The developers at Contoso must authenticate to Microsoft Foundry resources by using Microsoft Entra 
-authentication. 
-Access to Project1 must be assigned to the members of Agent1Dev Team by using a security group named 
-SC_Agent1_Dev. Access to Project1 must be assigned to the members of Agent1Test Team by using a security group named 
-SC_Agent1_Test. 
-Agent1 must never reveal customer information, even if a document that contains customer data is added 
-erroneously to the product sheet repository in storage1. 
-The product sheets might contain images that include embedded text. Agent1 must be protected from malicious 
-instructions potentially hidden within the images. 
-Business Requirements - 
-Contoso identifies the following business requirements: 
-Users that interact with Agent1 must have a personalized experience in future interactions, including the ability for 
-Agent1 to retain conversation context and recall relevant information from previous interactions. 
-Agent1 must answer questions only about the products sold by Contoso. 
-You need to configure an indexing pipeline for Agent1 to retrieve the relevant product information in storage1. The 
-solution must meet the technical requirement. 
-Which two built-in skills should you use? Each correct answer presents part of the solution. 
+Case Study -
+This is a case study. Case studies are not timed separately from other exam sections. You can use as much exam
+time as you would like to complete each case study. However, there might be additional case studies or other
+exam sections. Manage your time to ensure that you can complete all the exam sections in the time provided. Pay
+attention to the Exam Progress at the top of the screen so you have sufficient time to complete any exam sections
+that follow this case study.
+To answer the case study questions, you will need to reference information that is provided in the case. Case studies
+and associated questions might contain exhibits or other resources that provide more information about the
+scenario described in the case. Information provided in an individual question does not apply to the other questions
+in the case study.
+A Review Screen will appear at the end of this case study. From the Review Screen, you can review and change
+your answers before you move to the next exam section. After you leave this case study, you will NOT be able to
+return to it.
+To start the case study -
+To display the first question in this case study, select the “Next” button. To the left of the question, a menu
+provides links to information such as business requirements, the existing environment, and problem statements.
+Please read through all this information before answering any questions. When you are ready to answer a question,
+select the “Question” button to return to the question.
+Overview -
+Company Information -
+Contoso, Ltd is a multinational retail company that builds, deploys, and manages generative AI and agent-based
+solutions by using Microsoft Foundry.
+Existing Environment -
+Identity Environment -
+Contoso uses Microsoft Entra ID for identity management, authentication, and authorization capabilities that
+enable agents to access organizational resources and services.
+Contoso recently formed a new AI engineering team named Agent1Dev Team to optimize and maintain existing AI
+solutions.
+The team collaboratThe team collaborates with solution architects, DevOps engineers, and security engineers to design, implement.
+monitor, and secure AI applications.
+Contoso also has a team named Agent1Test Team that is responsible for validating AI solutions before the solution
+deployments.
+Generative Environment -
+Contoso has a Microsoft Foundry deployment that contains two projects named Project1 and Project2.
+Project1 -
+Project1 contains a customer support agent named Agent1 that assists customers with product inquiries and
+troubleshooting requests.
+Agent1 has the following configurations:
+Agent1 uses a base model deployment.
+A safety evaluation pipeline is NOT enabled.
+Tool invocation approval workflows are NOT enabled.
+Conversation memory constraints are NOT configured.
+Agent1 interacts with customers by using digital support channels and answers general questions about Contoso
+products.
+Project1 is deployed to an Azure region located in the European Union (EU).
+Agent1Dev Team will use Project1 to optimize and maintain Agent1.
+Project2 -
+Project2 contains a deployed video generation model. The marketing department at Contoso has access to
+Project2 and plans to use the model to develop a video creation solution.
+Development of the solution is incomplete.
+Data Environment -
+Contoso stores product-related information in Azure resources that support AI applications.
+The Azure environment contains an Azure Blob Storage account named storage1 that stores product detail sheets
+for all the Contoso products.
+The product sheets include specifications, feature descriptions, and product support information that Agent1 can
+use to answer customer questions. The product sheets are stored in the PDF format.
+Problem Statements -
+Contoso identifies the following issues:
+Agent1 has only general knowledge of the Contoso products.
+A recent chat interaction with Agent1 was analyzed for sentiment. The results of the analysis have NOT been
+processed yet.
+Agent1 does NOT use the detailed product information in the product sheets stored in storage1 when responding
+to customer questions.
+The finance department at Contoso reports that vendor invoices must be reviewed manually to ensure that the
+invoices match the terms defined in the vendor contracts. The invoices contain tables, logos, and varied layouts
+that make the documents difficult to process consistently.
+Requirements -
+Planned Changes -
+Contoso plans to implement the following changes:
+Implement a solution for Project1 that analyzes the vendor invoices by evaluating both the visual layout and the
+textual content of the invoices, so that the invoice details can be verified against the vendor contract terms.
+Update the base model deployment used by Agent1 and standardize the model version to ensure continuity and
+consistent responses.
+Enable Agent1 to retrieve and use the detailed product information from the product sheets stored in storage1.
+Implement an indexing solution for the product sheets that Agent1 can use to answer customer questions.
+Complete the development of the video creation solution.
+Technical Requirements -
+Contoso identifies the following technical requirements:
+The model deployment used by Agent1 must support scalable, high-throughput generative AI workloads and
+dynamically scale to handle variable customer support traffic, without requiring reserved throughput capacity.
+The product sheets must be processed by using an indexing pipeline that enables semantic and vector search, so
+that Agent1 can retrieve the relevant product information.
+Responses generated by using the product sheet information must be relevant, complete, and accurate.
+Agent1 must be able to use the product sheets to answer natural language questions about product details.
+The model version used by Agent1 must remain consistent to ensure stable responses.
+The data processed by the model must remain within the EU.
+Security and Compliance Requirements
+Contoso identifies the following security and compliance requirements:
+API keys must NOT be used to access Foundry-deployed models.
+Access to the Azure resources must follow the principle of least privilege.
+The developers at Contoso must authenticate to Microsoft Foundry resources by using Microsoft Entra
+authentication.
+Access to Project1 must be assigned to the members of Agent1Dev Team by using a security group named
+SC_Agent1_Dev Access to Project1 must be assigned to the members of Agent1Test Team by using a security group named
+SC_Agent1_Test.
+Agent1 must never reveal customer information, even if a document that contains customer data is added
+erroneously to the product sheet repository in storage1.
+The product sheets might contain images that include embedded text. Agent1 must be protected from malicious
+instructions potentially hidden within the images.
+Business Requirements -
+Contoso identifies the following business requirements:
+Users that interact with Agent1 must have a personalized experience in future interactions, including the ability for
+Agent1 to retain conversation context and recall relevant information from previous interactions.
+Agent1 must answer questions only about the products sold by Contoso.
+You need to configure an indexing pipeline for Agent1 to retrieve the relevant product information in storage1. The
+solution must meet the technical requirement.
+Which two built-in skills should you use? Each correct answer presents part of the solution.
 NOTE: Each correct selection is worth one point.
 
 Options:
@@ -2424,6 +2640,9 @@ Options:
 - D. Merge
 - E. Language Detection
 - F. key phrase extraction
+
+Answer Area / Items:
+- Correct options: **A, C**
 
 Answer: AC
 
@@ -2450,111 +2669,113 @@ language questions. References 1. Azure OpenAI Embedding Documentation: https://
 
 Source pages: 81, 82, 83, 84
 
-Case Study - 
-This is a case study. Case studies are not timed separately from other exam sections. You can use as much exam 
-time as you would like to complete each case study. However, there might be additional case studies or other 
-exam sections. Manage your time to ensure that you can complete all the exam sections in the time provided. Pay 
-attention to the Exam Progress at the top of the screen so you have sufficient time to complete any exam sections 
-that follow this case study. 
-To answer the case study questions, you will bed to reference information that is provided in the case. Case studies 
-and associated questions might contain exhibits or other resources that provide more information about the 
-scenario described in the case. Information provided in an individual question does not apply to the other questions 
-in the case study. 
-A Review Screen will appear at the end of this case study. From the Review Screen, you can review and change 
-your answers before you move to the next exam section. After you leave this case study, you will NOT be able to 
-return to it. 
-To start the case study - 
-To display the first question in this case study, select the “Next” button. To the left of the question, a menu 
-provides links to information such as business requirements, the existing environment, and problem statements. 
-Please read through all this information before answering any questions. When you are ready to answer a question, 
-select the “Question” button to return to the question. 
-Overview - 
-Company Information - 
-Contoso, Ltd is a multinational retail company that builds, deploys, and manages generative AI and agent-based 
-solutions by using Microsoft Foundry. 
-Existing Environment - 
-Identity Environment - 
-Contoso uses Microsoft Entra ID for identity management, authentication, and authorization capabilities that 
-enable agents to access organizational resources and services. 
-Contoso recently formed a new AI engineering team named Agent1Dev Team to optimize and maintain existing AI 
-solutions. 
-The team collaborates with solution architects, DevOps engineers, and security engineers to design, implement. 
-monitor, and secure AI applications. 
-Contoso also has a team named Agent1Test Team that is responsible for validating AI solutions before the solution 
-deployments. 
-Generative Environment - 
-Contoso has a Microsoft Foundry deployment that contains two projects named Project1 and Project2. 
-Project1 - 
-Project1 contains a customer support agent named Agent1 that assists customers with product inquiries and troubleshooting requests. 
-Agent1 has the following configurations: 
-Agent1 uses a base model deployment. 
-A safety evaluation pipeline is NOT enabled. 
-Tool invocation approval workflows are NOT enabled. 
-Conversation memory constraints are NOT configured. 
-Agent1 interacts with customers by using digital support channels and answers general questions about Contoso 
-products. 
-Project1 is deployed to an Azure region located in the European Union (EU). 
-Agent1Dev Team will use Project1 to optimize and maintain Agent1. 
-Project2 - 
-Project2 contains a deployed video generation model. The marketing department at Contoso has access to 
-Project2 and plans to use the model to develop a video creation solution. 
-Development of the solution is incomplete. 
-Data Environment - 
-Contoso stores product-related information in Azure resources that support AI applications. 
-The Azure environment contains an Azure Blob Storage account named storage1 that stores product detail sheets 
-for all the Contoso products. 
-The product sheets include specifications, feature descriptions, and product support information that Agent1 can 
-use to answer customer questions. The product sheets are stored in the PDF format. 
-Problem Statements - 
-Contoso identifies the following issues: 
-Agent1 has only general knowledge of the Contoso products. 
-A recent chat interaction with Agent1 was analyzed for sentiment. The results of the analysis have NOT been 
-processed yet. 
-Agent1 does NOT use the detailed product information in the product sheets stored in storage1 when responding 
-to customer questions. 
-The finance department at Contoso reports that vendor invoices must be reviewed manually to ensure that the 
-invoices match the terms defined in the vendor contracts. The invoices contain tables, logos, and varied layouts 
-that make the documents difficult to process consistently. 
-Requirements - 
-Planned Changes - 
-Contoso plans to implement the following changes: 
-Implement a solution for Project1 that analyzes the vendor invoices by evaluating both the visual layout and the 
-textual content of the invoices, so that the invoice details can be verified against the vendor contract terms. 
-Update the base model deployment used by Agent1 and standardize the model version to ensure continuity and 
-consistent responses. 
-Enable Agent1 to retrieve and use the detailed product information from the product sheets stored in storage1. 
-Implement an indexing solution for the product sheets that Agent1 can use to answer customer questions. 
-Complete the development of the video creation solution. 
-Technical Requirements - 
-Contoso identifies the following technical requirements: 
-The model deployment used by Agent1 must support scalable, high-throughput generative AI workloads and 
-dynamically scale to handle variable customer support traffic, without requiring reserved throughput capacity. 
-The product sheets must be processed by using an indexing pipeline that enables semantic and vector search, so 
-that Agent1 can retrieve the relevant product information. 
-Responses generated by using the product sheet information must be relevant, complete, and accurate. 
-Agent1 must be able to use the product sheets to answer natural language questions about product details. 
-The model version used by Agent1 must remain consistent to ensure stable responses. 
-The data processed by the model must remain within the EU. 
-Security and Compliance Requirements 
-Contoso identifies the following security and compliance requirements: 
-API keys must NOT be used to access Foundry-deployed models. 
-Access to the Azure resources must follow the principle of least privilege. 
-The developers at Contoso must authenticate to Microsoft Foundry resources by using Microsoft Entra 
-authentication. 
-Access to Project1 must be assigned to the members of Agent1Dev Team by using a security group named 
-SC_Agent1_Dev. 
-Access to Project1 must be assigned to the members of Agent1Test Team by using a security group named 
-SC_Agent1_Test. 
-Agent1 must never reveal customer information, even if a document that contains customer data is added 
-erroneously to the product sheet repository in storage1. 
-The product sheets might contain images that include embedded text. Agent1 must be protected from malicious 
-instructions potentially hidden within the images. 
-Business Requirements - 
-Contoso identifies the following business requirements: Users that interact with Agent1 must have a personalized experience in future interactions, including the ability for 
-Agent1 to retain conversation context and recall relevant information from previous interactions. 
-Agent1 must answer questions only about the products sold by Contoso. 
-You need to recommend a solution to support the planned changes and technical requirements for Agent1 to use 
-the product information stored in storage1. 
+Case Study -
+This is a case study. Case studies are not timed separately from other exam sections. You can use as much exam
+time as you would like to complete each case study. However, there might be additional case studies or other
+exam sections. Manage your time to ensure that you can complete all the exam sections in the time provided. Pay
+attention to the Exam Progress at the top of the screen so you have sufficient time to complete any exam sections
+that follow this case study.
+To answer the case study questions, you will need to reference information that is provided in the case. Case studies
+and associated questions might contain exhibits or other resources that provide more information about the
+scenario described in the case. Information provided in an individual question does not apply to the other questions
+in the case study.
+A Review Screen will appear at the end of this case study. From the Review Screen, you can review and change
+your answers before you move to the next exam section. After you leave this case study, you will NOT be able to
+return to it.
+To start the case study -
+To display the first question in this case study, select the “Next” button. To the left of the question, a menu
+provides links to information such as business requirements, the existing environment, and problem statements.
+Please read through all this information before answering any questions. When you are ready to answer a question,
+select the “Question” button to return to the question.
+Overview -
+Company Information -
+Contoso, Ltd is a multinational retail company that builds, deploys, and manages generative AI and agent-based
+solutions by using Microsoft Foundry.
+Existing Environment -
+Identity Environment -
+Contoso uses Microsoft Entra ID for identity management, authentication, and authorization capabilities that
+enable agents to access organizational resources and services.
+Contoso recently formed a new AI engineering team named Agent1Dev Team to optimize and maintain existing AI
+solutions.
+The team collaborates with solution architects, DevOps engineers, and security engineers to design, implement.
+monitor, and secure AI applications.
+Contoso also has a team named Agent1Test Team that is responsible for validating AI solutions before the solution
+deployments.
+Generative Environment -
+Contoso has a Microsoft Foundry deployment that contains two projects named Project1 and Project2.
+Project1 -
+Project1 contains a customer support agent named Agent1 that assists customers with product inquiries and
+troubleshooting requests.
+Agent1 has the following configurations:
+Agent1 uses a base model deployment.
+A safety evaluation pipeline is NOT enabled.
+Tool invocation approval workflows are NOT enabled.
+Conversation memory constraints are NOT configured.
+Agent1 interacts with customers by using digital support channels and answers general questions about Contoso
+products.
+Project1 is deployed to an Azure region located in the European Union (EU).
+Agent1Dev Team will use Project1 to optimize and maintain Agent1.
+Project2 -
+Project2 contains a deployed video generation model. The marketing department at Contoso has access to
+Project2 and plans to use the model to develop a video creation solution.
+Development of the solution is incomplete.
+Data Environment -
+Contoso stores product-related information in Azure resources that support AI applications.
+The Azure environment contains an Azure Blob Storage account named storage1 that stores product detail sheets
+for all the Contoso products.
+The product sheets include specifications, feature descriptions, and product support information that Agent1 can
+use to answer customer questions. The product sheets are stored in the PDF format.
+Problem Statements -
+Contoso identifies the following issues:
+Agent1 has only general knowledge of the Contoso products.
+A recent chat interaction with Agent1 was analyzed for sentiment. The results of the analysis have NOT been
+processed yet.
+Agent1 does NOT use the detailed product information in the product sheets stored in storage1 when responding
+to customer questions.
+The finance department at Contoso reports that vendor invoices must be reviewed manually to ensure that the
+invoices match the terms defined in the vendor contracts. The invoices contain tables, logos, and varied layouts
+that make the documents difficult to process consistently.
+Requirements -
+Planned Changes -
+Contoso plans to implement the following changes:
+Implement a solution for Project1 that analyzes the vendor invoices by evaluating both the visual layout and the
+textual content of the invoices, so that the invoice details can be verified against the vendor contract terms.
+Update the base model deployment used by Agent1 and standardize the model version to ensure continuity and
+consistent responses.
+Enable Agent1 to retrieve and use the detailed product information from the product sheets stored in storage1.
+Implement an indexing solution for the product sheets that Agent1 can use to answer customer questions.
+Complete the development of the video creation solution.
+Technical Requirements -
+Contoso identifies the following technical requirements:
+The model deployment used by Agent1 must support scalable, high-throughput generative AI workloads and
+dynamically scale to handle variable customer support traffic, without requiring reserved throughput capacity.
+The product sheets must be processed by using an indexing pipeline that enables semantic and vector search, so
+that Agent1 can retrieve the relevant product information.
+Responses generated by using the product sheet information must be relevant, complete, and accurate.
+Agent1 must be able to use the product sheets to answer natural language questions about product details.
+The model version used by Agent1 must remain consistent to ensure stable responses.
+The data processed by the model must remain within the EU.
+Security and Compliance Requirements
+Contoso identifies the following security and compliance requirements:
+API keys must NOT be used to access Foundry-deployed models.
+Access to the Azure resources must follow the principle of least privilege.
+The developers at Contoso must authenticate to Microsoft Foundry resources by using Microsoft Entra
+authentication.
+Access to Project1 must be assigned to the members of Agent1Dev Team by using a security group named
+SC_Agent1_Dev.
+Access to Project1 must be assigned to the members of Agent1Test Team by using a security group named
+SC_Agent1_Test.
+Agent1 must never reveal customer information, even if a document that contains customer data is added
+erroneously to the product sheet repository in storage1.
+The product sheets might contain images that include embedded text. Agent1 must be protected from malicious
+instructions potentially hidden within the images.
+Business Requirements -
+Contoso identifies the following business requirements:
+Users that interact with Agent1 must have a personalized experience in future interactions, including the ability for
+Agent1 to retain conversation context and recall relevant information from previous interactions.
+Agent1 must answer questions only about the products sold by Contoso.
+You need to recommend a solution to support the planned changes and technical requirements for Agent1 to use
+the product information stored in storage1.
 What should you include in the recommendation?
 
 Options:
@@ -2562,6 +2783,9 @@ Options:
 - B. Grounding with Bing Search
 - C. Azure AI Search
 - D. Azure Document intelligence in Foundry Tools
+
+Answer Area / Items:
+- Correct option: **C**
 
 Answer: C
 
@@ -2583,10 +2807,10 @@ environment to enhance Agent1's functionality effectively. References: Azure AI 
 
 Source pages: 84, 85
 
-You have a Microsoft Foundry project named Project1. 
-Project1 contains an application that processes PDF vendor invoices. 
-You need to configure Azure Document Intelligence in Foundry Tools to generate a Markdown output that 
-preserves the sections and table structure of the PDFs. The solution must minimize development effort. 
+You have a Microsoft Foundry project named Project1.
+Project1 contains an application that processes PDF vendor invoices.
+You need to configure Azure Document Intelligence in Foundry Tools to generate a Markdown output that
+preserves the sections and table structure of the PDFs. The solution must minimize development effort.
 What should you do?
 
 Options:
@@ -2594,6 +2818,9 @@ Options:
 - B. Configure content=markdown when you analyze the document.
 - C. Increase the confidence threshold.
 - D. Set the output_content_format=ContentFormat.MARKDOWN value.
+
+Answer Area / Items:
+- Correct option: **D**
 
 Answer: D
 
@@ -2615,20 +2842,23 @@ Conclusion Setting output_content_format=ContentFormat.MARKDOWN is the most dire
 
 Source pages: 85, 86
 
-You have a Microsoft Foundry project that ingests scanned PDF invoices stored in Azure Blob Storage. Each 
-invoice contains printed fine items and has a table-based layout. 
-Extracted results are stored as structured JSON and used as grounding data for an agent in a Retrieval 
-Augmented Generation (RAG) solution. 
-You need to create a single analyzer that meets the following requirements: 
-Extracts the invoice number, invoice date, vendor name, and total amount across varying templates 
-Returns confidence scores so that results with confidence below 0.80 can be routed for supervisor review 
+You have a Microsoft Foundry project that ingests scanned PDF invoices stored in Azure Blob Storage. Each
+invoice contains printed fine items and has a table-based layout.
+Extracted results are stored as structured JSON and used as grounding data for an agent in a Retrieval
+Augmented Generation (RAG) solution.
+You need to create a single analyzer that meets the following requirements:
+Extracts the invoice number, invoice date, vendor name, and total amount across varying templates
+Returns confidence scores so that results with confidence below 0.80 can be routed for supervisor review
 What should you use?
 
 Options:
 - A. a Foundry agent that has groundedness guardrails enabled to extract invoice fields and confidence scores
-- B. a custom Azure Content Understanding in Foundry Tools analyzer that defines the required fields as the
+- B. a custom Azure Content Understanding in Foundry Tools analyzer that defines the required fields as the extracted fields and the returned confidence scores for routing
 - C. the Azure Content Understanding in Foundry Tools prebuilt-layout analyzer
-- D. the Azure Content Understanding in Foundry Tools prebuilt-documentSearch analyzer and search.score from
+- D. the Azure Content Understanding in Foundry Tools prebuilt-documentSearch analyzer and search.score from the Azure AI Search results for routing
+
+Answer Area / Items:
+- Correct option: **B**
 
 Answer: B
 
@@ -2650,13 +2880,20 @@ it less ideal for extracting specific invoice details. Relying on search.score f
 
 Source pages: 86, 87
 
-You have a Microsoft Foundry project that uses Azure AI Search to ground an agent in internal documentation. You need to identify whether the retrieved content is negatively influencing the model’s generated responses.
+You have a Microsoft Foundry project that uses Azure AI Search to ground an agent in internal documentation.
+After a recent content update, users report that the agent's answers have become less accurate.
+You need to identify whether the retrieved content is negatively influencing the model's generated responses.
+Which observability signal should you review?
+
+A indexer status and failure history
 
 Options:
-- A. indexer status and failure history
 - B. latency breakdown traces
-- C. groundedness evaluation metrics
-- D. Groundedness Evaluation Metrics is the most suitable choice, and why the others are less appropriate
+- C. prediction drift metrics
+- D. groundedness evaluation metrics
+
+Answer Area / Items:
+- Correct option: **D**
 
 Answer: D
 
@@ -2684,98 +2921,183 @@ importance of specific metrics in model performance analysis.)
 
 Source pages: 87, 88, 89, 90
 
-HOTSPOT Case time as you would like to complete each case study. However, there might be additional case studies or other 
-exam sections. Manage your time to ensure that you can complete all the exam sections in the time provided. Pay 
-attention to the Exam Progress at the top of the screen so you have sufficient time to complete any exam sections 
-that follow this case study. 
-To answer the case study questions, you will bed to reference information that is provided in the case. Case studies 
-and associated questions might contain exhibits or other resources that provide more information about the 
-scenario described in the case. Information provided in an individual question does not apply to the other questions 
-in the case study. 
-A Review Screen will appear at the end of this case study. From the Review Screen, you can review and change 
-your answers before you move to the next exam section. After you leave this case study, you will NOT be able to 
-return to it. 
-To start the case study 
-- 
-To display the first question in this case study, select the “Next” button. To the left of the question, a menu 
-provides links to information such as business requirements, the existing environment, and problem statements. 
-Please read through all this information before answering any questions. When you are ready to answer a question, 
-select the “Question” button to return to the question. 
-Overview 
-- 
-Company Information 
-- 
-Contoso, Ltd is a multinational retail company that builds, deploys, and manages generative AI and agent-based 
-solutions by using Microsoft Foundry. 
-Existing Environment 
-- 
-Identity Environment 
-- 
-Contoso uses Microsoft Entra ID for identity management, authentication, and authorization capabilities that 
-enable agents to access organizational resources and services. 
-Contoso recently formed a new AI engineering team named Agent1Dev Team to optimize and maintain existing AI 
-solutions. 
-The team collaborates with solution architects, DevOps engineers, and security engineers to design, implement. 
-monitor, and secure AI applications. 
-Contoso also has a team named Agent1Test Team that is responsible for validating AI solutions before the solution 
-deployments. 
-Generative Environment 
-- 
-Contoso has a Microsoft Foundry deployment that contains two projects named Project1 and Project2. 
-Project1 
-- 
-Project1 contains a customer support agent named Agent1 that assists customers with product inquiries and 
-troubleshooting requests. 
-Agent1 has the following configurations: • Agent1 uses a base model deployment. • A safety evaluation pipeline is NOT enabled. • Tool invocation approval workflows are NOT enabled. • Conversation memory constraints are NOT configured. 
-Agent1 interacts with customers by using digital support channels and answers general questions about Contoso 
-products. 
-Project1 is deployed to an Azure region located in the European Union (EU). 
-Agent1Dev Team will use Project1 to optimize and maintain Agent1. 
-Project2 
-- 
-Project2 contains a deployed video generation model. The marketing department at Contoso has access to 
-Project2 and plans to use the model to develop a video creation solution. 
-Development of the solution is incomplete. 
-Data Environment 
-- 
-Contoso stores product-related information in Azure resources that support AI applications. 
-The Azure environment contains an Azure Blob Storage account named storage1 that stores product detail sheets 
-for all the Contoso products. 
-The product sheets include specifications, feature descriptions, and product support information that Agent1 can 
-use to answer customer questions. The product sheets are stored in the PDF format. 
-Problem Statements 
-- 
-Contoso identifies the following issues: • Agent1 has only general knowledge of the Contoso products. • A recent chat interaction with Agent1 was analyzed for sentiment. The results of the analysis have NOT been 
-processed yet. • Agent1 does NOT use the detailed product information in the product sheets stored in storage1 when responding 
-to customer questions. • The finance department at Contoso reports that vendor invoices must be reviewed manually to ensure that the 
-invoices match the terms defined in the vendor contracts. The invoices contain tables, logos, and varied layouts 
-that make the documents difficult to process consistently. 
-Requirements 
-- 
-Planned Changes 
-- 
-Contoso plans to implement the following changes: • Implement a solution for Project1 that analyzes the vendor invoices by evaluating both the visual layout and the 
-textual content of the invoices, so that the invoice details can be verified against the vendor contract terms. • Update the base model deployment used by Agent1 and standardize the model version to ensure continuity and 
-consistent responses. • Enable Agent1 to retrieve and use the detailed product information from the product sheets stored in storage1. • Implement an indexing solution for the product sheets that Agent1 can use to answer customer questions. • Complete the development of the video creation solution. 
-Technical Requirements 
-- 
-Contoso identifies the following technical requirements: • The model deployment used by Agent1 must support scalable, high-throughput generative AI workloads and 
-dynamically scale to handle variable customer support traffic, without requiring reserved throughput capacity. • The product sheets must be processed by using an indexing pipeline that enables semantic and vector search, so 
-that Agent1 can retrieve the relevant product information. • Responses generated by using the product sheet information must be relevant, complete, and accurate. • Agent1 must be able to use the product sheets to answer natural language questions about product details. • The model version used by Agent1 must remain consistent to ensure stable responses. • The data processed by the model must remain within the EU. 
-Security and Compliance Requirements 
-Contoso identifies the following security and compliance requirements: • API keys must NOT be used to access Foundry-deployed models. • Access to the Azure resources must follow the principle of least privilege. • The developers at Contoso must authenticate to Microsoft Foundry resources by using Microsoft Entra 
-authentication. • Access to Project1 must be assigned to the members of Agent1Dev Team by using a security group named 
-SC_Agent1_Dev. • Access to Project1 must be assigned to the members of Agent1Test Team by using a security group named 
-SC_Agent1_Test. • Agent1 must never reveal customer information, even if a document that contains customer data is added 
-erroneously to the product sheet repository in storage1. • The product sheets might contain images that include embedded text. Agent1 must be protected from malicious 
-instructions potentially hidden within the images. 
-Business Requirements 
-- 
-Contoso identifies the following business requirements: • Users that interact with Agent1 must have a personalized experience in future interactions, including the ability 
-for Agent1 to retain conversation context and recall relevant information from previous interactions. • Agent1 must answer questions only about the products sold by Contoso. 
-You need to ensure that the marketing department can generate videos by using the model deployed to Project2. 
-How should you complete the Python code? To answer, select the appropriate options in the answer area. 
-NOTE: Each correct selection is worth one point.
+HOTSPOT
+
+Case Study
+
+This is a case study. Case studies are not timed separately from other exam sections. You can use as much exam
+
+time as you would like to complete each case study. However, there might be additional case studies or other
+exam sections. Manage your time to ensure that you can complete all the exam sections in the time provided. Pay
+attention to the Exam Progress at the top of the screen so you have sufficient time to complete any exam sections
+that follow this case study.
+To answer the case study questions, you will need to reference information that is provided in the case. Case studies
+and associated questions might contain exhibits or other resources that provide more information about the
+scenario described in the case. Information provided in an individual question does not apply to the other questions
+in the case study.
+A Review Screen will appear at the end of this case study. From the Review Screen, you can review and change
+your answers before you move to the next exam section. After you leave this case study, you willl NOT be able 1o
+return to it.
+To start the case study
+
+To display the first question in this case study, select the "Next" button. To the left of the question, a menu
+provides links to informmation such as business requirements, the existing environment, and problem statements.
+Please read through all this information before answering any questions. When you are ready to answer a question,
+select the "Question" button to return to the question.
+Overview
+
+Company Information
+Contoso, Ltd is a multinational retail company that builds, deploys, and manages generative Al and agent-based
+solutions by using Microsoft Foundry.
+Existing Environment
+
+Identity Environment
+Contoso uses Microsoft Entra ID for identity management, authentication, and authorization capabilities that
+enable agents to access organizational resources and services.
+Contoso recently formed a new Al engineering team named Agent1Dev Team to optimize and maintain existing Al
+solutions.
+The team collaborates with solution architects, DevOps engineers, and security engineers to design, implement.
+monitor, and secure Al applications.
+Contoso also has a team named Agent1Test Team that is responsible for validating Al solutions before the solution
+deployments.
+Generative Environment
+
+Contoso has a Microsoft Foundry deployment that contains two projects named Project1 and Project2.
+Projectil
+
+Project1 contains a customer support agent named Agentt that assists customers with product inquires and
+troubleshooting requests.
+Agenti has the following configurations:
+.Agent1 uses a base model deployment.
+A safety evaluation pipeline is NOT enabled.
+.Tool invocation approval workflows are NOT enabled.
+Conversation memory constraints are NOT configured.
+Agenti interacts with customers by using digital support channels and answers general questions about Contoso
+products.
+Project1 is deployed to an Azure region located in the European Union (EU).
+Agent1 Dev Team will use Project1 to optimize and maintain Agent1.
+Project2
+
+Project2 contains a deployed video generation model. The marketing department at Contoso has access to
+Project2 and plans to use the model to develop a video creation solution.
+Development of the solution is incomplete.
+Data Environment
+
+Contoso stores product-related information in Azure resources that support Al applications.
+The Azure environment contains an Azure Blob Storage account named storage1 that stores product detail sheets
+for all the Contoso products.
+The product sheets include spedifications, feature descriptions, and product support information that Agent1 can
+use to answer customer questions. The product sheets are stored in the PDF format.
+Problem Statements
+
+Contoso identifies the following issues:"Agent1 has only general knowledge of the Contoso products.
+.A recent chat interaction with Agent1 was analyzed for sentiment. The results of the analysis have NOT been
+processed yet.
+Agent1 does NOT use the detalled product information in the product sheets stored in storage1 when responding
+to customer questions.
+.The finance department at Contoso reports that vendor invoices must be reviewed manually to ensure that the
+invoices match the terms defined in the vendor contracts. The invoices contain tables, logos, and varied layouts
+that make the documents difficult to process consistently.
+Requirements
+
+Planned Changes
+
+Contoso plans to implement the following changes:
+.Implement a solution for Project1 that analyzes the vendor invoices by evaluating both the visual layout and the
+textual content of the invoices, so that the invoice details can be verified against the vendor contract terms.
+"Update the base model deployment used by Agent1 and standardize the model version to ensure continuity and
+consistent responses.
+Enable Agent1 to retrieve and use the detailed product information from the product sheets stored in storagel.
+Implement an indexing solution for the product sheets that Agent1 can use to answer customer questions.
+Complete the development of the video creation solution.
+Technical Requirements
+
+Contoso identifies the following technicall requirements:
+The model deployment used by Agentl must support scalable, high-throughput generative Al workloads and
+dynamically scale to handle variable customer support traffic, without requiring reserved throughput capacity.
+.The product sheets must be processed by using an indexing pipeline that enables semantic and vector search, so
+that Agent1 can retrieve the relevant product information.
+.Responses generated by using the product sheet information must be relevant, complete, and accurate.
+Agent1 must be able to use the product sheets to answer natural language questions about product details.
+.The model version used by Agent1 must remain consistent to ensure stable responses.
+.The data processed by the model must remain within the EU.
+Security and Compliance Requirements
+Contoso identifes the following security and compliance requirements:
+"API kays must NOT be used to access Foundry-deployed models.
+Access to the Azure resources must follow the principle of least privilege.
+.The developers at Contoso must authenticate to Microsoft Foundry resources by using Microsoft Entra
+authentication.
+.Access to Project1 must be assigned to the members of AgentiDev Team by using a security group named
+SC_Agent1_Dev.
+"Access to Project1 must be assigned to the members of Agent1Test Team by using a security group named
+SC_Agent1_Test.
+"Agent1 must never reveal customer information, even if a document that contains customer data is added
+erroneously to the product sheet repository in storage1.
+The product sheets might contain images that include embedded text. Agent1 must be protected from malicious
+instructions potentially hidden within the images.
+Business Requirements
+
+Contoso identifies the following business requirements:
+Users that interact with Agent1 must have a personalized experience in future interactions, including the ability
+for Agenti to retain conversation context and recall relevant information from previous interactions.
+"Agent1 must answer questions only about the products sold by Contoso.
+You need to ensure that the marketing department can generate videos by using the model deployed to Project2.
+How should you complete the Python code? To answer, select the appropriate options in the answer area.
+NOTE: Each corect selection is worth one point.
+
+Answer Area
+
+import time
+from openai import OpenAI
+client = OpenAI (
+base_url= "https://Contoso.openai.azure.com/openai/v1/",
+api_key =.- ,
+
+video = client.videos.
+
+create
+download_content
+list
+retrieve
+model=deployment_name,
+prompt= "A video of our products",
+
+while video.status not in ["completed", "failed", "cancelled"] :
+time.sleep (20)
+video = client.videos.
+
+(video.id)
+
+create
+download_content
+list
+retrieve
+
+print (video.status)
+
+```python
+import time
+from openai import OpenAI
+
+client = OpenAI(
+    base_url="https://Contoso.openai.azure.com/openai/v1/",
+    api_key="..."
+)
+
+video = client.videos.[ create | download_content | list | retrieve ](
+    model=deployment_name,
+    prompt="A video of our products"
+)
+
+while video.status not in ["completed", "failed", "cancelled"]:
+    time.sleep(20)
+    video = client.videos.[ create | download_content | list | retrieve ](video.id)
+
+print(video.status)
+```
+
+Answer Area / Items:
+- Correct option: **A**
 
 Answer: A
 
@@ -2783,91 +3105,121 @@ Answer: A
 
 Source pages: 90, 91, 92
 
-Case Study - 
-This is a case study. Case studies are not timed separately from other exam sections. You can use as much exam 
-time as you would like to complete each case study. However, there might be additional case studies or other 
-exam sections. Manage your time to ensure that you can complete all the exam sections in the time provided. Pay 
-attention to the Exam Progress at the top of the screen so you have sufficient time to complete any exam sections 
-that follow this case study. 
-To answer the case study questions, you will bed to reference information that is provided in the case. Case studies 
-and associated questions might contain exhibits or other resources that provide more information about the 
-scenario described in the case. Information provided in an individual question does not apply to the other questions 
-in the case study. 
-A Review Screen will appear at the end of this case study. From the Review Screen, you can review and change 
-your answers before you move to the next exam section. After you leave this case study, you will NOT be able to 
-return to it. 
-To start the case study - 
-To display the first question in this case study, select the “Next” button. To the left of the question, a menu 
-provides links to information such as business requirements, the existing environment, and problem statements. 
-Please read through all this information before answering any questions. When you are ready to answer a question, 
-select the “Question” button to return to the question. 
-Overview - 
-Company Information - 
-Contoso, Ltd is a multinational retail company that builds, deploys, and manages generative AI and agent-based 
-solutions by using Microsoft Foundry. 
-Existing Environment - 
-Identity Environment - 
-Contoso uses Microsoft Entra ID for identity management, authentication, and authorization capabilities that 
-enable agents to access organizational resources and services. 
-Contoso recently formed a new AI engineering team named Agent1Dev Team to optimize and maintain existing AI 
-solutions. The team collaborates with solution architects, DevOps engineers, and security engineers to design, implement. 
-monitor, and secure AI applications. 
-Contoso also has a team named Agent1Test Team that is responsible for validating AI solutions before the solution 
-deployments. 
-Generative Environment - 
-Contoso has a Microsoft Foundry deployment that contains two projects named Project1 and Project2. 
-Project1 - 
-Project1 contains a customer support agent named Agent1 that assists customers with product inquiries and 
-troubleshooting requests. 
-Agent1 has the following configurations: • Agent1 uses a base model deployment. • A safety evaluation pipeline is NOT enabled. • Tool invocation approval workflows are NOT enabled. • Conversation memory constraints are NOT configured. 
-Agent1 interacts with customers by using digital support channels and answers general questions about Contoso 
-products. 
-Project1 is deployed to an Azure region located in the European Union (EU). 
-Agent1Dev Team will use Project1 to optimize and maintain Agent1. 
-Project2 - 
-Project2 contains a deployed video generation model. The marketing department at Contoso has access to 
-Project2 and plans to use the model to develop a video creation solution. 
-Development of the solution is incomplete. 
-Data Environment - 
-Contoso stores product-related information in Azure resources that support AI applications. 
-The Azure environment contains an Azure Blob Storage account named storage1 that stores product detail sheets 
-for all the Contoso products. 
-The product sheets include specifications, feature descriptions, and product support information that Agent1 can 
-use to answer customer questions. The product sheets are stored in the PDF format. 
-Problem Statements - 
-Contoso identifies the following issues: • Agent1 has only general knowledge of the Contoso products. • A recent chat interaction with Agent1 was analyzed for sentiment. The results of the analysis have NOT been 
-processed yet. • Agent1 does NOT use the detailed product information in the product sheets stored in storage1 when responding 
-to customer questions. • The finance department at Contoso reports that vendor invoices must be reviewed manually to ensure that the 
-invoices match the terms defined in the vendor contracts. The invoices contain tables, logos, and varied layouts 
-that make the documents difficult to process consistently. 
-Requirements - 
-Planned Changes - 
-Contoso plans to implement the following changes: • Implement a solution for Project1 that analyzes the vendor invoices by evaluating both the visual layout and the 
-textual content of the invoices, so that the invoice details can be verified against the vendor contract terms. • Update the base model deployment used by Agent1 and standardize the model version to ensure continuity and 
-consistent responses. • Enable Agent1 to retrieve and use the detailed product information from the product sheets stored in storage1. • Implement an indexing solution for the product sheets that Agent1 can use to answer customer questions. • Complete the development of the video creation solution. 
-Technical Requirements - 
-Contoso identifies the following technical requirements: • The model deployment used by Agent1 must support scalable, high-throughput generative AI workloads and 
-dynamically scale to handle variable customer support traffic, without requiring reserved throughput capacity. • The product sheets must be processed by using an indexing pipeline that enables semantic and vector search, so 
-that Agent1 can retrieve the relevant product information. • Responses generated by using the product sheet information must be relevant, complete, and accurate. • Agent1 must be able to use the product sheets to answer natural language questions about product details. • The model version used by Agent1 must remain consistent to ensure stable responses. • The data processed by the model must remain within the EU. 
-Security and Compliance Requirements 
-Contoso identifies the following security and compliance requirements: • API keys must NOT be used to access Foundry-deployed models. • Access to the Azure resources must follow the principle of least privilege. • The developers at Contoso must authenticate to Microsoft Foundry resources by using Microsoft Entra 
-authentication. • Access to Project1 must be assigned to the members of Agent1Dev Team by using a security group named 
-SC_Agent1_Dev. • Access to Project1 must be assigned to the members of Agent1Test Team by using a security group named 
-SC_Agent1_Test. • Agent1 must never reveal customer information, even if a document that contains customer data is added 
-erroneously to the product sheet repository in storage1. • The product sheets might contain images that include embedded text. Agent1 must be protected from malicious 
-instructions potentially hidden within the images. 
-Business Requirements - 
-Contoso identifies the following business requirements: • Users that interact with Agent1 must have a personalized experience in future interactions, including the ability 
-for Agent1 to retain conversation context and recall relevant information from previous interactions. • Agent1 must answer questions only about the products sold by Contoso. 
-You need to configure personalized user interactions for Agent1. The solution must meet the business 
-requirements. 
+Case Study -
+This is a case study. Case studies are not timed separately from other exam sections. You can use as much exam
+time as you would like to complete each case study. However, there might be additional case studies or other
+exam sections. Manage your time to ensure that you can complete all the exam sections in the time provided. Pay
+attention to the Exam Progress at the top of the screen so you have sufficient time to complete any exam sections
+that follow this case study.
+To answer the case study questions, you will need to reference information that is provided in the case. Case studies
+and associated questions might contain exhibits or other resources that provide more information about the
+scenario described in the case. Information provided in an individual question does not apply to the other questions
+in the case study.
+A Review Screen will appear at the end of this case study. From the Review Screen, you can review and change
+your answers before you move to the next exam section. After you leave this case study, you will NOT be able to
+return to it.
+To start the case study -
+To display the first question in this case study, select the “Next” button. To the left of the question, a menu
+provides links to information such as business requirements, the existing environment, and problem statements.
+Please read through all this information before answering any questions. When you are ready to answer a question,
+select the “Question” button to return to the question.
+Overview -
+Company Information -
+Contoso, Ltd is a multinational retail company that builds, deploys, and manages generative AI and agent-based
+solutions by using Microsoft Foundry.
+Existing Environment -
+Identity Environment -
+Contoso uses Microsoft Entra ID for identity management, authentication, and authorization capabilities that
+enable agents to access organizational resources and services.
+Contoso recently formed a new AI engineering team named Agent1Dev Team to optimize and maintain existing AI
+solutions.The team collaborates with solution architects, DevOps engineers, and security engineers to design, implement.
+monitor, and secure AI applications.
+Contoso also has a team named Agent1Test Team that is responsible for validating AI solutions before the solution
+deployments.
+Generative Environment -
+Contoso has a Microsoft Foundry deployment that contains two projects named Project1 and Project2.
+Project1 -
+Project1 contains a customer support agent named Agent1 that assists customers with product inquiries and
+troubleshooting requests.
+Agent1 has the following configurations:
+•Agent1 uses a base model deployment.
+•A safety evaluation pipeline is NOT enabled.
+•Tool invocation approval workflows are NOT enabled.
+•Conversation memory constraints are NOT configured.
+Agent1 interacts with customers by using digital support channels and answers general questions about Contoso
+products.
+Project1 is deployed to an Azure region located in the European Union (EU).
+Agent1Dev Team will use Project1 to optimize and maintain Agent1.
+Project2 -
+Project2 contains a deployed video generation model. The marketing department at Contoso has access to
+Project2 and plans to use the model to develop a video creation solution.
+Development of the solution is incomplete.
+Data Environment -
+Contoso stores product-related information in Azure resources that support AI applications.
+The Azure environment contains an Azure Blob Storage account named storage1 that stores product detail sheets
+for all the Contoso products.
+The product sheets include specifications, feature descriptions, and product support information that Agent1 can
+use to answer customer questions. The product sheets are stored in the PDF format.
+Problem Statements -
+Contoso identifies the following issues:
+•Agent1 has only general knowledge of the Contoso products.
+•A recent chat interaction with Agent1 was analyzed for sentiment. The results of the analysis have NOT been
+processed yet.
+•Agent1 does NOT use the detailed product information in the product sheets stored in storage1 when responding
+to customer questions.
+•The finance department at Contoso reports that vendor invoices must be reviewed manually to ensure that the
+invoices match the terms defined in the vendor contracts. The invoices contain tables, logos, and varied layouts
+that make the documents difficult to process consistently.
+Requirements -
+Planned Changes -
+Contoso plans to implement the following changes:
+• Implement a solution for Project1 that analyzes the vendor invoices by evaluating both the visual layout and the
+textual content of the invoices, so that the invoice details can be verified against the vendor contract terms.
+•Update the base model deployment used by Agent1 and standardize the model version to ensure continuity and
+consistent responses.
+•Enable Agent1 to retrieve and use the detailed product information from the product sheets stored in storage1.
+• Implement an indexing solution for the product sheets that Agent1 can use to answer customer questions.
+•Complete the development of the video creation solution.
+Technical Requirements -
+Contoso identifies the following technical requirements:
+•The model deployment used by Agent1 must support scalable, high-throughput generative AI workloads and
+dynamically scale to handle variable customer support traffic, without requiring reserved throughput capacity.
+•The product sheets must be processed by using an indexing pipeline that enables semantic and vector search, so
+that Agent1 can retrieve the relevant product information.
+•Responses generated by using the product sheet information must be relevant, complete, and accurate.
+•Agent1 must be able to use the product sheets to answer natural language questions about product details.
+•The model version used by Agent1 must remain consistent to ensure stable responses.
+•The data processed by the model must remain within the EU.
+Security and Compliance Requirements
+Contoso identifies the following security and compliance requirements:
+•API keys must NOT be used to access Foundry-deployed models.
+•Access to the Azure resources must follow the principle of least privilege.
+•The developers at Contoso must authenticate to Microsoft Foundry resources by using Microsoft Entra
+authentication.
+•Access to Project1 must be assigned to the members of Agent1Dev Team by using a security group named
+SC_Agent1_Dev.•Access to Project1 must be assigned to the members of Agent1Test Team by using a security group named
+SC_Agent1_Test.
+•Agent1 must never reveal customer information, even if a document that contains customer data is added
+erroneously to the product sheet repository in storage1.
+•The product sheets might contain images that include embedded text. Agent1 must be protected from malicious
+instructions potentially hidden within the images.
+Business Requirements -
+Contoso identifies the following business requirements:
+•Users that interact with Agent1 must have a personalized experience in future interactions, including the ability
+for Agent1 to retain conversation context and recall relevant information from previous interactions.
+•Agent1 must answer questions only about the products sold by Contoso.
+You need to configure personalized user interactions for Agent1. The solution must meet the business
+requirements.
 What should you include in the solution?
 
 Options:
 - A. knowledge
 - B. memory
 - C. guardrails
-- D. tools
+- D. tool
+
+Answer Area / Items:
+- Correct option: **B**
 
 Answer: B
 
@@ -2875,118 +3227,195 @@ Answer: B
 
 Source pages: 92, 93, 94, 95
 
-HOTSPOT 
-- 
-Case Study 
-- 
-This is a case study. Case studies are not timed separately from other exam sections. You can use as much exam 
-time as you would like to complete each case study. However, there might be additional case studies or other 
-exam sections. Manage your time to ensure that you can complete all the exam sections in the time provided. Pay 
-attention to the Exam Progress at the top of the screen so you have sufficient time to complete any exam sections 
-that follow this case study. 
-To answer the case study questions, you will bed to reference information that is provided in the case. Case studies 
-and associated questions might contain exhibits or other resources that provide more information about the 
-scenario described in the case. Information provided in an individual question does not apply to the other questions 
-in the case study. 
-A Review Screen will appear at the end of this case study. From the Review Screen, you can review and change 
-your answers before you move to the next exam section. After you leave this case study, you will NOT be able to 
-return to it. 
-To start the case study 
-- 
-To display the first question in this case study, select the “Next” button. To the left of the question, a menu 
-provides links to information such as business requirements, the existing environment, and problem statements. 
-Please read through all this information before answering any questions. When you are ready to answer a question, 
-select the “Question” button to return to the question. 
-Overview 
-- 
-Company Information 
-- 
-Contoso, Ltd is a multinational retail company that builds, deploys, and manages generative AI and agent-based 
-solutions by using Microsoft Foundry. 
-Existing Environment 
-- 
-Identity Environment 
-- 
-Contoso uses Microsoft Entra ID for identity management, authentication, and authorization capabilities that 
-enable agents to access organizational resources and services. 
-Contoso recently formed a new AI engineering team named Agent1Dev Team to optimize and maintain existing AI 
-solutions. The team collaborates with solution architects, DevOps engineers, and security engineers to design, implement. 
-monitor, and secure AI applications. 
-Contoso also has a team named Agent1Test Team that is responsible for validating AI solutions before the solution 
-deployments. 
-Generative Environment 
-- 
-Contoso has a Microsoft Foundry deployment that contains two projects named Project1 and Project2. 
-Project1 
-- 
-Project1 contains a customer support agent named Agent1 that assists customers with product inquiries and 
-troubleshooting requests. 
-Agent1 has the following configurations: • Agent1 uses a base model deployment. • A safety evaluation pipeline is NOT enabled. • Tool invocation approval workflows are NOT enabled. • Conversation memory constraints are NOT configured. 
-Agent1 interacts with customers by using digital support channels and answers general questions about Contoso 
-products. 
-Project1 is deployed to an Azure region located in the European Union (EU). 
-Agent1Dev Team will use Project1 to optimize and maintain Agent1. 
-Project2 
-- 
-Project2 contains a deployed video generation model. The marketing department at Contoso has access to 
-Project2 and plans to use the model to develop a video creation solution. 
-Development of the solution is incomplete. 
-Data Environment 
-- 
-Contoso stores product-related information in Azure resources that support AI applications. 
-The Azure environment contains an Azure Blob Storage account named storage1 that stores product detail sheets 
-for all the Contoso products. 
-The product sheets include specifications, feature descriptions, and product support information that Agent1 can 
-use to answer customer questions. The product sheets are stored in the PDF format. 
-Problem Statements 
-- 
-Contoso identifies the following issues: • Agent1 has only general knowledge of the Contoso products. • A recent chat interaction with Agent1 was analyzed for sentiment. The results of the analysis have NOT been 
-processed yet. • Agent1 does NOT use the detailed product information in the product sheets stored in storage1 when responding 
-to customer questions. • The finance department at Contoso reports that vendor invoices must be reviewed manually to ensure that the 
-invoices match the terms defined in the vendor contracts. The invoices contain tables, logos, and varied layouts 
-that make the documents difficult to process consistently. 
-Requirements 
-- 
-Planned Changes 
-- 
-Contoso plans to implement the following changes: • Implement a solution for Project1 that analyzes the vendor invoices by evaluating both the visual layout and the 
-textual content of the invoices, so that the invoice details can be verified against the vendor contract terms. • Update the base model deployment used by Agent1 and standardize the model version to ensure continuity and 
-consistent responses. • Enable Agent1 to retrieve and use the detailed product information from the product sheets stored in storage1. • Implement an indexing solution for the product sheets that Agent1 can use to answer customer questions. • Complete the development of the video creation solution. 
-Technical Requirements 
-- 
-Contoso identifies the following technical requirements: • The model deployment used by Agent1 must support scalable, high-throughput generative AI workloads and 
-dynamically scale to handle variable customer support traffic, without requiring reserved throughput capacity. • The product sheets must be processed by using an indexing pipeline that enables semantic and vector search, so 
-that Agent1 can retrieve the relevant product information. • Responses generated by using the product sheet information must be relevant, complete, and accurate. • Agent1 must be able to use the product sheets to answer natural language questions about product details. • The model version used by Agent1 must remain consistent to ensure stable responses. • The data processed by the model must remain within the EU. Security and Compliance Requirements 
-Contoso identifies the following security and compliance requirements: • API keys must NOT be used to access Foundry-deployed models. • Access to the Azure resources must follow the principle of least privilege. • The developers at Contoso must authenticate to Microsoft Foundry resources by using Microsoft Entra 
-authentication. • Access to Project1 must be assigned to the members of Agent1Dev Team by using a security group named 
-SC_Agent1_Dev. • Access to Project1 must be assigned to the members of Agent1Test Team by using a security group named 
-SC_Agent1_Test. • Agent1 must never reveal customer information, even if a document that contains customer data is added 
-erroneously to the product sheet repository in storage1. • The product sheets might contain images that include embedded text. Agent1 must be protected from malicious 
-instructions potentially hidden within the images. 
-Business Requirements 
-- 
-Contoso identifies the following business requirements: • Users that interact with Agent1 must have a personalized experience in future interactions, including the ability 
-for Agent1 to retain conversation context and recall relevant information from previous interactions. • Agent1 must answer questions only about the products sold by Contoso. 
-You need to ensure that Agent1Dev Team can access Agent1. The solution must meet the security and compliance 
-requirements. 
-How should you complete the Python code? To answer, select the appropriate options in the answer area. 
+HOTSPOT
+-
+Case Study
+-
+This is a case study. Case studies are not timed separately from other exam sections. You can use as much exam
+time as you would like to complete each case study. However, there might be additional case studies or other
+exam sections. Manage your time to ensure that you can complete all the exam sections in the time provided. Pay
+attention to the Exam Progress at the top of the screen so you have sufficient time to complete any exam sections
+that follow this case study.
+To answer the case study questions, you will need to reference information that is provided in the case. Case studies
+and associated questions might contain exhibits or other resources that provide more information about the
+scenario described in the case. Information provided in an individual question does not apply to the other questions
+in the case study.
+A Review Screen will appear at the end of this case study. From the Review Screen, you can review and change
+your answers before you move to the next exam section. After you leave this case study, you will NOT be able to
+return to it.
+To start the case study
+-
+To display the first question in this case study, select the “Next” button. To the left of the question, a menu
+provides links to information such as business requirements, the existing environment, and problem statements.
+Please read through all this information before answering any questions. When you are ready to answer a question,
+select the “Question” button to return to the question.
+Overview
+-
+Company Information
+-
+Contoso, Ltd is a multinational retail company that builds, deploys, and manages generative AI and agent-based
+solutions by using Microsoft Foundry.
+Existing Environment
+-
+Identity Environment
+-
+Contoso uses Microsoft Entra ID for identity management, authentication, and authorization capabilities that
+enable agents to access organizational resources and services.
+Contoso recently formed a new AI engineering team named Agent1Dev Team to optimize and maintain existing AI
+solutions.
+The team collaborates with solution architects, DevOps engineers, and security engineers to design, implement.
+monitor, and secure AI applications.
+Contoso also has a team named Agent1Test Team that is responsible for validating AI solutions before the solution
+deployments.
+Generative Environment
+-
+Contoso has a Microsoft Foundry deployment that contains two projects named Project1 and Project2.
+Project1
+-
+Project1 contains a customer support agent named Agent1 that assists customers with product inquiries and
+troubleshooting requests.
+Agent1 has the following configurations:
+•Agent1 uses a base model deployment.
+•A safety evaluation pipeline is NOT enabled.
+•Tool invocation approval workflows are NOT enabled.
+•Conversation memory constraints are NOT configured.
+Agent1 interacts with customers by using digital support channels and answers general questions about Contoso
+products.
+Project1 is deployed to an Azure region located in the European Union (EU).
+Agent1Dev Team will use Project1 to optimize and maintain Agent1.
+Project2
+-
+Project2 contains a deployed video generation model. The marketing department at Contoso has access to
+Project2 and plans to use the model to develop a video creation solution.
+Development of the solution is incomplete.
+Data Environment
+-
+Contoso stores product-related information in Azure resources that support AI applications.
+The Azure environment contains an Azure Blob Storage account named storage1 that stores product detail sheets
+for all the Contoso products.
+The product sheets include specifications, feature descriptions, and product support information that Agent1 can
+use to answer customer questions. The product sheets are stored in the PDF format.
+Problem Statements
+-
+Contoso identifies the following issues:
+•Agent1 has only general knowledge of the Contoso products.
+•A recent chat interaction with Agent1 was analyzed for sentiment. The results of the analysis have NOT been
+processed yet.
+•Agent1 does NOT use the detailed product information in the product sheets stored in storage1 when responding
+to customer questions.
+•The finance department at Contoso reports that vendor invoices must be reviewed manually to ensure that the
+invoices match the terms defined in the vendor contracts. The invoices contain tables, logos, and varied layouts
+that make the documents difficult to process consistently.
+Requirements
+-
+Planned Changes
+-
+Contoso plans to implement the following changes:
+• Implement a solution for Project1 that analyzes the vendor invoices by evaluating both the visual layout and the
+textual content of the invoices, so that the invoice details can be verified against the vendor contract terms.
+•Update the base model deployment used by Agent1 and standardize the model version to ensure continuity and
+consistent responses.
+•Enable Agent1 to retrieve and use the detailed product information from the product sheets stored in storage1.
+• Implement an indexing solution for the product sheets that Agent1 can use to answer customer questions.
+•Complete the development of the video creation solution.
+Technical Requirements
+-
+Contoso identifies the following technical requirements:
+•The model deployment used by Agent1 must support scalable, high-throughput generative AI workloads and
+dynamically scale to handle variable customer support traffic, without requiring reserved throughput capacity.
+•The product sheets must be processed by using an indexing pipeline that enables semantic and vector search, so
+that Agent1 can retrieve the relevant product information.
+•Responses generated by using the product sheet information must be relevant, complete, and accurate.
+•Agent1 must be able to use the product sheets to answer natural language questions about product details.
+•The model version used by Agent1 must remain consistent to ensure stable responses.
+•The data processed by the model must remain within the EU.
+Security and Compliance Requirements
+Contoso identifies the following security and compliance requirements:
+•API keys must NOT be used to access Foundry-deployed models.
+•Access to the Azure resources must follow the principle of least privilege.
+•The developers at Contoso must authenticate to Microsoft Foundry resources by using Microsoft Entra
+authentication.
+•Access to Project1 must be assigned to the members of Agent1Dev Team by using a security group named
+SC_Agent1_Dev.
+•Access to Project1 must be assigned to the members of Agent1Test Team by using a security group named
+SC_Agent1_Test.
+•Agent1 must never reveal customer information, even if a document that contains customer data is added
+erroneously to the product sheet repository in storage1.
+•The product sheets might contain images that include embedded text. Agent1 must be protected from malicious
+instructions potentially hidden within the images.
+Business Requirements
+-
+Contoso identifies the following business requirements:
+•Users that interact with Agent1 must have a personalized experience in future interactions, including the ability
+for Agent1 to retain conversation context and recall relevant information from previous interactions.
+•Agent1 must answer questions only about the products sold by Contoso.
+You need to ensure that Agent1Dev Team can access Agent1. The solution must meet the security and compliance
+requirements.
+How should you complete the Python code? To answer, select the appropriate options in the answer area.
 NOTE: Each correct selection is worth one point.
+Answer Area
 
-Answer: To ensure that the `Agent1Dev Team` (represented by the security group `SC_Agent1_Dev`) can access 
+from azure.identity import DefaultAzureCredential
+from azure.ai.projects import AIProjectClient
+from azure.core.credentials import AzureKeyCredential
+myEndpoint = "https://contoso.services.ai.azure.com/api/projects/project1"
+project_client = AIProjectClient (
+endpoint=myEndpoint,
+credential=
+
+AzureKeyCredential()
+DefaultAzureCredential()
+None
+
+myAgent = "Agent1"
+agent = project_client. agents.
+
+)
+
+(agent_name=myAgent)
+
+create_version
+get
+get_version
+print (f "Retrieved agent: {agent.name}")
+
+```python
+from azure.identity import DefaultAzureCredential
+from azure.ai.projects import AIProjectClient
+from azure.core.credentials import AzureKeyCredential
+
+myEndpoint = "https://contoso.services.ai.azure.com/api/projects/project1"
+project_client = AIProjectClient(
+    endpoint=myEndpoint,
+    credential=[ AzureKeyCredential() | DefaultAzureCredential() | None ]
+)
+
+myAgent = "Agent1"
+agent = project_client.agents.[ create_version | get | get_version ](agent_name=myAgent)
+
+print(f"Retrieved agent: {agent.name}")
+```
+
+Answer Area / Items:
+- Answer: **To ensure that the `Agent1Dev Team` (represented by the security group `SC_Agent1_Dev`) can access 
 `Project1` within Microsoft Foundry using Microsoft Entra authentication, you must assign the appropriate role 
 to the security group at the project scope.Based on standard Azure AI/Foundry role-based access control 
-(RBAC) patterns for developers:1. Role Assignment: The role required to access and manage a project is
+(RBAC) patterns for developers:1. Role Assignment: The role required to access and manage a project is**
+
+Answer: **To ensure that the `Agent1Dev Team` (represented by the security group `SC_Agent1_Dev`) can access
 
 ## Question 69
 
 Source pages: 95
 
-You have a Microsoft Foundry project that contains a Retrieval Augmented Generation (RAG) chat solution used by 
-customer support agents. 
-You are adding an automated pre-production evaluation step to a CI/CD pipeline named Pipeline1. The evaluation 
-will run against a labeled test dataset that contains support questions and the expected grounding context. 
-You need to ensure that Pipeline1 fails if unsupported content or a retrieval mismatch exceeds a defined threshold: • responses include claims not supported by the retrieved source content • retrieved source content does not align with the labeled expected context 
-Which two built-in evaluators should you use in Pipeline1? Each correct answer presents pat of the solution. 
+You have a Microsoft Foundry project that contains a Retrieval Augmented Generation (RAG) chat solution used by
+customer support agents.
+You are adding an automated pre-production evaluation step to a CI/CD pipeline named Pipeline1. The evaluation
+will run against a labeled test dataset that contains support questions and the expected grounding context.
+You need to ensure that Pipeline1 fails if unsupported content or a retrieval mismatch exceeds a defined threshold:
+• responses include claims not supported by the retrieved source content
+• retrieved source content does not align with the labeled expected context
+Which two built-in evaluators should you use in Pipeline1? Each correct answer presents part of the solution.
 NOTE: Each correct selection is worth one point.
 
 Options:
@@ -2996,18 +3425,21 @@ Options:
 - D. Groundedness
 - E. Response Completeness
 
+Answer Area / Items:
+- Correct options: **A, D**
+
 Answer: AD
 
 ## Question 70
 
 Source pages: 95
 
-You have a Microsoft Foundry project that contains a support-ticket triage agent built by using the Foundry Agent 
-Service. 
-The agent uses tool to classify the ticket type and sot the ticket priority. 
-Sometimes, the same support case continues across multiple sessions over several days. 
-You need to persist state by using a durable ID to ensure that the agent can automatically reuse the full interaction 
-history. The solution must preserve previous user messages, tool calls and tool outputs across turns and sessions. 
+You have a Microsoft Foundry project that contains a support-ticket triage agent built by using the Foundry Agent
+Service.
+The agent uses tool to classify the ticket type and sort the ticket priority.
+Sometimes, the same support case continues across multiple sessions over several days.
+You need to persist state by using a durable ID to ensure that the agent can automatically reuse the full interaction
+history. The solution must preserve previous user messages, tool calls and tool outputs across turns and sessions.
 Which runtime component should you use?
 
 Options:
@@ -3016,30 +3448,67 @@ Options:
 - C. conversation
 - D. response
 
+Answer Area / Items:
+- Correct option: **C**
+
 Answer: C
 
 ## Question 71
 
 Source pages: 95, 96
 
-HOTSPOT You need to run a pre-production evaluation by using labeled CSV dataset that contains the query, context, Whether responses are supported by the provided context 
-Whether responses contain sensitive or proprietary information Which AI quality evaluation metrics should you use? To answer, select the appropriate options in the answer area. 
-NOTE: Each correct selection is worth one point.
+HOTSPOT
 
-Answer: Groundedness, Relevance, Protected Material Detection
+You have a Microsoft Foundry project that contains a Retrieval Augmented Generation (RAG) solution.
+You need to run a pre-production evaluation by using labeled CSV dataset that contains the query, context,
+response and ground truth. The evaluation must measure the following:
+.Whether responses address the user query
+.Whether responses are supported by the provided context
+.Whether responses contain sensitive or proprietary information
+
+Which Al quality evaluation metrics should you use? To answer, select the appropriate options in the answer area.
+NOTE: Each correct selection is worth one point.
+Answer Area
+
+To measure whether the responses are supported
+by the provided context and address the user query:
+
+Coherence and Fluency
+GPT similarity and F1 score
+Groundedness and Relevance
+Groundedness and ROUGE score
+
+To measure whether responses contain sensitive
+or proprietary information:
+
+Hateful and unfair content
+Indirect attack
+Protected material
+Violent content
+
+Answer Area / Items:
+- Answer: **Groundedness, Relevance, Protected Material Detection**
+
+Answer: **Groundedness, Relevance, Protected Material Detection**
 
 ## Question 72
 
 Source pages: 96
 
+You plan to configure an evaluation in Microsoft Foundry for a Retrieval Augmented Generation (RAG) chat app.
+You need to provide scores for groundedness, relevance, and harmful content categories.
 Which two evaluation categories can you use? Each correct answer presents a complete solution.
+NOTE: Each correct selection is worth one point.
 
 Options:
 - A. risk and safety metrics
-- B. Option B (Visual Block)
-- C. Option C (Visual Block)
-- D. Option D (Visual Block)
-- E. Option E (Visual Block)
+- B. fuency evaluator
+- C. similarity evaluators
+- D. Al quality (NLP) metrics
+- E. Al quality (Al assisted) metrics
+
+Answer Area / Items:
+- Correct options: **A, E**
 
 Answer: AE
 
@@ -3052,10 +3521,11 @@ Use the web search tool to retrieve public information on the internet.
 You need to ensure that for a specific run, the agent deterministically retrieves information only from the internet. “type”: “azure_ai-search”
 
 Options:
-- A. Option A (Visual Block)
-- B. Option B (Visual Block)
 - C. “auto”
 - D. “required”
+
+Answer Area / Items:
+- Correct option: **A**
 
 Answer: A
 
@@ -3063,15 +3533,20 @@ Answer: A
 
 Source pages: 97
 
-You have a Microsoft Foundry project that contains a customer support agent built on a deployed chat model. 
-The agent responses are validated by using an automated testing system that compares generated answers to 
-stored expected outputs. Identical prompts must return consistent response to prevent automated test failures. What should you do for the model?
+You have a Microsoft Foundry project that contains a customer support agent built on a deployed chat model.
+The agent responses are validated by using an automated testing system that compares generated answers to
+stored expected outputs. Identical prompts must return consistent response to prevent automated test failures.
+You need to reduce response variability, without modifying the prompt or reducing factual accuracy.
+What should you do for the model?
 
 Options:
-- A. Remove stop sequences from the requests.
-- B. Decrease the temperature parameter.
-- C. Increase the temperature parameter.
-- D. Option D (Visual Block)
+- A. Increase the max_tokens parameter.
+- B. Remove stop sequences from the requests.
+- C. Decrease the temperature parameter.
+- D. Increase the temperature parameter.
+
+Answer Area / Items:
+- Correct option: **C**
 
 Answer: C
 
@@ -3079,28 +3554,89 @@ Answer: C
 
 Source pages: 97
 
+You are developing prompts for a Microsoft Foundry project that classifies incoming support tickets by category,
 You need to improve accuracy by showing the model how correct classifications look, without retaining the model
+or storing knowledge permanently.
+Which prompt engineering approach should you use?
 
 Options:
-- A. zero-shot learning
-- B. chain of thought
-- C. few-shot learning
-- D. Option D (Visual Block)
+- A. Retrieval Augmented Generation (RAG)
+- B. zero shot learning
+- C. chain of thought
+- D. few-shot learning
+
+Answer Area / Items:
+- Correct option: **D**
 
 Answer: D
 
 ## Question 76
 
-_No prompt text extracted._
-
-Answer: _No answer text extracted._
-
 ## Question 77
 
 Source pages: 97, 98
 
-DRAG DROP You have a Microsoft Foundry project that contains an agent. You need to enable long-term memory to ensure that the agent can recall user preferences across separate 
-conversations. Stored memories must be isolated per authenticated user without the client application manually How should you complete the Python code? To answer, drag the appropriate values to the correct targets. Each
+DRAG DROP
+
+You have a Microsoft Foundry project that contains an agent.
+You need to enable long-term memory to ensure that the agent can recall user preferences across separate
+conversations. Stored memories must be isolated per authenticated user without the client application manually
+generating user IDs.
+How should you complete the Python code? To answer, drag the appropriate values to the correct targets. Each
+value may be used once, more than once, or not at all.
+NOTE: Each correct selection is worth one point.
+
+Values
+
+"session"
+
+"{{$conversationId} }"
+
+"{{ $userId) }"
+
+[mem_store_name]
+
+Answer Area
+
+from azure.ai.projects.models import MemorySearchTool,
+PromptAgentDefinition
+mem_store_name = "agent_mem_store"
+memory_tool = MemorySearchTool
+memory_store_name=mem_store_name,
+scope=
+
+)
+agent_def = PromptAgentDefinition(
+model= "gpt-5.2",
+instructions= "You are a customer support assistant.",
+tools=
+
+[memory_tool]
+
+MemorySearchTool
+("support_mem_store")
+
+)
+
+```python
+from azure.ai.projects.models import MemorySearchTool, PromptAgentDefinition
+
+mem_store_name = "agent_mem_store"
+memory_tool = MemorySearchTool(
+    memory_store_name=mem_store_name,
+    scope=[ "session" | "{{$conversationId}}" | "{{$userId}}" | [mem_store_name] ]
+)
+
+agent_def = PromptAgentDefinition(
+    model="gpt-5.2",
+    instructions="You are a customer support assistant.",
+    tools=[memory_tool]
+)
+```
+
+Answer Area / Items:
+- session_id: **user_id**
+- storage_type: **session**
 
 Answer: To enable long-term memory in Microsoft Copilot Studio (formerly known as Microsoft Foundry) for an agent
 
@@ -3108,13 +3644,21 @@ Answer: To enable long-term memory in Microsoft Copilot Studio (formerly known a
 
 Source pages: 98
 
-Invokes the Azure AI Content Safety tool by using a Foundry connection within the same request
+You have a web app named App1 that processes user prompts by integrating with a Microsoft Foundry project
+named Project1. App1 performs the following actions:
+.Sends prompts directly to a model by using the Azure OpenAl Responses API
+.Invokes the Azure AI Content Safety tool by using a Foundry connection within the same request
+You need to configure end-to-end visibility into each step of the request workflow.
+What should you do?
 
 Options:
 - A. Enable logging by using the client SDK for Content Safety.
-- B. Enable application tracing in Project1.
-- C. Route requests through the Azure OpenAI endpoint.
-- D. Option D (Visual Block)
+- B. Enable logging by using Foundry Local.
+- C. Enable application tracing in Project1.
+- D. Route requests through the Azure OpenAl endpoint.
+
+Answer Area / Items:
+- Correct option: **C**
 
 Answer: C
 
@@ -3122,25 +3666,53 @@ Answer: C
 
 Source pages: 98, 99
 
-HOTSPOT You have a Microsoft Foundry project that contains two agents named PolicyWriter and RskReviewer. 
-PolicyWriter generates daft updates for customer polices, and RiskReviewer reviews the drafts. Finalizes low-risk updates without manual intervention 
-Ensures predictable execution across the agents Requires user approval for highs updates 
-What should you configure? To answer, select the appropriate options in the answer area. 
-NOTE: Each comet selection is worth one point.
+HOTSPOT
 
-Answer: _No answer text extracted._
+You have a Microsoft Foundry project that contains two agents named PolicyWriter and RskReviewer.
+PolicyWriter generates daft updates for customer polices, and RiskReviewer reviews the drafts.
+In the visual builder, you need to create a workflow that meets the following requirements:
+.Finalizes low-risk updates without manual intervention
+.Ensures predictable execution across the agents
+
+.Requires user approval for highs updates
+What should you configure? To answer, select the appropriate options in the answer area.
+NOTE: Each comet selection is worth one point.
+Answer Area
+
+Orchestration pattern:
+
+The sequential template that passes outputs node by-node
+The group chat template to dynamically route control between the agents
+The human-in-the-loop template that pauses execution of the workflow for input
+
+Approval checkpoints:
+
+Add a Basic chat node.
+Add a Condition statement.
+Add an Ask a question node.
+
+Answer Area / Items:
+- Workflow logic: **Condition/decision branch for risk**
+- Approval checkpoint: **Ask for approval / Ask a question node**
 
 ## Question 80
 
 Source pages: 99
 
-You have a Microsoft Foundry project that contains an agent named Agent1. Agent runs successful, but Foundry Control Plane does NOT display values for error rates, runs, and token usage, You need to ensure that Found Control Plane displays the appropriate values for Agent1.
+You have a Microsoft Foundry project that contains an agent named Agent1.
+Agent runs successful, but Foundry Control Plane does NOT display values for error rates, runs, and token usage,
+and the Traces tab is empty.
+You need to ensure that Found Control Plane displays the appropriate values for Agent1.
+What should you do?
 
 Options:
-- A. Restart Agent from Foundry Control Plan
-- B. Enable Application Insights for Agent1.
-- C. Option C (Visual Block)
-- D. Option D (Visual Block)
+- A. Update Agent1 to a new version.
+- B. Restart Agent from Foundry Control Plan
+- C. Assign to a Log Analytics workspace to Agent1.
+- D. Enable Application Insights for Agent1.
+
+Answer Area / Items:
+- Correct option: **D**
 
 Answer: D
 
@@ -3148,14 +3720,22 @@ Answer: D
 
 Source pages: 99, 100
 
-You have a Microsoft Foundry project that contains an agent. The extracted content is indexed for search and provided to a downstream agent in the Markdown format. 
+You have a Microsoft Foundry project that contains an agent.
+The agent uses Azure Content Understanding in Foundry Too to process vendor onboarding packets. The packs
+include digital PDFs that contain tables and hyperlinks.
+The extracted content is indexed for search and provided to a downstream agent in the Markdown format.
 You need to generate a Markdown output that has a layout and a semantic structure optimized for Retrieval
+Augmented Generation (RAG) workflows.
+Which built-in analyzer should you use?
 
 Options:
-- A. Option A (Visual Block)
-- B. Option B (Visual Block)
-- C. Option C (Visual Block)
-- D. Option D (Visual Block)
+- A. prebuilt-documentFieldSchema
+- B. prebuilt-documentSearch
+- C. prebuilt-read
+- D. prebuilt-layout
+
+Answer Area / Items:
+- Correct option: **B**
 
 Answer: B
 
@@ -3163,13 +3743,21 @@ Answer: B
 
 Source pages: 100
 
-You have a Microsoft Foundry project that contains an agent. You need to build a solution that supports semantic similarity matching. The solution must ensure that the agent
+You have a Microsoft Foundry project that contains an agent.
+The agent uses Azure AI Search for Retrieval Augmented Generation (RAG).
+You plan to ingest and index PDF product manuals.
+You need to build a solution that supports semantic similarity matching. The solution must ensure that the agent
+retrieves relevant data when user questions use different wording than the product manuals.
+Which indexing approach should you use?
 
 Options:
-- A. Option A (Visual Block)
-- B. Option B (Visual Block)
-- C. Option C (Visual Block)
-- D. Option D (Visual Block)
+- A. vector search
+- B. semantic ranking
+- C. suggesters
+- D. analyzers
+
+Answer Area / Items:
+- Correct option: **A**
 
 Answer: A
 
@@ -3177,16 +3765,23 @@ Answer: A
 
 Source pages: 100
 
-You have a Microsoft Foundry agent that grounds responses from an Azure Search index that contains the Searchable text fields for product names and product codes 
-A vector field that stores embeddings for product descriptions 
-You need to ensure that users can query the index by using the following: Exact product names or codes 
-Natural language descriptions of the products
+You have a Microsoft Foundry agent that grounds responses from an Azure Search index that contains the
+following:
+.Searchable text fields for product names and product codes
+.A vector field that stores embeddings for product descriptions
+You need to ensure that users can query the index by using the following:
+.Exact product names or codes
+.Natural language descriptions of the products
+What should you configure?
 
 Options:
 - A. vector search only
-- B. semantic search only
-- C. Option C (Visual Block)
-- D. Option D (Visual Block)
+- B. hybrid search
+- C. keyword search only
+- D. semantic search only
+
+Answer Area / Items:
+- Correct option: **B**
 
 Answer: B
 
@@ -3194,15 +3789,23 @@ Answer: B
 
 Source pages: 100, 101
 
-Client applications must display page-level citations that have bounding polygons for both text and images. Provide text and image location metadata. 
-Extract tables that span multiple pages. 
+You have an Azure AI Search indexer that ingests PDF policy manuals.
+Client applications must display page-level citations that have bounding polygons for both text and images.
+
+You need to add a single built-in multimodal content extraction skill to the Azure AI Search skillset. The solution
+must meet the following requirements:
+.Provide text and image location metadata.
+.Extract tables that span multiple pages.
 What should you add?
 
 Options:
 - A. Document Extraction
-- B. GenAI Prompt
-- C. Document Layout
-- D. Option D (Visual Block)
+- B. Azure Content Understanding in Foundry Tools
+- C. GenAl Prompt
+- D. Document Layout
+
+Answer Area / Items:
+- Correct option: **B**
 
 Answer: B
 
@@ -3210,13 +3813,19 @@ Answer: B
 
 Source pages: 101
 
+You are building an Azure AI Search indexing pipeline named Pipeline 1 that ingests invoices stored in Azure Blob
+Storage. The invoices are stored as scanned images.
 You need to enable users to search invoice data across the invoice fields.
+Which built-in skill should you add to the skillset of Pipeline1?
 
 Options:
-- A. Text Translation
-- B. optical character recognition (OCR)
-- C. Image Analysis
-- D. Option D (Visual Block)
+- A. Text Split
+- B. Text Translation
+- C. optical character recognition (OCR)
+- D. Image Analysis
+
+Answer Area / Items:
+- Correct option: **C**
 
 Answer: C
 
@@ -3224,25 +3833,62 @@ Answer: C
 
 Source pages: 101, 102
 
-DRAG DROP You need to configure an analyzer to output a generated JSON field that describes the color scheme of each video How should you configure the analyzer? To answer, drag the appropriate values to the correct targets. Each value 
-may be used once, more than once, or not at all. You may need to drag the split bar between panes or scroll to view
+DRAG DROP
 
-Answer: _No answer text extracted._
+You have a Microsoft Foundry project that uses Azure Content Understanding in Foundry Tools to analyze
+marketing videos.
+Video segmentation is enabled.
+You need to configure an analyzer to output a generated JSON field that describes the color scheme of each video
+segment.
+How should you configure the analyzer? To answer, drag the appropriate values to the correct targets. Each value
+may be used once, more than once, or not at all. You may need to drag the split bar between panes or scroll to view
+content.
+NOTE: Each correct selection is worth one point.
+Values
+
+classify
+
+generate
+
+group
+
+string
+
+table
+
+Answer Area
+Field value type:_________
+Field method:_____________
+of each video segment in Azure Content Understanding within Microsoft Foundry is:Field type: CustomPrompt:
+Describe the color scheme of the video segment.
+
+Answer Area / Items:
+- Field value type: **string**
+- Field method: **generate**
+- Prompt: **Describe the color scheme of the video segment**
+
+Answer: The correct configuration for the analyzer to output a generated JSON field that describes the color scheme
 
 ## Question 87
 
 Source pages: 102
 
-You have an invoice-processing application named App1 that uses Azure Constant Understanding in Foundry Tools. 
-You are building a new Content Understanding pipeline named Pipeline1 that must meet the following 
-requirements: • Compare an invoice to its related purchase order • Validate the voice against static vendor contact documents • Return a single structured output that includes discrepancy findings 
+You have an invoice-processing application named App1 that uses Azure Constant Understanding in Foundry Tools.
+You are building a new Content Understanding pipeline named Pipeline1 that must meet the following
+requirements:
+•Compare an invoice to its related purchase order
+•Validate the voice against static vendor contact documents
+•Return a single structured output that includes discrepancy findings
 You need to configure Pipeline1 and expose the pipeline as a single analyzer endpoint. What should you configure?
 
 Options:
-- A. a single-file task in standard mode that uses the vendor contract provided as an additional document during
+- A. a single-file task in standard mode that uses the vendor contract provided as an additional document during analysis.
 - B. a single-file task in standard mode that uses confidence scores enabled for the extracted fields.
 - C. a multiple-file task in pro mode that uses the vendor contract files as reference data
 - D. a multi-file task in standard mode that uses the invoice and purchase order as input to the analyzer
+
+Answer Area / Items:
+- Correct option: **C**
 
 Answer: C
 
@@ -3250,13 +3896,19 @@ Answer: C
 
 Source pages: 102, 103
 
-You have a Microsoft Foundry project that generates short promotional product videos. After several clips are approved, reviewers notice a small watermark in the top-right corner of some videos. Modify the original prompt to exclude watermarks.
+You have a Microsoft Foundry project that generates short promotional product videos.
+After several clips are approved, reviewers notice a small watermark in the top-right comer of some videos.
+You need to remove the watermark without regenerating the videos.
+What should you do?
 
 Options:
-- A. Option A (Visual Block)
-- B. Option B (Visual Block)
+- A. Modify the original prompt to exclude watermarks.
+- B. Crop the video by using the size parameter.
 - C. Increase the guidance scale.
 - D. Apply a mask-based inpainting edit to the affected part of the video.
+
+Answer Area / Items:
+- Correct option: **D**
 
 Answer: D
 
@@ -3264,21 +3916,24 @@ Answer: D
 
 Source pages: 103
 
-You have a web app named App1 that sends requests to a multimodal chat model deployment in a Microsoft 
-Foundry project. 
-User messages can contain both text and images. 
-Currently, App1 includes image URL: as plain text inside the message content so the model cannot recognize them 
-as images. 
-Traces show that the requests contain a single text message instead of a multimodal content array. 
-You need to send the message as a structured array that includes both the text portion and the image reference to 
-ensure that the model can process the image correctly. 
+You have a web app named App1 that sends requests to a multimodal chat model deployment in a Microsoft
+Foundry project.
+User messages can contain both text and images.
+Currently, App1 includes image URL: as plain text inside the message content so the model cannot recognize them
+as images.
+Traces show that the requests contain a single text message instead of a multimodal content array.
+You need to send the message as a structured array that includes both the text portion and the image reference to
+ensure that the model can process the image correctly.
 What should you do?
 
 Options:
 - A. Set the user message content array to include items that have type: text and type: image_url.
 - B. Encode the image to base64 and include the encoded data inside the content string of the user message.
-- C. Add the image URL to the request metadata section, so the model can resolve the processing issue
-- D. Place the image URL inside the System Message and set type to image_url so the model loads the image at
+- C. Add the image URL to the request metadata section, so the model can resolve the processing issue automatically.
+- D. Place the image URL inside the System Message and set type to image_url so the model loads the image at initialization.
+
+Answer Area / Items:
+- Correct option: **A**
 
 Answer: A
 
@@ -3286,8 +3941,13 @@ Answer: A
 
 Source pages: 103
 
-Streaming audio input from users and playback audio responses 
+You are building a customer support web app named App1 in Microsoft Foundry that uses a GPT realtime model.
+App1 must support:
+.Live, low-latency voice conversations that use Azure OpenAl
+.Streaming audio input from users and playback audio responses
 You need to configure a connection method that supports real-time audio streaming in client application and
+targets approximately 100 ms latency.
+Which connection method should you use?
 
 Options:
 - A. RTMP
@@ -3295,13 +3955,20 @@ Options:
 - C. SIP
 - D. WebSocket
 
+Answer Area / Items:
+- Correct option: **D**
+
 Answer: D
 
 ## Question 91
 
 Source pages: 103, 104
 
-You have a Microsoft Foundry project that contains an agent and uses a GitHub repository. The repository contains You need to create a GitHub Actions workflow that runs the evaluation defined in File1 when a pull request (PR) is opened. How should you configure the workflow?
+You have a Microsoft Foundry project that contains an agent and uses a GitHub repository. The repository contains
+a YAM file named File1 that defines the evaluation settings of the agent.
+You need to create a GitHub Actions workflow that runs the evaluation defined in File1 when a pull request (PR) is
+
+opened. How should you configure the workflow?
 
 Options:
 - A. Set project-endpoint to the endpoint of the project.
@@ -3309,27 +3976,84 @@ Options:
 - C. Set model-deployment-name to the deployed model.
 - D. Set tenant-id to the Microsoft Entra tenant ID
 
+Answer Area / Items:
+- Correct option: **A**
+
 Answer: A
 
 ## Question 92
 
 Source pages: 104
 
-HOTSPOT You have a Microsoft Foundry project that contains an agent. You need to ensure that the agent can retrieve the secrets. The solution must follow the principle of least privilege. 
-What should you configure? To answer, select the appropriate options in the answer area.
+HOTSPOT
 
-Answer: Managed
+You have a Microsoft Foundry project that contains an agent.
+The agent uses a stored access key to retrieve secrets from an Azure key vault, which violates a keyless-
+credentials requirement.
+You need to ensure that the agent can retrieve the secrets. The solution must follow the principle of least privilege.
+What should you configure? To answer, select the appropriate options in the answer area.
+NOTE: Each correct selection is worth one point.
+Answer Area
+
+Managed identity scope:
+
+Enable a system-assigned managed identity at the Foundry level.
+Enable a system-assigned managed identity at the project level.
+Create a service principal and store the principal's client secret.
+
+Key Vault authorization method:
+
+Add an API key to application settings.
+Add a Key Vault access policy for the secrets.
+Assign the Key Vault Secrets User role to the managed identity.
+
+Answer Area / Items:
+- Answer: **Managed**
+
+Answer: **Managed**
 
 ## Question 93
 
 Source pages: 104, 105
 
-HOTSPOT Includes risk and safety metrics 
-Includes the protected material evaluation You create an evaluation named Run2 that has the following configurations: Includes risk and safety metrics 
-Includes the protected material evaluation 
-Includes harmful content metrics that use a high severity threshold Content harm defect rate of Run2: 4% Protected material evaluation of Run1: 6% 
-Protected material evaluation of Run1: 6% For each of the following statements, select Yes if the statement is true. Otherwise, select No. 
+HOTSPOT
+
+You have a Microsoft Foundry project that contains a customer support application.
+You create an evaluation named Run1 that has the following configurations:
+.Includes risk and safety metrics
+.Includes the protected material evaluation
+.Includes harmful content metrics that use a medium severity threshold
+You create an evaluation named Run2 that has the following configurations:
+.Includes risk and safety metrics
+.Includes the protected material evaluation
+.Includes harmful content metrics that use a high severity threshold
+You run both evaluations against a dataset named DB1 and receive the following results:
+.Content harm defect rate of Run1: 12%
+.Content harm defect rate of Run2: 4%
+
+.Protected material evaluation of Run1: 6%
+.Protected material evaluation of Run1: 6%
+You start a fine-tuning job by using DB1. The job fails during automatic RAI checks for multiple content harm types.
+You discover that the content filtering configuration is set to high severity.
+For each of the following statements, select Yes if the statement is true. Otherwise, select No.
 NOTE: Each correct selection is worth one point.
+Answer Area
+
+Statements
+
+Changing the content filtering configuration to low severity will resolve
+the fine-tuning job issues.
+
+The difference between the 12% and 4% content harm defect rate
+is consistent with the different severity thresholds used in Run1 and Run2.
+
+The identical 6% protected material evaluation values across Run1 and Run2
+indicate that this metric is unaffected by the change in the severity threshold.
+
+Answer Area / Items:
+- Can detect custom objects without model deployment: **Yes**
+- Can extract structured JSON from unstructured text: **No**
+- Can preserve document layout and table bounds: **Yes**
 
 Answer: YesNoYes
 
@@ -3337,15 +4061,32 @@ Answer: YesNoYes
 
 Source pages: 105
 
-DRAG DROP 
-- 
-You have a Microsoft Foundry project that contains a multi-agent solution. The agents use tool calling to query 
-internal systems. 
-You need to implement responsible AI auditing to meet the following requirements: • Capture all the nested operations across the entire agent run. • Record tool invocation arguments and retuned results as metadata. 
-What should you use for each requirement? To answer, drag the appropriate options to the correct targets Each 
-option may be used once, more than once, or not at all. You may need o dag the split bar between panes or scroll to 
-view content. 
+DRAG DROP
+-
+You have a Microsoft Foundry project that contains a multi-agent solution. The agents use tool calling to query
+internal systems.
+You need to implement responsible AI auditing to meet the following requirements:
+•Capture all the nested operations across the entire agent run.
+•Record tool invocation arguments and retuned results as metadata.
+What should you use for each requirement? To answer, drag the appropriate options to the correct targets Each
+option may be used once, more than once, or not at all. You may need o dag the split bar between panes or scroll to
+view content.
 NOTE: Each correct selection is worth one point.
+Options
+
+Hierarchical spans
+A KQL query filter
+Sampling
+Tool call attributes
+Trace sampling policy
+
+Answer Area
+Capture all the nested operations across the entire agent run:__________________
+Record tool invocation arguments and results:____________________________________
+
+Answer Area / Items:
+- Telemetry tracking signal 1: **Trace context**
+- Telemetry tracking signal 2: **Custom dimensions**
 
 Answer: Trace context, Custom dimensions
 
@@ -3353,33 +4094,64 @@ Answer: Trace context, Custom dimensions
 
 Source pages: 106
 
-DRAG DROP 
-- 
-You have a Microsoft Foundry project that contains an agent. The agent uses threads and file uploads and calls an 
-Azure OpenAI model deployment. 
-During load testing, calls intermittently fall and return an HTTP 429 rate limit exceeded error. Some user uploads 
-fail and generate an HTTP 400 file size exceeded error. 
-You need to mitigate the errors and reduce call failures. The solution must remain within the service and model 
-limits. 
-What should you do to resolve each error? To answer, drag the appropriate actions to the correct errors. Each 
-action may be used once, more than once or not at all. You may need to drag the split bar between panes or scroll 
-to view content. 
-NOTE: Each comet selection is worth one point.
+DRAG DROP
+-
+You have a Microsoft Foundry project that contains an agent. The agent uses threads and file uploads and calls an
+Azure OpenAI model deployment.
+During load testing, calls intermittently fall and return an HTTP 429 rate limit exceeded error. Some user uploads
+fail and generate an HTTP 400 file size exceeded error.
+You need to mitigate the errors and reduce call failures. The solution must remain within the service and model
+limits.
+What should you do to resolve each error? To answer, drag the appropriate actions to the correct errors. Each
+action may be used once, more than once or not at all. You may need to drag the split bar between panes or scroll
+to view content.
+NOTE: Each comet selection is worth one point
 
-Answer: HTTP 429: Implement exponential backoff retry logic.HTTP 400: Validate file size against model limits before 
-upload.
+Actions
+
+Increase tenant-wide quotas.
+
+Move large content to files
+and use file search.
+
+Use additional agent tools
+to reduce the message size.
+
+Implement exponential backoff
+and jitter in the retry logic.
+
+Split content into smaller files
+before uploading the files.
+
+Answer Area
+
+HTTP 429:_____
+
+HTTP 400:_____
+
+Answer Area / Items:
+- HTTP 429 Error Resolution: **Implement exponential backoff retry logic**
+- HTTP 400 Error Resolution: **Validate file size against model limits before upload**
+
+Answer: HTTP 429: Implement exponential backoff retry logic.HTTP 400: Validate file size against model limits before
 
 ## Question 96
 
 Source pages: 106, 107
 
-You need to deploy a model from the model catalog to support a search solution for internal policy documents. The Which type of model should you use?
+You have a Microsoft Foundry project.
+You need to deploy a model from the model catalog to support a search solution for internal policy documents. The
+model must generate vector representations of the text in the documents and of user queries.
+Which type of model should you use?
 
 Options:
-- A. Option A (Visual Block)
-- B. Option B (Visual Block)
-- C. Option C (Visual Block)
-- D. Option D (Visual Block)
+- A. an embedding model
+- B. an image generation model
+- C. a large language model (LLM)
+- D. a small language model (SLM)
+
+Answer Area / Items:
+- Correct option: **A**
 
 Answer: A
 
@@ -3387,13 +4159,22 @@ Answer: A
 
 Source pages: 107
 
-You need to deploy a model from the model catalog to support real-time inference. The solution must meet the Use key-based authentication. NOT consume the vCPU quota of the virtual machines in the Azure subscription.
+You have a Microsoft Foundry project.
+You need to deploy a model from the model catalog to support real-time inference. The solution must meet the
+following requirements:
+.Use key-based authentication.
+.Support real-time REST API access.
+.NOT consume the vCPU quota of the virtual machines in the Azure subscription.
+Which type of deployment should you use?
 
 Options:
-- A. self-hosted container
-- B. Option B (Visual Block)
-- C. Option C (Visual Block)
-- D. Option D (Visual Block)
+- A. serverless API
+- B. batch
+- C. self-hosted container
+- D. standard
+
+Answer Area / Items:
+- Correct option: **D**
 
 Answer: D
 
@@ -3401,27 +4182,119 @@ Answer: D
 
 Source pages: 107, 108
 
-HOTSPOT You plan to create a Microsoft Foundry project named Project1 that will contain an agent and use an Azure key How should you complete the Bicep code? To answer, select the appropriate options in the answer area?
+HOTSPOT
 
-Answer: resource connection 
+You plan to create a Microsoft Foundry project named Project1 that will contain an agent and use an Azure key
+vault named KV1.
+You need to configure a connection from Project1 to KV1.
+How should you complete the Bicep code? To answer, select the appropriate options in the answer area?
+NOTE: Each correct selection is worth one point.
+
+Answer Area
+
+resource existingKeyVault 'Microsoft.KeyVault/vaults@2024-11-01'
+existing = {
+name: 'KV1'
+scope: resourceGroup ()
+
+resource connection
+'Microsoft.CognitiveSevices/accounts/connections@2025-04-01-
+preview' ={
+name: '${aiFoundryName}-keyvault'
+parent: aiFoundry
+properties: {
+category:
+
+'AzureAlService'
+'AzureKeyVault'
+'AzureOpenAl'
+
+target: existingKeyVault.id
+authType:
+
+'AccountKey'
+'AccountManagedldentity'
+'ApiKey'
+
+
+isSharedToAll:
+metadata: {
+ApiType: 'Azure'
+ResourceId: existingKeyVault.id
+location: existingKeyVault.location
+
+```bicep
+resource existingKeyVault 'Microsoft.KeyVault/vaults@2024-11-01' existing = {
+  name: 'KV1'
+  scope: resourceGroup()
+}
+
+resource connection 'Microsoft.CognitiveServices/accounts/connections@2025-04-01-preview' = {
+  name: '${aiFoundryName}-keyvault'
+  parent: aiFoundry
+  properties: {
+    category: [ 'AzureAIService' | 'AzureKeyVault' | 'AzureOpenAI' ]
+    target: existingKeyVault.id
+    authType: [ 'AccountKey' | 'AccountManagedIdentity' | 'ApiKey' ]
+    isSharedToAll: true
+    metadata: {
+      ApiType: 'Azure'
+      ResourceId: existingKeyVault.id
+      location: existingKeyVault.location
+    }
+  }
+}
+```
+
+Answer Area / Items:
+- Answer: **resource connection 
 'Microsoft.MachineLearningServices/workspaces/onlineEndpoints/deployments/connections@2024-01-01-
 preview' = name: 'KV1-connection' parent: deployment properties: category: 'AzureKeyVault' target: 
-kv1.properties.vaultUri authType: 'None'
+kv1.properties.vaultUri authType: 'None'**
+
+Answer: **resource connection
 
 ## Question 99
 
 Source pages: 108, 109
 
-HOTSPOT Retains customer preferences across separate chat sessions 
+HOTSPOT
+.
+You have a Microsoft Foundry project.
+You need to create a customer support agent that meets the following requirements:
+.Grounds responses only in company policy documents stored in curated repositories
+.Retains customer preferences across separate chat sessions
 How should you configure the agent? To answer, select the appropriate options in the answer area.
+NOTE: Each correct selection is worth one point.
 
-Answer: For the requirements of grounding responses in specific company policy documents and retaining customer
+Answer Area
+
+Knowledge grounding:
+
+Configure revival from approved data sources.
+Upload the policy documents direct to the agent.
+Embed the policy documents directly into the agent instructions.
+
+Memory:
+
+Use orchestration-managed session context.
+Enable agent memory that uses persistent storage.
+Retain user preferences in the state of the client application
+
+Answer Area / Items:
+- Answer: **For the requirements of grounding responses in specific company policy documents and retaining customer**
+
+Answer: **For the requirements of grounding responses in specific company policy documents and retaining customer**
 
 ## Question 100
 
 Source pages: 109
 
 You have a Microsoft Foundry project that contains an agent. The agent generates summaries from retrieved
+policy documents.
+You need to improve response completeness. The solution must be implemented in the logic of the application
+code before responses are returned.
+What should you do?
 
 Options:
 - A. Add a retry evaluation before the responses are returned.
@@ -3429,15 +4302,52 @@ Options:
 - C. Increase the value of the presence_penalty parameter
 - D. Replace the model with a smaller deployment.
 
+Answer Area / Items:
+- Correct option: **A**
+
 Answer: A
 
 ## Question 101
 
 Source pages: 109, 110
 
-HOTSPOT You develop a test method to verify the results retrieved from a call to the Azure Vision in Foundry Tools API. The 
-call is used to analyze the existence of company logos in images. The call returns a collection of brands named For each of the following statements, select Yes if the statement is true. Otherwise, select No. 
+HOTSPOT
+
+You develop a test method to verify the results retrieved from a call to the Azure Vision in Foundry Tools API. The
+call is used to analyze the existence of company logos in images. The call returns a collection of brands named
+brands
+You have the following code segment:
+
+for brand in image_analysis.brands:
+if brand.confidence >= 0.75:
+print (f"\
+Logo of {brand.name} between
+{brand. rectangle.x}, {brand. rectangle.y} and {brand. rectangle.w},
+{brand.rectangle.h}")
+For each of the following statements, select Yes if the statement is true. Otherwise, select No.
 NOTE: Each correct selection is worth one point.
+Answer Area
+
+Statements
+
+The code will display the name of each detected brand
+with a confidence equal to or higher than 75 percent.
+The code will display coordinates for the top-left corner
+of the rectangle that contains the brand logo of the displayed brands.
+
+The code will display coordinates for the bottom-right corner
+of the rectangle that contains the brand logo of the displayed brands.
+
+```python
+for brand in image_analysis.brands:
+    if brand.confidence >= 0.75:
+        print(f"\nLogo of {brand.name} between {brand.rectangle.x}, {brand.rectangle.y} and {brand.rectangle.w}, {brand.rectangle.h}")
+```
+
+Answer Area / Items:
+- Vision API detects brand logos in images: **Yes**
+- Returns confidence scores for brand detection: **Yes**
+- Requires pre-training custom vision model: **No**
 
 Answer: YesYesNo
 
@@ -3445,14 +4355,19 @@ Answer: YesYesNo
 
 Source pages: 110
 
-You have an Azure subscription. 
+You have an Azure subscription.
 You plan to build an app that will use the Azure AI DALL-E model.
+You need to deploy the model.
+What should you use?
 
 Options:
 - A. the Azure SDK for Python and PowerShell cmdlets.
-- B. the Azure portal and Microsoft Graph API
-- C. Option C (Visual Block)
-- D. Option D (Visual Block)
+- B. the Azure SDK for JavaScript and Azure Machine Learning Studio.
+- C. Microsoft Foundry and the Azure Command Line Interface (CLI)
+- D. the Azure portal and Microsoft Graph API
+
+Answer Area / Items:
+- Correct option: **C**
 
 Answer: C
 
@@ -3460,7 +4375,46 @@ Answer: C
 
 Source pages: 110, 111
 
-HOTSPOT You have an Azure subscription. You need to create a new resource that will generate fictional stores in response to user prompts. The solution How should you complete the script? To answer, select the appropriate options in the answer area.
+HOTSPOT
+
+You have an Azure subscription.
+You need to create a new resource that will generate fictional stores in response to user prompts. The solution
+must ensure that the resource uses a customer-managed key to protect data.
+How should you complete the script? To answer, select the appropriate options in the answer area.
+NOTE: Each correct selection is worth one point.
+
+Answer Area
+
+az cognitiveservices account create -n myresource -g
+myResourceGroup -- kind
+
+-- sku S -1 WestEurope
+
+AlServices
+LanguageAuthoring
+OpenAl
+
+-- api-properties
+-- assign-identity
+-encryption
+"keySource": "Microsoft.KeyVault",
+"keyVaultProperties": {
+"keyName": "KeyName",
+"keyVersion": "secretVersion",
+"keyVaultUri": "https://issue23056kv.vault.azure.net/"
+
+}},
+
+```bash
+az cognitiveservices account create -n myresource -g myResourceGroup \
+  --kind [ AIServices | LanguageAuthoring | OpenAI ] \
+  --sku S1 -l westeurope \
+  --assign-identity \
+  --api-properties '{"encryption":{"keySource":"Microsoft.KeyVault","keyVaultProperties":{"keyName":"KeyName","keyVersion":"secretVersion","keyVaultUri":"https://issue23056kv.vault.azure.net/"}}}'
+```
+
+Answer Area / Items:
+- Correct options: **A, C**
 
 Answer: AC
 
@@ -3468,8 +4422,58 @@ Answer: AC
 
 Source pages: 111, 112
 
-HOTSPOT You have a Python application collects customer comments before posting them to a public forum. You need to send a text comment to Azure AI Content Safety and return the self-harm severity from the response. 
-How should you complete the code? To answer, select the appropriate options in the answer area.
+HOTSPOT
+You have a Python application collects customer comments before posting them to a public forum.
+You need to send a text comment to Azure AI Content Safety and return the self-harm severity from the response.
+How should you complete the code? To answer, select the appropriate options in the answer area
+NOTE: Each correct selection is worth one point.
+Answer Area
+
+def get_self_harm_severity (comment: str) -> int:
+key = os. environ ["CONTENT_SAFETY_KEY"]
+endpoint = os.environ
+["CONTENT_SAFETY_ENDPOINT"]
+client = ContentSafetyClient (endpoint,
+AzureKeyCredential (key) )
+request =
+
+AnalyzeTextOptions(categories=comment)
+AnalyzeTextOptions(text=[comment])
+AnalyzeTextOptions(text=comment)
+TextCategory.SELF_HARM(comment)
+
+response =
+
+client.analyze_image(request)
+client.analyze_text(request)
+client.moderate_text(request)
+client.path("/text:analyze").post(request)
+
+result = next (
+item for item in response.categories_analysis
+if item. category = TextCategory. SELF_HARM
+
+)
+return result.severity
+
+```python
+def get_self_harm_severity(comment: str) -> int:
+    key = os.environ["CONTENT_SAFETY_KEY"]
+    endpoint = os.environ["CONTENT_SAFETY_ENDPOINT"]
+    client = ContentSafetyClient(endpoint, AzureKeyCredential(key))
+    
+    request = [ AnalyzeTextOptions(categories=comment) | AnalyzeTextOptions(text=[comment]) | AnalyzeTextOptions(text=comment) | TextCategory.SELF_HARM(comment) ]
+    response = [ client.analyze_image(request) | client.analyze_text(request) | client.moderate_text(request) | client.path("/text:analyze").post(request) ]
+
+    result = next(
+        item for item in response.categories_analysis
+        if item.category == TextCategory.SELF_HARM
+    )
+    return result.severity
+```
+
+Answer Area / Items:
+- Correct options: **A, D**
 
 Answer: AD
 
@@ -3477,12 +4481,12 @@ Answer: AD
 
 Source pages: 112
 
-You have a custom named entity recognition (NER) project in Azure Language in Foundry Tools for support tickets. 
-The schema for the project contains an entity type named ContactInfo. 
-In tagged training files, ContactInfo is used for phone numbers, email addresses, and social media handles. 
-Model evaluation shows low precision for ContactInfo, including false positives in which nearby text is extracted as 
-ContactInfo. 
-You need to improve the precision of the project. 
+You have a custom named entity recognition (NER) project in Azure Language in Foundry Tools for support tickets.
+The schema for the project contains an entity type named ContactInfo.
+In tagged training files, ContactInfo is used for phone numbers, email addresses, and social media handles.
+Model evaluation shows low precision for ContactInfo, including false positives in which nearby text is extracted as
+ContactInfo.
+You need to improve the precision of the project.
 What should you do before retraining the model?
 
 Options:
@@ -3491,21 +4495,30 @@ Options:
 - C. Add more support tickets as training data and label more ContactInfo entities.
 - D. Replace ContactInfo by using Phone, Email, and SocialMedia entities. Relabel every matching span.
 
+Answer Area / Items:
+- Correct option: **D**
+
 Answer: D
 
 ## Question 106
 
 Source pages: 113
 
-You are building a text-to-speech solution that uses Azure Speech in Foundry Tools to read instructions from the 
-script in a text file. 
+You are building a text-to-speech solution that uses Azure Speech in Foundry Tools to read instructions from the
+script in a text file.
 You discover that the solution often pronounces technical terms incorrectly.
+You need to prevent the incorrect pronunciations. The solution must minimize development effort.
+What should you do?
 
 Options:
-- A. Use Speech Synthesis Markup Language (SSML) to apply say as rules.
-- B. Use Speech Synthesis Markup Language (SSML) to adjust the prosody of the voice.
-- C. From Azure OpenAI use the Whisper model.
-- D. Option D (Visual Block)
+- A. From Speech Studio, train a custom neural voice
+- B. Use Speech Synthesis Markup Language (SSML) to specify phonemes.
+- C. Use Speech Synthesis Markup Language (SSML) to apply say as rules.
+- D. Use Speech Synthesis Markup Language (SSML) to adjust the prosody of the voice.
+- E. From Azure OpenAl use the Whisper model.
+
+Answer Area / Items:
+- Correct option: **B**
 
 Answer: B
 
@@ -3513,11 +4526,86 @@ Answer: B
 
 Source pages: 113, 114, 115
 
-HOTSPOT 
-- 
-You have a Python application that redacts sensitive information before sending prompt text to a language model. 
-The application has the following code: For each of the following statements, select Yes if the statement is true. Otherwise, select No. 
-NOTE: Each correct selection is worth one point.
+HOTSPOT
+-
+You have a Python application that redacts sensitive information before sending prompt text to a language model.
+The application has the following code:
+
+saxple_text = "Contact Johm Doe at 312-555-1234 or
+john.dow@eentoso.com. His 55M im 859-98-0987."
+
+dai redact_for_model [input_text) :
+paylcad = {
+"kind": "PiiEntityRecognitiom",
+
+"modelVersion": "latest",
+"piiCategorima": ["Fermon", "PhonmNumbar"],
+"redactionPolicies": [
+"policylind": "emtityMask"
+
+analyaimInput": {
+"dooments": [
+
+"id": "1",
+"language": "en",
+"text": input_text
+
+-
+
+rmturm 4
+"text for model": doc.get ("redactedText", ""),
+*wudit": [
+lentity["text"], entity["category"], entity
+["eenfidancescore"]]
+for entity in doc["entities"]
+
+rosult = redaot_for_model(sample_toxt)
+
+NOTE: Each conea secson is wons ons point.
+
+Answer Area
+
+Statements
+
+For sample_toxt, audit will indude entity records
+for Contact and SSN.
+
+For mample_text, text_for_model wil include
+john.doe@contoso.com and 859-98-0987.
+
+For sample_text, text_for_model will contain entty type
+masks for John Doe and 312-555-1234.
+
+```python
+sample_text = "Contact John Doe at 312-555-1234 or john.doe@contoso.com. His SSN is 859-98-0987."
+
+def redact_for_model(input_text):
+    payload = {
+        "kind": "PiiEntityRecognition",
+        "modelVersion": "latest",
+        "piiCategories": ["Person", "PhoneNumber"],
+        "redactionPolicies": [{"policyKind": "entityMask"}],
+        "analysisInput": {
+            "documents": [
+                {"id": "1", "language": "en", "text": input_text}
+            ]
+        }
+    }
+    return {
+        "text_for_model": doc.get("redactedText", ""),
+        "audit": [
+            [entity["text"], entity["category"], entity["confidenceScore"]]
+            for entity in doc["entities"]
+        ]
+    }
+
+result = redact_for_model(sample_text)
+```
+
+Answer Area / Items:
+- Redacts PII before sending prompt to model: **Yes**
+- Stores unmasked PII in Application Insights: **No**
+- Preserves original sentence context for model: **Yes**
 
 Answer: Yes, No, Yes
 
@@ -3525,13 +4613,36 @@ Answer: Yes, No, Yes
 
 Source pages: 115
 
-DRAG DROP 
-- 
-You are developing an application that will detect faulty components produced on a factory production line. The 
-components are specific to your business. 
-You need to use the Azure Custom Vision API to help detect common faults. 
-Which three actions should you perform in sequence? To answer, move the appropriate actions from the list of 
+DRAG DROP
+-
+You are developing an application that will detect faulty components produced on a factory production line. The
+components are specific to your business.
+You need to use the Azure Custom Vision API to help detect common faults.
+Which three actions should you perform in sequence? To answer, move the appropriate actions from the list of
 actions to the answer area and arrange them in the correct order.
+Actions
+
+Initialize the training dataset.
+
+Train the classifier model.
+
+Create a project.
+
+Upload and tag images.
+
+Train the object detection model.
+
+
+Answer Area
+
+1  ?
+2  ?
+3  ?
+
+Answer Area / Items:
+- Step 1: **Create a project**
+- Step 2: **Upload and tag images**
+- Step 3: **Train and publish the model**
 
 Answer: 1. Create a project.2. Upload and tag images.3. Train and publish the model.
 
@@ -3539,14 +4650,19 @@ Answer: 1. Create a project.2. Upload and tag images.3. Train and publish the mo
 
 Source pages: 115, 116
 
-You are developing a new sales system that will process user-generated video and text from a public-facing 
+You are developing a new sales system that will process user-generated video and text from a public-facing
 website.
+You plan to notify users that their data has been processed by the sales system.
+Which responsible Al principle does this help meet?
 
 Options:
-- A. reliability and safety
-- B. Option B (Visual Block)
-- C. Option C (Visual Block)
-- D. Option D (Visual Block)
+- A. fairness
+- B. transparency
+- C. inclusiveness
+- D. reliability and safety
+
+Answer Area / Items:
+- Correct option: **B**
 
 Answer: B
 
@@ -3554,13 +4670,19 @@ Answer: B
 
 Source pages: 116
 
+You are designing a content management system.
+You need to ensure that the reading experience is optimized for users who have reduced comprehension and
+learning differences, such as dyslexia. The solution must minimize development effort.
 Which Azure service should you include in the solution?
 
 Options:
 - A. Azure Document Intelligence in Foundry Tools
-- B. Azure AI Immersive Reader
-- C. Option C (Visual Block)
-- D. Option D (Visual Block)
+- B. Azure Language in Foundry Tools
+- C. Azure AI Immersive Reader
+- D. Azure Translator in Foundry Tools
+
+Answer Area / Items:
+- Correct option: **C**
 
 Answer: C
 
@@ -3568,15 +4690,19 @@ Answer: C
 
 Source pages: 116
 
-You have an Azure subscription that contains an Azure App Service app named App1. 
-You provision a Microsoft Foundry Service resource named CSAccount1. 
+You have an Azure subscription that contains an Azure App Service app named App1.
+You provision a Microsoft Foundry Service resource named CSAccount1.
 You need to configure App1 to access CSAccount1. The solution must minimize administrative effort.
+What should you use to configure App1?
 
 Options:
 - A. the endpoint URI and subscription key
 - B. the endpoint URI and an OAuth token
 - C. the endpoint URI and a shared access signature (SAS) token
-- D. Option D (Visual Block)
+- D. a system assigned managed identity and an X.509 certificate
+
+Answer Area / Items:
+- Correct option: **A**
 
 Answer: A
 
@@ -3584,11 +4710,42 @@ Answer: A
 
 Source pages: 116, 117
 
-DRAG DROP You have a web app that uses Azure AI Search. compromised. 
-You need to prevent unauthorized access to the search endpoint and ensure that users only have read only access 
-to the documents collection. The solution must minimize app downtime. 
-Which three actions should you perform in sequence? To answer, move the appropriate actions from the list of 
+DRAG DROP
+
+You have a web app that uses Azure AI Search.
+When reviewing activity you see greater than expected search query volumes. You suspect that the query key is
+
+compromised.
+You need to prevent unauthorized access to the search endpoint and ensure that users only have read only access
+to the documents collection. The solution must minimize app downtime.
+Which three actions should you perform in sequence? To answer, move the appropriate actions from the list of
 actions to the answer area and arrange them in the correct order.
+Actions
+
+Regenerate the primary
+admin key
+
+Regenerate the secondary
+admin key
+
+Change the app to use
+the secondary admin key
+
+Add a new query key
+
+Change the app to use
+the new key
+
+Delete the compromised key 
+
+Answer Area
+
+1  ?
+2  ?
+3  ?
+
+Answer Area / Items:
+- Correct options: **E, B, D**
 
 Answer: EBD
 
@@ -3596,39 +4753,153 @@ Answer: EBD
 
 Source pages: 117, 118
 
-HOTSPOT You need to create a new resource that will be used to perform sentiment analysis and optical character 
-recognition (OCR). The solution must meet the following requirements: Use a single key and endpoint to access multiple services. 
-Consolidate billing for future services that you might use. 
-Support the use of Azure Vision in Foundry Tools in the future. 
-How should you complete the HTTP request to create the new resource? To answer, select the appropriate options
+HOTSPOT
 
-Answer: AI Services
+You need to create a new resource that will be used to perform sentiment analysis and optical character
+recognition (OCR). The solution must meet the following requirements:
+.Use a single key and endpoint to access multiple services.
+.Consolidate billing for future services that you might use.
+.Support the use of Azure Vision in Foundry Tools in the future.
+How should you complete the HTTP request to create the new resource? To answer, select the appropriate options
+in the answer area.
+NOTE: Each correct selection is worth one point.
+
+Answer Area
+
+https://management.azure.com/subscriptions/
+xxx-xxxx
+xxxxxxxxxx/resourceGroups/RG1
+
+PATCH
+POST
+PUT
+
+/providers/Microsoft.CognitiveService/accounts/CS1?api-
+version=2021-04-30
+
+"location": "West US",
+"kind": "
+
+x
+
+-xxxx-xxxx-
+
+"sku": {
+
+CognitiveServices
+ComputerVision
+TextAnalytics
+
+"name": "S0"
+
+"properties": {},
+"identity": {
+"type": "SystemAssigned"
+
+Answer Area / Items:
+- Answer: **AI Services**
+
+Answer: **AI Services**
 
 ## Question 114
 
 Source pages: 118, 119
 
-HOTSPOT You are building a model to detect objects in images. 
-The performance of the model based on training data is shown in the following exhibit. Use the drop-down menus to select the answer choice that completes each statement based on the information 
-presented in the graphic. 
+HOTSPOT
+You are building a model to detect objects in images.
+The performance of the model based on training data is shown in the following exhibit.
+
+
+Objects
+
+|Iterations
+
+Probability Threshold: 50%C
+
+Overlap Threshold:30% (
+
+Training Images
+
+Publish
+
+Iteration 1
+
+Finished training on 18/02/2022, 17:08:38 using General domain
+Iteration id: eedf9f1a-1a9f-4d98-bf2c-ffc28bd8cae1
+
+Performance
+
+Prediction URL
+
+Delete
+
+Predictions
+
+Export
+
+% Train
+
+Quick Test
+
+Iteration 1
+
+Trained: moments ago with
+General domain
+
+Precision O
+
+Recall O
+
+mAP O
+
+100.0%
+
+25.0%
+
+77.2%
+
+Use the drop-down menus to select the answer choice that completes each statement based on the information
+presented in the graphic.
 NOTE: Each correct selection is worth one point.
 
-Answer: The provided images show a graph where the x-axis represents the number of training iterations and the y-
+Answer Area
+
+The percentage of false positives is:
+
+0
+25
+30
+50
+100
+
+The value for the number of true positives divided
+by the total number of true positives and false negatives is:
+
+0
+25
+30
+50
+100
+
+Answer Area / Items:
+- Answer: **The provided images show a graph where the x-axis represents the number of training iterations and the y-
 axis represents the loss (specifically, the training loss and validation loss). Based on the standard 
 interpretation of such machine learning performance graphs:* Statement 1: The model is experiencing 
 overfitting (because the training loss continues to decrease while the validation loss begins to 
 increase/plateau).* Statement 2: To improve the model performance, you should increase the amount of 
 training data or apply regularization (which prevents the model from memorizing the noise in the training 
 set).Based on the typical structure of this specific certification exam question (AI-103/AI-102 context), the 
-correct selections are:OverfittingIncrease the amount of training data
+correct selections are:OverfittingIncrease the amount of training data**
+
+Answer: **The provided images show a graph where the x-axis represents the number of training iterations and the y-
 
 ## Question 115
 
 Source pages: 120
 
-You are developing an application that will use Azure AI Search for internal documents. 
-You need to implement document-level filtering for Azure AI Search. 
-Which three actions should you include in the solution? Each correct answer presents part of the solution. 
+You are developing an application that will use Azure AI Search for internal documents.
+You need to implement document-level filtering for Azure AI Search.
+Which three actions should you include in the solution? Each correct answer presents part of the solution.
 NOTE: Each correct selection is worth one point.
 
 Options:
@@ -3639,20 +4910,31 @@ Options:
 - E. Retrieve the group memberships of the user
 - F. Supply the groups as a filter for the search requests
 
+Answer Area / Items:
+- Correct options: **A, E, F**
+
 Answer: AEF
 
 ## Question 116
 
 Source pages: 120
 
-Client applications must display page-level citations that have bounding polygons for both text and images. Provide text and image location metadata. 
-Extract tables that span multiple pages.
+You have an Azure AI Search indexer that ingest PDF policy manuals.
+Client applications must display page-level citations that have bounding polygons for both text and images.
+You need to add a single built-in multimodal content extraction skill to the Azure AI Search skillset. The solution
+must meet the following requirements:
+.Provide text and image location metadata.
+.Extract tables that span multiple pages.
+What should you add?
 
 Options:
-- A. Document
-- B. Document
+- A. Document Layout
+- B. Document Extraction
 - C. Azure Content Understanding
-- D. GenAI Prompt
+- D. GenAl Prompt
+
+Answer Area / Items:
+- Correct option: **C**
 
 Answer: C
 
@@ -3660,6 +4942,22 @@ Answer: C
 
 Source pages: 120, 121
 
-HOTSPOT Which projection type should you use for each data type? To answer, select the appropriate options in the answer
+HOTSPOT
 
-Answer: _No answer text extracted._
+You are creating an enrichment pipeline that will use Azure AI Search. The knowledge store contains unstructured
+JSON data and the text from scanned PDF documents.
+Which projection type should you use for each data type? To answer, select the appropriate options in the answer
+area.
+NOTE: Each correct selection is worth one point.
+
+Answer Area
+
+JSON data:
+
+File projection
+Object projection
+Table projection
+
+Answer Area / Items:
+- JSON data projection type: **Object projection**
+- Extracted text data projection type: **Table projection**
