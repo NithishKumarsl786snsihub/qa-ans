@@ -200,25 +200,64 @@ export function FormattedPrompt({
               {cleanSeg && (
                 <div className="prompt-text-paragraph">
                   {cleanSeg.split("\n\n").map((para: string, pIdx: number) => {
-                    // Check for Solution: [...] in Single-Choice Yes/No questions during Study Mode
-                    const solutionMatch = para.match(/^Solution:\s*(.*)/i);
-                    const isSolutionPara = solutionMatch || para.startsWith("Solution:");
+                    // Detect "Solution:" anywhere in the paragraph (inline or at start)
+                    const inlineSolutionRegex = /Solution:\s*([\s\S]+?)(?=\s*Does this meet the goal\??|$)/i;
+                    const inlineMatch = para.match(inlineSolutionRegex);
+                    const startsWithSolution = /^Solution:/i.test(para.trim());
 
-                    if (studyMode && isSingleChoiceYesNo && isSolutionPara) {
-                      const solText = solutionMatch ? solutionMatch[1] : para.replace(/^Solution:\s*/i, "");
+                    if (studyMode && isSingleChoiceYesNo && (startsWithSolution || inlineMatch)) {
+                      if (startsWithSolution) {
+                        // Whole paragraph is the solution line
+                        const solText = para.replace(/^Solution:\s*/i, "");
+                        return (
+                          <div key={pIdx} className="proposed-solution-highlight-card">
+                            <div className="solution-card-header">
+                              <Sparkles size={16} className="solution-sparkle-icon" />
+                              <span>Proposed Solution Under Evaluation</span>
+                              <span className="study-badge">Study Mode Highlight</span>
+                            </div>
+                            <div className="solution-card-body">
+                              <strong className="solution-prefix">Solution:</strong>{" "}
+                              <span className="solution-text">
+                                {highlightTextKeywords(solText, keywords)}
+                              </span>
+                            </div>
+                          </div>
+                        );
+                      }
+
+                      // Solution: is embedded mid-paragraph — split around it
+                      const splitIdx = para.search(/Solution:/i);
+                      const beforeText = para.slice(0, splitIdx).trim();
+                      const afterSolution = para.slice(splitIdx).replace(/^Solution:\s*/i, "");
+                      // Separate the "Does this meet the goal?" tail from the solution body
+                      const tailMatch = afterSolution.match(/^([\s\S]*?)\s*(Does this meet the goal\??.*)$/i);
+                      const solBody = tailMatch ? tailMatch[1].trim() : afterSolution.trim();
+                      const tailText = tailMatch ? tailMatch[2].trim() : "";
+
                       return (
-                        <div key={pIdx} className="proposed-solution-highlight-card">
-                          <div className="solution-card-header">
-                            <Sparkles size={16} className="solution-sparkle-icon" />
-                            <span>Proposed Solution Under Evaluation</span>
-                            <span className="study-badge">Study Mode Highlight</span>
+                        <div key={pIdx}>
+                          {beforeText && (
+                            <p className="prompt-p">{highlightTextKeywords(beforeText, keywords)}</p>
+                          )}
+                          <div className="proposed-solution-highlight-card">
+                            <div className="solution-card-header">
+                              <Sparkles size={16} className="solution-sparkle-icon" />
+                              <span>Proposed Solution Under Evaluation</span>
+                              <span className="study-badge">Study Mode Highlight</span>
+                            </div>
+                            <div className="solution-card-body">
+                              <strong className="solution-prefix">Solution:</strong>{" "}
+                              <span className="solution-text">
+                                {highlightTextKeywords(solBody, keywords)}
+                              </span>
+                            </div>
                           </div>
-                          <div className="solution-card-body">
-                            <strong className="solution-prefix">Solution:</strong>{" "}
-                            <span className="solution-text">
-                              {highlightTextKeywords(solText, keywords)}
-                            </span>
-                          </div>
+                          {tailText && (
+                            <p className="prompt-p prompt-p--goal">
+                              {highlightTextKeywords(tailText, keywords)}
+                            </p>
+                          )}
                         </div>
                       );
                     }

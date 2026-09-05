@@ -1113,3 +1113,14 @@ mark.keyword {
   font-weight: 500;
 }
 
+/* "Does this meet the goal?" trailing line after solution card */
+.prompt-p--goal {
+  margin: 10px 0 0;
+  padding: 10px 14px;
+  border-left: 3px solid var(--brand);
+  background: rgba(17, 100, 102, 0.05);
+  border-radius: 0 6px 6px 0;
+  font-weight: 600;
+  color: var(--brand-dark);
+  font-size: 15px;
+}
