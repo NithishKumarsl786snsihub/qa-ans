@@ -89,9 +89,13 @@ function correctAnswerText(question: Question) {
   return question.answer || "No answer text was extractable from the PDF.";
 }
 
+function matchAnswerText(a: string = "", b: string = ""): boolean {
+  return a.trim().replace(/\.+$/, "") === b.trim().replace(/\.+$/, "");
+}
+
 function isQuestionCorrect(question: Question, selectedIds: string[] = []) {
   if (question.answerItems?.some((item) => item.options?.length)) {
-    return question.answerItems.every((item, index) => selectedIds[index] === item.value);
+    return question.answerItems.every((item, index) => matchAnswerText(selectedIds[index], item.value));
   }
   if (!question.options.length) return selectedIds.includes(selfCorrect);
   return sameSet(selectedIds, question.correctOptionIds);
@@ -597,7 +601,7 @@ function QuestionPanel({
           </h3>
           {question.answerItems?.map((item, index) => {
             const selectedValue = selectedIds[index] || "";
-            const isItemCorrect = (submitted || studyMode) && selectedValue === item.value;
+            const isItemCorrect = (submitted || studyMode) && matchAnswerText(selectedValue, item.value);
 
             return (
               <div
@@ -785,7 +789,7 @@ function DragDropQuestionView({
         <div className="drag-panel-title">Answer Area</div>
         {question.answerItems?.map((item, index) => {
           const selectedVal = selectedIds[index] || "";
-          const isCorrectTarget = showCorrect && selectedVal === item.value;
+          const isCorrectTarget = showCorrect && matchAnswerText(selectedVal, item.value);
           const isDragOver = draggedOverIndex === index;
 
           return (

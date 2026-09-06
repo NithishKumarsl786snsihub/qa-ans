@@ -3491,15 +3491,15 @@ export const questions: Question[] = [
         "text": "Set tenant-id to the Microsoft Entra tenant ID"
       }
     ],
-    "answer": "A",
+    "answer": "B",
     "answerItems": [
       {
         "label": "Correct option",
-        "value": "A"
+        "value": "B"
       }
     ],
     "correctOptionIds": [
-      "A"
+      "B"
     ],
     "explanation": "",
     "reasoning": [],
@@ -3572,15 +3572,29 @@ export const questions: Question[] = [
     "uiFormat": "drag-drop",
     "prompt": "DRAG DROP\n-\nYou have a Microsoft Foundry project that contains a multi-agent solution. The agents use tool calling to query\ninternal systems.\nYou need to implement responsible AI auditing to meet the following requirements:\n•Capture all the nested operations across the entire agent run.\n•Record tool invocation arguments and retuned results as metadata.\nWhat should you use for each requirement? To answer, drag the appropriate options to the correct targets Each\noption may be used once, more than once, or not at all. You may need o dag the split bar between panes or scroll to\nview content.\nNOTE: Each correct selection is worth one point.\nOptions\n\nHierarchical spans\nA KQL query filter\nSampling\nTool call attributes\nTrace sampling policy\n\nAnswer Area\nCapture all the nested operations across the entire agent run:__________________\nRecord tool invocation arguments and results:____________________________________",
     "options": [],
-    "answer": "Trace context, Custom dimensions",
+    "answer": "Hierarchical spans, Tool call attributes",
     "answerItems": [
       {
-        "label": "Telemetry tracking signal 1",
-        "value": "Trace context"
+        "label": "Capture all the nested operations across the entire agent run",
+        "value": "Hierarchical spans",
+        "options": [
+          "Hierarchical spans",
+          "A KQL query filter",
+          "Sampling",
+          "Tool call attributes",
+          "Trace sampling policy"
+        ]
       },
       {
-        "label": "Telemetry tracking signal 2",
-        "value": "Custom dimensions"
+        "label": "Record tool invocation arguments and returned results as metadata",
+        "value": "Tool call attributes",
+        "options": [
+          "Hierarchical spans",
+          "A KQL query filter",
+          "Sampling",
+          "Tool call attributes",
+          "Trace sampling policy"
+        ]
       }
     ],
     "correctOptionIds": [],
@@ -3599,15 +3613,29 @@ export const questions: Question[] = [
     "uiFormat": "drag-drop",
     "prompt": "DRAG DROP\n-\nYou have a Microsoft Foundry project that contains an agent. The agent uses threads and file uploads and calls an\nAzure OpenAI model deployment.\nDuring load testing, calls intermittently fall and return an HTTP 429 rate limit exceeded error. Some user uploads\nfail and generate an HTTP 400 file size exceeded error.\nYou need to mitigate the errors and reduce call failures. The solution must remain within the service and model\nlimits.\nWhat should you do to resolve each error? To answer, drag the appropriate actions to the correct errors. Each\naction may be used once, more than once or not at all. You may need to drag the split bar between panes or scroll\nto view content.\nNOTE: Each comet selection is worth one point\n\nActions\n\nIncrease tenant-wide quotas.\n\nMove large content to files\nand use file search.\n\nUse additional agent tools\nto reduce the message size.\n\nImplement exponential backoff\nand jitter in the retry logic.\n\nSplit content into smaller files\nbefore uploading the files.\n\nAnswer Area\n\nHTTP 429:_____\n\nHTTP 400:_____",
     "options": [],
-    "answer": "HTTP 429: Implement exponential backoff retry logic.HTTP 400: Validate file size against model limits before",
+    "answer": "HTTP 429: Implement exponential backoff and jitter in the retry logic. HTTP 400: Split content into smaller files before uploading the files.",
     "answerItems": [
       {
         "label": "HTTP 429 Error Resolution",
-        "value": "Implement exponential backoff retry logic"
+        "value": "Implement exponential backoff and jitter in the retry logic",
+        "options": [
+          "Increase tenant-wide quotas",
+          "Move large content to files and use file search",
+          "Use additional agent tools to reduce the message size",
+          "Implement exponential backoff and jitter in the retry logic",
+          "Split content into smaller files before uploading the files"
+        ]
       },
       {
         "label": "HTTP 400 Error Resolution",
-        "value": "Validate file size against model limits before upload"
+        "value": "Split content into smaller files before uploading the files",
+        "options": [
+          "Increase tenant-wide quotas",
+          "Move large content to files and use file search",
+          "Use additional agent tools to reduce the message size",
+          "Implement exponential backoff and jitter in the retry logic",
+          "Split content into smaller files before uploading the files"
+        ]
       }
     ],
     "correctOptionIds": [],
@@ -3686,15 +3714,15 @@ export const questions: Question[] = [
         "text": "standard"
       }
     ],
-    "answer": "D",
+    "answer": "A",
     "answerItems": [
       {
         "label": "Correct option",
-        "value": "D"
+        "value": "A"
       }
     ],
     "correctOptionIds": [
-      "D"
+      "A"
     ],
     "explanation": "",
     "reasoning": [],
@@ -3732,20 +3760,43 @@ export const questions: Question[] = [
     "id": "q-099",
     "number": 99,
     "type": "Hotspot",
-    "uiFormat": "single-choice",
-    "prompt": "HOTSPOT\n.\nYou have a Microsoft Foundry project.\nYou need to create a customer support agent that meets the following requirements:\n.Grounds responses only in company policy documents stored in curated repositories\n.Retains customer preferences across separate chat sessions\nHow should you configure the agent? To answer, select the appropriate options in the answer area.\nNOTE: Each correct selection is worth one point.\n\nAnswer Area\n\nKnowledge grounding:\n\nConfigure revival from approved data sources.\nUpload the policy documents direct to the agent.\nEmbed the policy documents directly into the agent instructions.\n\nMemory:\n\nUse orchestration-managed session context.\nEnable agent memory that uses persistent storage.\nRetain user preferences in the state of the client application",
+    "uiFormat": "dropdown-matrix",
+    "prompt": "HOTSPOT\n.\nYou have a Microsoft Foundry project.\nYou need to create a customer support agent that meets the following requirements:\n.Grounds responses only in company policy documents stored in curated repositories\n.Retains customer preferences across separate chat sessions\nHow should you configure the agent? To answer, select the appropriate options in the answer area.\nNOTE: Each correct selection is worth one point.\n\nAnswer Area\n\nKnowledge grounding:\n\nConfigure retrieval from approved data sources.\nUpload the policy documents direct to the agent.\nEmbed the policy documents directly into the agent instructions.\n\nMemory:\n\nUse orchestration-managed session context.\nEnable agent memory that uses persistent storage.\nRetain user preferences in the state of the client application",
     "options": [],
-    "answer": "**For the requirements of grounding responses in specific company policy documents and retaining customer**",
+    "answer": "Knowledge grounding: Configure retrieval from approved data sources. Memory: Enable agent memory that uses persistent storage.",
     "answerItems": [
       {
-        "label": "Answer",
-        "value": "For the requirements of grounding responses in specific company policy documents and retaining customer"
+        "label": "Knowledge grounding",
+        "value": "Configure retrieval from approved data sources.",
+        "options": [
+          "Configure retrieval from approved data sources.",
+          "Upload the policy documents direct to the agent.",
+          "Embed the policy documents directly into the agent instructions."
+        ]
+      },
+      {
+        "label": "Memory",
+        "value": "Enable agent memory that uses persistent storage.",
+        "options": [
+          "Use orchestration-managed session context.",
+          "Enable agent memory that uses persistent storage.",
+          "Retain user preferences in the state of the client application"
+        ]
       }
     ],
     "correctOptionIds": [],
-    "explanation": "",
-    "reasoning": [],
-    "keywords": [],
+    "explanation": "1. Simple Question Breakdown: You are creating a customer support agent in Microsoft Foundry that must satisfy two core requirements: Grounding (ensure answers are generated strictly using policy documents from curated repositories) and Cross-session persistence (remember user preferences and context across completely separate chat sessions).\n\n2. Correct Answer:\n- Knowledge grounding: Configure retrieval from approved data sources. (Note: typo \"revival\" in source exam text)\n- Memory: Enable agent memory that uses persistent storage.\n\n3. Step-by-Step Explanation & Real-World Example:\n- Knowledge grounding -> Configure retrieval from approved data sources:\nTo ground agent answers strictly in corporate policies held in curated repositories, configure RAG-based retrieval from approved data sources (such as Azure AI Search or connected storage indexing). Uploading documents directly to the agent definition or hardcoding policy text directly into agent system instructions hits prompt window size limits and makes updating policy documents unmaintainable.\n\n- Memory -> Enable agent memory that uses persistent storage:\nStandard threads/sessions only maintain conversation context within a single active conversation thread. To retain customer preferences across separate chat sessions, the agent must use persistent agent memory (long-term memory backends) that stores key user facts and preferences out-of-band across multiple threads. Session context only lives within the current active session/thread. Application client state relies on the front-end to track facts, which fails to leverage the agent's built-in persistent memory framework.\n\n4. Exam Shortcut & Keyword Trigger:\n- \"Grounds responses in company policy documents stored in curated repositories\" -> Configure retrieval from approved data sources\n- \"Retains customer preferences across separate chat sessions\" -> Enable agent memory that uses persistent storage",
+    "reasoning": [
+      "Knowledge grounding: Configure retrieval from approved data sources ensures responses are grounded strictly in curated repositories (e.g. Azure AI Search) using RAG rather than exceeding context limits.",
+      "Memory: Enable agent memory with persistent storage allows the agent to retain customer preferences across separate chat sessions and threads."
+    ],
+    "keywords": [
+      "Foundry",
+      "curated repositories",
+      "persistent storage",
+      "retrieval",
+      "agent memory"
+    ],
     "sourcePages": [
       108,
       109
