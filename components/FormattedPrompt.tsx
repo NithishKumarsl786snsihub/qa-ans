@@ -8,6 +8,8 @@ interface FormattedPromptProps {
   keywords?: string[];
   studyMode?: boolean;
   isSingleChoiceYesNo?: boolean;
+  hideCodeBlocks?: boolean;
+  hideEmbeddedAnswerArea?: boolean;
 }
 
 function CodeBlock({ code, language = "code" }: { code: string; language?: string }) {
@@ -119,7 +121,9 @@ export function FormattedPrompt({
   prompt,
   keywords = [],
   studyMode = false,
-  isSingleChoiceYesNo = false
+  isSingleChoiceYesNo = false,
+  hideCodeBlocks = false,
+  hideEmbeddedAnswerArea = false
 }: FormattedPromptProps) {
   const [caseStudyExpanded, setCaseStudyExpanded] = useState(false);
 
@@ -129,7 +133,7 @@ export function FormattedPrompt({
   const caseStudyMatch = prompt.match(/(?:HOTSPOT\s*\n*)?(?:DRAG DROP\s*\n*)?Case Study[\s\S]*?(?=Technical Requirements|Business Requirements|Security and Compliance Requirements|You need to|How should you|Which|What should you|Note:|$)/i);
 
   let caseStudyText = "";
-  let mainPromptText = prompt;
+  let mainPromptText = hideEmbeddedAnswerArea ? prompt.split(/\n\s*Answer Area\b/i)[0].trim() : prompt;
 
   if (caseStudyMatch && prompt.includes("Contoso")) {
     caseStudyText = caseStudyMatch[0].trim();
@@ -271,7 +275,7 @@ export function FormattedPrompt({
                 </div>
               )}
 
-              {codeBlocks[idx] && (
+              {!hideCodeBlocks && codeBlocks[idx] && (
                 <CodeBlock
                   code={codeBlocks[idx].text}
                   language={codeBlocks[idx].language}

@@ -10,7 +10,7 @@ import {
   Settings,
   X
 } from "lucide-react";
-import { useMemo, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import { ConfirmModal, type ConfirmModalProps } from "./ConfirmModal";
 import { Option, Question, questions } from "../lib/questions";
 import { FormattedPrompt } from "./FormattedPrompt";
@@ -93,16 +93,57 @@ function matchAnswerText(a: string = "", b: string = ""): boolean {
   return a.trim().replace(/\.+$/, "") === b.trim().replace(/\.+$/, "");
 }
 
+function scrollQuestionToTop() {
+  document.querySelector(".question-layout > .panel")?.scrollTo({ top: 0, behavior: "smooth" });
+  document.querySelector(".page")?.scrollTo({ top: 0, behavior: "smooth" });
+  window.scrollTo({ top: 0, behavior: "smooth" });
+}
+
+function isStructuredAnswerQuestion(question: Question) {
+  return Boolean(
+    question.answerItems?.length &&
+      ["dropdown-matrix", "yes-no-matrix", "drag-drop"].includes(question.uiFormat || "")
+  );
+}
+
 function isQuestionCorrect(question: Question, selectedIds: string[] = []) {
-  if (question.answerItems?.some((item) => item.options?.length)) {
-    return question.answerItems.every((item, index) => matchAnswerText(selectedIds[index], item.value));
+  if (isStructuredAnswerQuestion(question)) {
+    return question.answerItems?.every((item, index) => matchAnswerText(selectedIds[index], item.value)) ?? false;
   }
   if (!question.options.length) return selectedIds.includes(selfCorrect);
   return sameSet(selectedIds, question.correctOptionIds);
 }
 
 function isQuestionUnanswered(question: Question, selectedIds: string[] = []) {
+  if (isStructuredAnswerQuestion(question)) {
+    return question.answerItems?.some((_, index) => !selectedIds[index]) ?? true;
+  }
   return !selectedIds.length;
+}
+
+function QuickStudyHints({ question }: { question: Question }) {
+  const focusTerms = question.keywords.slice(0, 8);
+
+  return (
+    <div className="quick-study-box">
+      {focusTerms.length ? (
+        <div className="quick-study-row">
+          <span className="quick-study-label">Focus</span>
+          <div className="quick-chip-list">
+            {focusTerms.map((term) => (
+              <span className="quick-chip" key={term}>
+                {term}
+              </span>
+            ))}
+          </div>
+        </div>
+      ) : null}
+      <div className="quick-study-row">
+        <span className="quick-study-label">Quick Answer</span>
+        <strong className="quick-answer-text">{correctAnswerText(question)}</strong>
+      </div>
+    </div>
+  );
 }
 
 function formatDuration(ms: number) {
@@ -118,6 +159,89 @@ function buildTestQuestions(mode: TestMode): TestQuestion[] {
     ...question,
     options: mode === "random-random" ? shuffle(question.options) : [...question.options]
   }));
+}
+
+function dropdownOptionsFor(label: string, correctValue: string, explicitOptions?: string[]) {
+  if (explicitOptions?.length) return explicitOptions;
+
+  const normalizedLabel = label.toLowerCase();
+  const presets: Array<[RegExp, string[]]> = [
+    [/deployment type/, ["Standard", "Global Standard", "Global Provisioned"]],
+    [
+      /version update policy/,
+      [
+        "Once the current version expires",
+        "Opt out of automatic model version upgrades",
+        "Upgrade once a new default version becomes available"
+      ]
+    ],
+    [/credential/, ["DefaultAzureCredential", "ManagedIdentityCredential", "AzureCliCredential"]],
+    [/responses?\)|responses|openai_client\.responses|second dropdown/, ["create", "retrieve", "list"]],
+    [/temperature/, ["0", "1", "2"]],
+    [/output_config effort/, ["high", "low", "medium"]],
+    [
+      /^request$/,
+      [
+        "AnalyzeTextOptions(categories=comment)",
+        "AnalyzeTextOptions(text=[comment])",
+        "AnalyzeTextOptions(text=comment)",
+        "TextCategory.SELF_HARM(comment)"
+      ]
+    ],
+    [
+      /^response$/,
+      [
+        "client.analyze_image(request)",
+        "client.analyze_text(request)",
+        "client.moderate_text(request)",
+        "client.path(\"/text:analyze\").post(request)"
+      ]
+    ],
+    [
+      /guardrails/,
+      [
+        "Select User input, Output, Tool response, and Tool call; set Action to Block",
+        "Select User input and Output only; set Action to Annotate",
+        "Select Tool response only; set Action to Allow"
+      ]
+    ],
+    [
+      /storage access/,
+      [
+        "System-assigned managed identity with Storage Blob Data Reader role",
+        "Shared access signature (SAS) token",
+        "Storage account access key"
+      ]
+    ],
+    [/approval step type/, ["ask_question", "basic_chat", "data_transformation"]],
+    [/refund condition/, ["approval == \"approved\"", "approval != \"approved\"", "approval == \"rejected\""]],
+    [/if\/else/, ["Not(IsBlank(Local.Var01))", "IsBlank(Local.Var01)", "Upper(Local.Var01)"]],
+    [/send message/, ["{Upper(Local.Var01)}", "Upper(Local.Var01)", "{Local.Var01}"]],
+    [
+      /metrics/,
+      [
+        "Model Availability Rate and Provisioned Utilization",
+        "Latency and Token Usage",
+        "Risk and safety metrics"
+      ]
+    ],
+    [/diagnostic log/, ["RequestResponse", "Audit", "Trace"]],
+    [/tool_choice|set tool_choice/, ["required", "auto", "none"]],
+    [
+      /authentication/,
+      [
+        "Using a distinct agent identity bound to the client application",
+        "Using the default project connection",
+        "Using identity passthrough from the caller"
+      ]
+    ],
+    [/parameter/, ["tool_choice", "temperature", "max_tokens"]],
+    [/value/, ["required", "auto", "none"]]
+  ];
+
+  const match = presets.find(([pattern]) => pattern.test(normalizedLabel));
+  const options = match ? match[1] : [correctValue];
+  return options.includes(correctValue) ? options : [correctValue, ...options];
 }
 
 export function QuestionApp() {
@@ -256,6 +380,10 @@ function StudyMode({
   onToggleReviewed: () => void;
   onMove: (index: number) => void;
 }) {
+  useEffect(() => {
+    scrollQuestionToTop();
+  }, [currentIndex]);
+
   return (
     <>
       <ProgressHeader
@@ -267,8 +395,8 @@ function StudyMode({
         <QuestionPanel
           question={question}
           selectedIds={
-            question.answerItems?.some((item) => item.options?.length)
-              ? question.answerItems.map((item) => item.value)
+            isStructuredAnswerQuestion(question)
+              ? question.answerItems?.map((item) => item.value) ?? []
               : question.correctOptionIds
           }
           submitted
@@ -327,6 +455,12 @@ function TestModeView({
   onUpdate: (state: TestState | null) => void;
   onRequestConfirm: (request: ConfirmRequest) => void;
 }) {
+  useEffect(() => {
+    if (testState && !testState.completedAt) {
+      scrollQuestionToTop();
+    }
+  }, [testState?.currentIndex, testState?.completedAt]);
+
   if (!testState) {
     return (
       <section className="panel empty-state">
@@ -403,9 +537,7 @@ function TestModeView({
     });
   };
 
-  const hasInteractiveOptions = Boolean(
-    question.options.length || question.answerItems?.some((item) => item.options?.length)
-  );
+  const hasInteractiveOptions = Boolean(question.options.length || isStructuredAnswerQuestion(question));
 
   return (
     <>
@@ -447,7 +579,11 @@ function TestModeView({
             </button>
             {(!submitted || testState.answerDisplay === "end") && (
               hasInteractiveOptions ? (
-                <button className="primary-button" onClick={submitCurrent} disabled={!selectedIds.length}>
+                <button
+                  className="primary-button"
+                  onClick={submitCurrent}
+                  disabled={isQuestionUnanswered(question, selectedIds)}
+                >
                   Submit Answer
                 </button>
               ) : (
@@ -502,7 +638,7 @@ function QuestionPanel({
   onSelectScenario?: (value: string, index: number) => void;
 }) {
   const isCorrect = submitted && isQuestionCorrect(question, selectedIds);
-  const hasScenarioOptions = Boolean(question.answerItems?.some((item) => item.options?.length));
+  const hasDropdownMatrix = question.uiFormat === "dropdown-matrix" && Boolean(question.answerItems?.length);
 
   const isSingleChoiceYesNo =
     question.type === "Single Choice" &&
@@ -524,11 +660,14 @@ function QuestionPanel({
           </span>
         )}
       </div>
+      {studyMode ? <QuickStudyHints question={question} /> : null}
       <FormattedPrompt
         prompt={question.prompt}
         keywords={question.keywords}
         studyMode={studyMode}
         isSingleChoiceYesNo={isSingleChoiceYesNo}
+        hideCodeBlocks={isStructuredAnswerQuestion(question)}
+        hideEmbeddedAnswerArea={isStructuredAnswerQuestion(question)}
       />
       {question.warnings?.length ? (
         <div className="reason-box" style={{ marginTop: 14 }}>
@@ -594,36 +733,38 @@ function QuestionPanel({
           studyMode={studyMode}
           onSelectScenario={onSelectScenario}
         />
-      ) : hasScenarioOptions ? (
-        <div className="scenario-grid">
-          <h3 className="section-title" style={{ gridColumn: "1 / -1", margin: "10px 0 0" }}>
-            Answer Area (Select Dropdown Options)
-          </h3>
+      ) : hasDropdownMatrix ? (
+        <div className="dropdown-answer-area">
+          <h3 className="dropdown-answer-title">Answer Area</h3>
           {question.answerItems?.map((item, index) => {
             const selectedValue = selectedIds[index] || "";
             const isItemCorrect = (submitted || studyMode) && matchAnswerText(selectedValue, item.value);
+            const itemOptions = dropdownOptionsFor(item.label, item.value, item.options);
 
             return (
               <div
                 key={item.label}
-                className={`choice-card ${showCorrect && isItemCorrect ? "correct" : ""}`}
+                className={`dropdown-answer-row ${showCorrect && isItemCorrect ? "correct" : ""}`}
               >
-                <label style={{ display: "block", width: "100%" }}>
-                  <strong>{item.label}:</strong>
+                <label className="dropdown-answer-label" htmlFor={`${question.id}-${index}`}>
+                  {item.label}:
+                </label>
+                <div className="dropdown-answer-control">
                   <select
-                    className="scenario-select"
+                    id={`${question.id}-${index}`}
+                    className="scenario-select dropdown-answer-select"
                     value={selectedValue}
                     onChange={(e) => onSelectScenario?.(e.target.value, index)}
                     disabled={submitted && showCorrect && !studyMode}
                   >
-                    <option value="">-- Select Choice --</option>
-                    {item.options?.map((opt) => (
+                    <option value="">Select an option</option>
+                    {itemOptions.map((opt) => (
                       <option key={opt} value={opt}>
                         {opt}
                       </option>
                     ))}
                   </select>
-                </label>
+                </div>
                 {showCorrect && (
                   <p className="correct-value-note">
                     Correct: <strong>{item.value}</strong>
@@ -667,7 +808,7 @@ function QuestionPanel({
         </div>
       )}
       {showCorrect && (
-        <div className="explanation-grid">
+        <div className="explanation-grid single">
           <div className="reason-box">
             <h3 className="section-title">Correct Answer</h3>
             {question.answerItems?.length ? (
@@ -681,10 +822,6 @@ function QuestionPanel({
             ) : (
               <p>{correctAnswerText(question)}</p>
             )}
-          </div>
-          <div className="reason-box">
-            <h3 className="section-title">Explanation</h3>
-            <p>{question.explanation || "No separate explanation text was extractable from the PDF."}</p>
           </div>
         </div>
       )}
@@ -1036,12 +1173,6 @@ function Results({
                   <p>{correctText}</p>
                 </div>
               </div>
-              {!correct && (
-                <div className="reason-box" style={{ marginTop: 14 }}>
-                  <h4 className="section-title">Explanation</h4>
-                  <p>{question.explanation}</p>
-                </div>
-              )}
             </section>
           );
         })}
